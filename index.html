@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Cairo', sans-serif;
-      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      background: radial-gradient(circle at top left, #0f172a, #1e293b);
       color: #f1f5f9;
       display: flex;
       flex-direction: column;
@@ -20,14 +20,16 @@
       font-size: 24px;
       margin-bottom: 10px;
       color: #38bdf8;
+      text-shadow: 0 0 5px #0ea5e9;
     }
     .chat-box {
       width: 100%;
       max-width: 700px;
-      background: #1e293b;
-      border-radius: 12px;
+      background: rgba(30, 41, 59, 0.6);
+      border-radius: 16px;
       padding: 20px;
-      box-shadow: 0 0 10px #00000055;
+      box-shadow: 0 0 20px #00000055;
+      backdrop-filter: blur(10px);
       min-height: 300px;
       overflow-y: auto;
     }
@@ -36,6 +38,7 @@
       padding: 10px;
       border-radius: 8px;
       background: #334155;
+      box-shadow: 0 0 5px #00000033;
     }
     .user {
       background: #2563eb;
@@ -76,6 +79,11 @@
       font-size: 14px;
       color: #94a3b8;
     }
+    .clear-btn {
+      margin-top: 10px;
+      background: #ef4444;
+      color: white;
+    }
   </style>
 </head>
 <body>
@@ -86,6 +94,7 @@
     <input type="text" id="prompt" placeholder="اكتب سؤالك هنا..." />
     <button id="send">إرسال</button>
   </div>
+  <button class="clear-btn" onclick="clearChat()">🗑️ مسح المحادثة</button>
 
   <script src="https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm/dist/webllm.min.js"></script>
   <script>
@@ -102,6 +111,21 @@
       div.textContent = text;
       chatEl.appendChild(div);
       chatEl.scrollTop = chatEl.scrollHeight;
+      saveChat();
+    }
+
+    function saveChat() {
+      localStorage.setItem('chatHistory', chatEl.innerHTML);
+    }
+
+    function loadChat() {
+      const saved = localStorage.getItem('chatHistory');
+      if (saved) chatEl.innerHTML = saved;
+    }
+
+    function clearChat() {
+      chatEl.innerHTML = '';
+      localStorage.removeItem('chatHistory');
     }
 
     async function init() {
@@ -156,6 +180,7 @@
       if (e.key === 'Enter') send();
     });
 
+    loadChat();
     init();
   </script>
 </body>
