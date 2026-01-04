@@ -1,33 +1,90 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>شات ذكاء اصطناعي محلي</title>
+  <title>شات ذكاء اصطناعي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body{margin:0;font-family:sans-serif;background:#0f172a;color:#e2e8f0}
-    .container{max-width:800px;margin:auto;padding:20px}
-    h1{font-size:20px}
-    .chat{background:#111827;border-radius:12px;padding:16px;min-height:300px}
-    .msg{margin:10px 0}
-    .user{color:#60a5fa}
-    .assistant{color:#34d399}
-    input,button{padding:10px;border-radius:8px;border:none}
-    input{flex:1;background:#1e293b;color:#e2e8f0}
-    button{background:#2563eb;color:white;cursor:pointer}
-    .row{display:flex;gap:8px;margin-top:12px}
-    .status{font-size:13px;color:#94a3b8;margin-top:8px}
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      color: #f1f5f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #38bdf8;
+    }
+    .chat-box {
+      width: 100%;
+      max-width: 700px;
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 10px #00000055;
+      min-height: 300px;
+      overflow-y: auto;
+    }
+    .msg {
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 8px;
+      background: #334155;
+    }
+    .user {
+      background: #2563eb;
+      color: white;
+      text-align: right;
+    }
+    .assistant {
+      background: #10b981;
+      color: white;
+      text-align: left;
+    }
+    .input-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+      width: 100%;
+      max-width: 700px;
+    }
+    input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      background: #0f172a;
+      color: #f1f5f9;
+    }
+    button {
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      background: #38bdf8;
+      color: #0f172a;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .status {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #94a3b8;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>شات ذكاء اصطناعي داخل المتصفح</h1>
-    <div class="chat" id="chat"></div>
-    <div class="status" id="status">جارِ التحقق من دعم WebGPU...</div>
-    <div class="row">
-      <input id="prompt" type="text" placeholder="اكتب سؤالك هنا..." />
-      <button id="send">إرسال</button>
-    </div>
+  <h1>شات ذكاء اصطناعي داخل المتصفح</h1>
+  <div class="chat-box" id="chat"></div>
+  <div class="status" id="status">جارِ التحقق من دعم WebGPU...</div>
+  <div class="input-row">
+    <input type="text" id="prompt" placeholder="اكتب سؤالك هنا..." />
+    <button id="send">إرسال</button>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm/dist/webllm.min.js"></script>
@@ -42,26 +99,26 @@
     function addMsg(role, text) {
       const div = document.createElement('div');
       div.className = 'msg ' + role;
-      div.textContent = (role === 'user' ? 'أنت: ' : 'المساعد: ') + text;
+      div.textContent = text;
       chatEl.appendChild(div);
       chatEl.scrollTop = chatEl.scrollHeight;
     }
 
     async function init() {
       if (!navigator.gpu) {
-        statusEl.textContent = 'المتصفح لا يدعم WebGPU. استخدم Chrome أو Edge حديث.';
+        statusEl.textContent = '❌ المتصفح لا يدعم WebGPU. استخدم Chrome أو Edge حديث.';
         sendBtn.disabled = true;
         return;
       }
-      statusEl.textContent = 'جارِ تحميل النموذج...';
+      statusEl.textContent = '⏳ جارِ تحميل النموذج...';
       try {
         engine = new webllm.LLMEngine();
         await engine.createModel({ model: MODEL_NAME });
         session = await engine.createChatSession();
-        statusEl.textContent = 'جاهز للتفاعل.';
+        statusEl.textContent = '✅ جاهز للتفاعل.';
       } catch (e) {
         console.error(e);
-        statusEl.textContent = 'فشل تحميل النموذج. جرّب متصفح أحدث أو نموذج أصغر.';
+        statusEl.textContent = '❌ فشل تحميل النموذج. جرّب متصفح أحدث أو نموذج أخف.';
         sendBtn.disabled = true;
       }
     }
@@ -69,26 +126,26 @@
     async function send() {
       const text = promptEl.value.trim();
       if (!text || !session) return;
-      addMsg('user', text);
+      addMsg('user', '🧑‍💻 أنت: ' + text);
       promptEl.value = '';
       sendBtn.disabled = true;
-      statusEl.textContent = 'جارِ توليد الرد...';
+      statusEl.textContent = '🤖 جارِ توليد الرد...';
       let reply = '';
       const callback = {
         onToken: (token) => {
           reply += token;
           const last = chatEl.querySelector('.msg.assistant:last-child');
-          if (!last) addMsg('assistant', token);
-          else last.textContent = 'المساعد: ' + reply;
+          if (!last) addMsg('assistant', '🤖 المساعد: ' + token);
+          else last.textContent = '🤖 المساعد: ' + reply;
         }
       };
       try {
         await session.generate({ prompt: text }, callback);
-        statusEl.textContent = 'جاهز.';
+        statusEl.textContent = '✅ جاهز.';
       } catch (e) {
         console.error(e);
-        addMsg('assistant', 'حدث خطأ أثناء التوليد.');
-        statusEl.textContent = 'خطأ أثناء التوليد.';
+        addMsg('assistant', '❌ حدث خطأ أثناء التوليد.');
+        statusEl.textContent = '❌ خطأ أثناء التوليد.';
       } finally {
         sendBtn.disabled = false;
       }
