@@ -1,187 +1,21 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>شات ذكاء اصطناعي</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>مكتبة محمود - تفسير القرآن</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background: radial-gradient(circle at top left, #0f172a, #1e293b);
-      color: #f1f5f9;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-    }
-    h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
-      color: #38bdf8;
-      text-shadow: 0 0 5px #0ea5e9;
-    }
-    .chat-box {
-      width: 100%;
-      max-width: 700px;
-      background: rgba(30, 41, 59, 0.6);
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 0 20px #00000055;
-      backdrop-filter: blur(10px);
-      min-height: 300px;
-      overflow-y: auto;
-    }
-    .msg {
-      margin: 10px 0;
-      padding: 10px;
-      border-radius: 8px;
-      background: #334155;
-      box-shadow: 0 0 5px #00000033;
-    }
-    .user {
-      background: #2563eb;
-      color: white;
-      text-align: right;
-    }
-    .assistant {
-      background: #10b981;
-      color: white;
-      text-align: left;
-    }
-    .input-row {
-      display: flex;
-      gap: 10px;
-      margin-top: 15px;
-      width: 100%;
-      max-width: 700px;
-    }
-    input {
-      flex: 1;
-      padding: 10px;
-      border-radius: 8px;
-      border: none;
-      background: #0f172a;
-      color: #f1f5f9;
-    }
-    button {
-      padding: 10px 20px;
-      border-radius: 8px;
-      border: none;
-      background: #38bdf8;
-      color: #0f172a;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .status {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #94a3b8;
-    }
-    .clear-btn {
-      margin-top: 10px;
-      background: #ef4444;
-      color: white;
-    }
+    body { font-family: "Cairo", sans-serif; margin: 0; background: #f4f4f4; }
+    header { background: #0f172a; color: #fff; padding: 20px; text-align: center; }
+    iframe { width: 100%; height: 90vh; border: none; }
   </style>
 </head>
 <body>
-  <h1>شات ذكاء اصطناعي داخل المتصفح</h1>
-  <div class="chat-box" id="chat"></div>
-  <div class="status" id="status">جارِ التحقق من دعم WebGPU...</div>
-  <div class="input-row">
-    <input type="text" id="prompt" placeholder="اكتب سؤالك هنا..." />
-    <button id="send">إرسال</button>
-  </div>
-  <button class="clear-btn" onclick="clearChat()">🗑️ مسح المحادثة</button>
+  <header>
+    <h1>📖 تفسير القرآن الكريم</h1>
+    <p>اقرأ الكتاب مباشرة بدون تحميل</p>
+  </header>
 
-  <script src="https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm/dist/webllm.min.js"></script>
-  <script>
-    const MODEL_NAME = "RedPajama-INCITE-Chat-3B-v1-q4f32_1-MLC";
-    const chatEl = document.getElementById('chat');
-    const promptEl = document.getElementById('prompt');
-    const sendBtn = document.getElementById('send');
-    const statusEl = document.getElementById('status');
-    let engine, session;
-
-    function addMsg(role, text) {
-      const div = document.createElement('div');
-      div.className = 'msg ' + role;
-      div.textContent = text;
-      chatEl.appendChild(div);
-      chatEl.scrollTop = chatEl.scrollHeight;
-      saveChat();
-    }
-
-    function saveChat() {
-      localStorage.setItem('chatHistory', chatEl.innerHTML);
-    }
-
-    function loadChat() {
-      const saved = localStorage.getItem('chatHistory');
-      if (saved) chatEl.innerHTML = saved;
-    }
-
-    function clearChat() {
-      chatEl.innerHTML = '';
-      localStorage.removeItem('chatHistory');
-    }
-
-    async function init() {
-      if (!navigator.gpu) {
-        statusEl.textContent = '❌ المتصفح لا يدعم WebGPU. استخدم Chrome أو Edge حديث.';
-        sendBtn.disabled = true;
-        return;
-      }
-      statusEl.textContent = '⏳ جارِ تحميل النموذج...';
-      try {
-        engine = new webllm.LLMEngine();
-        await engine.createModel({ model: MODEL_NAME });
-        session = await engine.createChatSession();
-        statusEl.textContent = '✅ جاهز للتفاعل.';
-      } catch (e) {
-        console.error(e);
-        statusEl.textContent = '❌ فشل تحميل النموذج. جرّب متصفح أحدث أو نموذج أخف.';
-        sendBtn.disabled = true;
-      }
-    }
-
-    async function send() {
-      const text = promptEl.value.trim();
-      if (!text || !session) return;
-      addMsg('user', '🧑‍💻 أنت: ' + text);
-      promptEl.value = '';
-      sendBtn.disabled = true;
-      statusEl.textContent = '🤖 جارِ توليد الرد...';
-      let reply = '';
-      const callback = {
-        onToken: (token) => {
-          reply += token;
-          const last = chatEl.querySelector('.msg.assistant:last-child');
-          if (!last) addMsg('assistant', '🤖 المساعد: ' + token);
-          else last.textContent = '🤖 المساعد: ' + reply;
-        }
-      };
-      try {
-        await session.generate({ prompt: text }, callback);
-        statusEl.textContent = '✅ جاهز.';
-      } catch (e) {
-        console.error(e);
-        addMsg('assistant', '❌ حدث خطأ أثناء التوليد.');
-        statusEl.textContent = '❌ خطأ أثناء التوليد.';
-      } finally {
-        sendBtn.disabled = false;
-      }
-    }
-
-    sendBtn.addEventListener('click', send);
-    promptEl.addEventListener('keydown', e => {
-      if (e.key === 'Enter') send();
-    });
-
-    loadChat();
-    init();
-  </script>
+  <!-- هنا بنعرض الكتاب مباشرة -->
+  <iframe src="https://archive.org/download/TafsirIbnKathir/TafsirIbnKathir.pdf"></iframe>
 </body>
 </html>
