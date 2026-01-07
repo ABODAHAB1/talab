@@ -1,38 +1,48 @@
-const apiKey = "ضع مفتاح الـ API هنا"; // من OpenWeather أو أي خدمة أخرى
-
-document.getElementById("searchBtn").addEventListener("click", () => {
-  const city = document.getElementById("cityInput").value;
-  getWeather(city);
-});
-
-document.getElementById("locationBtn").addEventListener("click", () => {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
-      const lat = position.coords.latitude;
-      const lon = position.coords.longitude;
-      getWeatherByCoords(lat, lon);
-    });
+// النصوص باللغتين
+const translations = {
+  ar: {
+    search: "ابحث",
+    placeholder: "اكتب اسم المدينة...",
+    location: "📍",
+    humidity: "الرطوبة",
+    wind: "سرعة الرياح",
+    pressure: "الضغط الجوي",
+    statusSearch: "جارِ البحث عن المدينة...",
+    statusWeather: "جارِ جلب حالة الطقس...",
+    notFound: "لم يتم العثور على مدينة بهذا الاسم.",
+    error: "حدث خطأ أثناء البحث. حاول مرة أخرى."
+  },
+  en: {
+    search: "Get Weather",
+    placeholder: "Enter city name...",
+    location: "📍",
+    humidity: "Humidity",
+    wind: "Wind Speed",
+    pressure: "Pressure",
+    statusSearch: "Searching for city...",
+    statusWeather: "Fetching weather...",
+    notFound: "City not found.",
+    error: "An error occurred. Try again."
   }
+};
+
+let currentLang = "ar";
+
+// زر تبديل اللغة
+document.getElementById("langToggle").addEventListener("click", () => {
+  currentLang = currentLang === "ar" ? "en" : "ar";
+  applyTranslations();
 });
 
-function getWeather(city) {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=ar`)
-    .then(response => response.json())
-    .then(data => displayWeather(data));
+// تطبيق النصوص حسب اللغة
+function applyTranslations() {
+  const t = translations[currentLang];
+  document.getElementById("searchBtn").textContent = t.search;
+  document.getElementById("cityInput").placeholder = t.placeholder;
+  document.getElementById("locationBtn").textContent = t.location;
+  document.getElementById("labelHumidity").textContent = t.humidity;
+  document.getElementById("labelWind").textContent = t.wind;
+  document.getElementById("labelPressure").textContent = t.pressure;
 }
 
-function getWeatherByCoords(lat, lon) {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=ar`)
-    .then(response => response.json())
-    .then(data => displayWeather(data));
-}
-
-function displayWeather(data) {
-  document.getElementById("cityName").textContent = `${data.name}, ${data.sys.country}`;
-  document.getElementById("temperature").textContent = `${Math.round(data.main.temp)}°C`;
-  document.getElementById("weatherDesc").textContent = data.weather[0].description;
-  document.getElementById("humidity").textContent = `${data.main.humidity}%`;
-  document.getElementById("wind").textContent = `${data.wind.speed} كم/ساعة`;
-  document.getElementById("pressure").textContent = `${data.main.pressure} ملي بار`;
-  document.getElementById("weatherCard").style.display = "block";
-}
+// باقي الكود الخاص بالطقس (Open-Meteo API)
