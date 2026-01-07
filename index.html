@@ -1,53 +1,57 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>تطبيق الطقس</title>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق الطقس الاحترافي</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- استخدام أيقونات FontAwesome -->
+    <link rel="stylesheet" href="cdnjs.cloudflare.com">
 </head>
 <body>
-  <main class="container">
-    <section class="search-box">
-      <input type="text" id="cityInput" placeholder="اكتب اسم المدينة أو الدولة..." />
-      <button id="searchBtn" class="btn primary">ابحث</button>
-      <button id="locationBtn" class="btn icon" title="استخدم موقعي الحالي">📍</button>
-      <button id="langToggle" class="btn icon" title="تبديل اللغة">🌐</button>
-    </section>
 
-    <div id="status" class="status" aria-live="polite"></div>
+    <div class="container">
+        <div class="weather-card">
+            <div class="search-area">
+                <input type="text" id="city-input" placeholder="اكتب اسم المدينة (مثال: Cairo)">
+                <button id="search-button"><i class="fas fa-search"></i></button>
+            </div>
 
-    <section class="weather-card" id="weatherCard" hidden>
-      <h2 id="cityName" class="city-name">Cairo, Egypt</h2>
-      <div class="temp-row">
-        <h1 id="temperature" class="temp">25°C</h1>
-        <p id="weatherDesc" class="desc">مشمس ☀️</p>
-      </div>
-      <div class="details">
-        <div class="detail">
-          <span class="detail-icon">💧</span>
-          <div class="detail-body">
-            <span class="detail-label" id="labelHumidity">الرطوبة</span>
-            <span id="humidity" class="detail-value">60%</span>
-          </div>
+            <!-- منطقة عرض النتائج - مخفية مبدئياً -->
+            <div class="result-area" id="weather-result">
+                <h2 id="city-name"></h2>
+                <div class="temp-section">
+                    <img src="" alt="حالة الطقس" id="weather-icon">
+                    <p class="temperature" id="temperature"></p>
+                </div>
+                <p id="weather-description"></p>
+
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <i class="fas fa-wind icon-detail"></i>
+                        <p id="wind-speed"></p>
+                        <p>سرعة الرياح</p>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-tint icon-detail"></i>
+                        <p id="humidity"></p>
+                        <p>الرطوبة</p>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-tachometer-alt icon-detail"></i>
+                        <p id="pressure"></p>
+                        <p>الضغط الجوي</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- رسالة خطأ -->
+             <div class="error-message" id="error-message">
+                <p>عفواً، لم يتم العثور على المدينة. الرجاء المحاولة مرة أخرى.</p>
+             </div>
         </div>
-        <div class="detail">
-          <span class="detail-icon">🌬️</span>
-          <div class="detail-body">
-            <span class="detail-label" id="labelWind">سرعة الرياح</span>
-            <span id="wind" class="detail-value">15 كم/ساعة</span>
-          </div>
-        </div>
-        <div class="detail">
-          <span class="detail-icon">🌡️</span>
-          <div class="detail-body">
-            <span class="detail-label" id="labelPressure">الضغط الجوي</span>
-            <span id="pressure" class="detail-value">1012 ملي بار</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <script src="script.js"></script>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
