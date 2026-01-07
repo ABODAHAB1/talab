@@ -1,33 +1,59 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>تطبيق الطقس</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="container">
+  <main class="container">
     <!-- منطقة البحث -->
-    <div class="search-box">
-      <input type="text" id="cityInput" placeholder="اكتب اسم المدينة...">
-      <button id="searchBtn">ابحث</button>
-      <!-- زر الموقع الحالي اختياري -->
-      <button id="locationBtn">📍</button>
-    </div>
+    <section class="search-box">
+      <input type="text" id="cityInput" placeholder="اكتب اسم المدينة..." aria-label="اسم المدينة"/>
+      <button id="searchBtn" class="btn primary">ابحث</button>
+      <button id="locationBtn" class="btn icon" title="استخدم موقعي الحالي">📍</button>
+      <button id="langToggle" class="btn icon" title="Change Language">🌐</button>
+    </section>
+
+    <!-- حالة التحميل والأخطاء -->
+    <div id="status" class="status" aria-live="polite"></div>
 
     <!-- منطقة عرض النتائج -->
-    <div class="weather-card" id="weatherCard" style="display:none;">
-      <h2 id="cityName">Cairo, Egypt</h2>
-      <h1 id="temperature">25°C</h1>
-      <p id="weatherDesc">مشمس ☀️</p>
-      <div class="details">
-        <div>💧 <span id="humidity">60%</span></div>
-        <div>🌬️ <span id="wind">15 كم/ساعة</span></div>
-        <div>🌡️ <span id="pressure">1012 ملي بار</span></div>
+    <section class="weather-card" id="weatherCard" hidden>
+      <h2 id="cityName" class="city-name">Cairo, Egypt</h2>
+
+      <div class="temp-row">
+        <h1 id="temperature" class="temp">25°C</h1>
+        <p id="weatherDesc" class="desc">مشمس ☀️</p>
       </div>
-    </div>
-  </div>
+
+      <div class="details">
+        <div class="detail">
+          <span class="detail-icon">💧</span>
+          <div class="detail-body">
+            <span class="detail-label" id="labelHumidity">الرطوبة</span>
+            <span id="humidity" class="detail-value">60%</span>
+          </div>
+        </div>
+        <div class="detail">
+          <span class="detail-icon">🌬️</span>
+          <div class="detail-body">
+            <span class="detail-label" id="labelWind">سرعة الرياح</span>
+            <span id="wind" class="detail-value">15 كم/ساعة</span>
+          </div>
+        </div>
+        <div class="detail">
+          <span class="detail-icon">🌡️</span>
+          <div class="detail-body">
+            <span class="detail-label" id="labelPressure">الضغط الجوي</span>
+            <span id="pressure" class="detail-value">1012 ملي بار</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <script src="script.js"></script>
 </body>
 </html>
