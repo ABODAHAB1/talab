@@ -1,47 +1,33 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>📘 تفسير القرآن الكريم</title>
-  <style>
-    body { margin: 0; font-family: "Cairo", sans-serif; background: #f4f4f4; }
-    header { background: #0f172a; color: #fff; padding: 20px; text-align: center; }
-    main { padding: 20px; text-align: center; }
-    button {
-      background-color: #22c55e;
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      font-size: 1.2rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    button:hover { background-color: #16a34a; }
-    #viewer { margin-top: 30px; display: none; }
-    iframe {
-      width: 100%;
-      height: 90vh;
-      border: none;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تطبيق الطقس</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>📘 تفسير القرآن الكريم</h1>
-    <p>اضغط على الزر لقراءة التفسير مباشرة من أول سورة الفاتحة حتى آخر سورة الناس</p>
-  </header>
-
-  <main>
-    <button onclick="document.getElementById('viewer').style.display='block'">
-      📖 افتح الكتاب الآن
-    </button>
-
-    <div id="viewer">
-      <!-- رابط مباشر للكتاب -->
-      <iframe src="https://islamweb.net/ar/library/index.php?page=bookcontents&ID=50"></iframe>
+  <div class="container">
+    <!-- منطقة البحث -->
+    <div class="search-box">
+      <input type="text" id="cityInput" placeholder="اكتب اسم المدينة...">
+      <button id="searchBtn">ابحث</button>
+      <!-- زر الموقع الحالي اختياري -->
+      <button id="locationBtn">📍</button>
     </div>
-  </main>
+
+    <!-- منطقة عرض النتائج -->
+    <div class="weather-card" id="weatherCard" style="display:none;">
+      <h2 id="cityName">Cairo, Egypt</h2>
+      <h1 id="temperature">25°C</h1>
+      <p id="weatherDesc">مشمس ☀️</p>
+      <div class="details">
+        <div>💧 <span id="humidity">60%</span></div>
+        <div>🌬️ <span id="wind">15 كم/ساعة</span></div>
+        <div>🌡️ <span id="pressure">1012 ملي بار</span></div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
