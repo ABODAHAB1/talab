@@ -23,6 +23,7 @@ searchButton.addEventListener('click', () => {
 });
 
 async function getWeatherData(city) {
+    // نطلب البيانات باللغة العربية والانجليزية معاً
     const API_URL = `api.openweathermap.org{city}&appid=${API_KEY}&units=metric&lang=ar`;
 
     try {
@@ -33,7 +34,7 @@ async function getWeatherData(city) {
         const data = await response.json();
         displayWeatherData(data);
     } catch (error) {
-        showError('عفواً، لم يتم العثور على المدينة المحددة.');
+        showError('عفواً، لم يتم العثور على المدينة المحددة أو حدث خطأ في مفتاح الـ API.');
     }
 }
 
@@ -44,7 +45,8 @@ function displayWeatherData(data) {
 
     cityNameEl.textContent = `${data.name}, ${data.sys.country}`;
     temperatureEl.textContent = `${Math.round(data.main.temp)}°C`;
-    weatherDescriptionEl.textContent = data.weather[0].description;
+    // الوصف يفضل جلبه من أول عنصر في مصفوفة الطقس
+    weatherDescriptionEl.textContent = data.weather[0].description; 
     weatherIconEl.src = `openweathermap.org{data.weather[0].icon}.png`;
     windSpeedEl.textContent = `${data.wind.speed} كم/س`;
     humidityEl.textContent = `${data.main.humidity}%`;
@@ -56,4 +58,3 @@ function showError(message) {
     errorMessage.textContent = message;
     errorMessage.style.display = 'block';
 }
-
