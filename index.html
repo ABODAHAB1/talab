@@ -8,26 +8,21 @@
 </head>
 <body>
   <main class="container">
-    <!-- منطقة البحث -->
     <section class="search-box">
-      <input type="text" id="cityInput" placeholder="اكتب اسم المدينة..." aria-label="اسم المدينة"/>
+      <input type="text" id="cityInput" placeholder="اكتب اسم المدينة أو الدولة..." />
       <button id="searchBtn" class="btn primary">ابحث</button>
       <button id="locationBtn" class="btn icon" title="استخدم موقعي الحالي">📍</button>
-      <button id="langToggle" class="btn icon" title="Change Language">🌐</button>
+      <button id="langToggle" class="btn icon" title="تبديل اللغة">🌐</button>
     </section>
 
-    <!-- حالة التحميل والأخطاء -->
     <div id="status" class="status" aria-live="polite"></div>
 
-    <!-- منطقة عرض النتائج -->
     <section class="weather-card" id="weatherCard" hidden>
       <h2 id="cityName" class="city-name">Cairo, Egypt</h2>
-
       <div class="temp-row">
         <h1 id="temperature" class="temp">25°C</h1>
         <p id="weatherDesc" class="desc">مشمس ☀️</p>
       </div>
-
       <div class="details">
         <div class="detail">
           <span class="detail-icon">💧</span>
@@ -53,7 +48,6 @@
       </div>
     </section>
   </main>
-
   <script src="script.js"></script>
 </body>
 </html>
