@@ -13,11 +13,11 @@
     <div class="container">
         <div class="weather-card">
             <div class="search-area">
-                <input type="text" id="city-input" placeholder="اكتب اسم المدينة (مثال: Cairo)">
+                <input type="text" id="city-input" placeholder="اكتب اسم المدينة (مثال: Cairo أو القاهرة)">
                 <button id="search-button"><i class="fas fa-search"></i></button>
             </div>
 
-            <!-- منطقة عرض النتائج - مخفية مبدئياً -->
+            <!-- منطقة عرض النتائج -->
             <div class="result-area" id="weather-result">
                 <h2 id="city-name"></h2>
                 <div class="temp-section">
@@ -47,7 +47,7 @@
             
             <!-- رسالة خطأ -->
              <div class="error-message" id="error-message">
-                <p>عفواً، لم يتم العثور على المدينة. الرجاء المحاولة مرة أخرى.</p>
+                <p>عفواً، لم يتم العثور على المدينة أو حدث خطأ في مفتاح الـ API.</p>
              </div>
         </div>
     </div>
