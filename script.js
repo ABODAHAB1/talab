@@ -1,5 +1,5 @@
-// هام جداً: استبدل YOUR_API_KEY بالمفتاح الخاص بك من OpenWeatherMap
-const API_KEY = 'YOUR_API_KEY';
+// تم إضافة مفتاح الـ API الخاص بك هنا
+const API_KEY = '2aa88303f9f750a28ef94e6d9ea2cee97';
 const searchButton = document.getElementById('search-button');
 const cityInput = document.getElementById('city-input');
 const weatherResult = document.getElementById('weather-result');
@@ -23,7 +23,6 @@ searchButton.addEventListener('click', () => {
 });
 
 async function getWeatherData(city) {
-    // نطلب البيانات باللغة العربية والانجليزية معاً
     const API_URL = `api.openweathermap.org{city}&appid=${API_KEY}&units=metric&lang=ar`;
 
     try {
@@ -46,8 +45,8 @@ function displayWeatherData(data) {
     cityNameEl.textContent = `${data.name}, ${data.sys.country}`;
     temperatureEl.textContent = `${Math.round(data.main.temp)}°C`;
     // الوصف يفضل جلبه من أول عنصر في مصفوفة الطقس
-    weatherDescriptionEl.textContent = data.weather[0].description; 
-    weatherIconEl.src = `openweathermap.org{data.weather[0].icon}.png`;
+    weatherDescriptionEl.textContent = data.weather.description; 
+    weatherIconEl.src = `openweathermap.org{data.weather.icon}.png`;
     windSpeedEl.textContent = `${data.wind.speed} كم/س`;
     humidityEl.textContent = `${data.main.humidity}%`;
     pressureEl.textContent = `${data.main.pressure} hPa`;
