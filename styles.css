@@ -1,4 +1,5 @@
 /* تصميم ملكي لموقع خدمات أبو الدهب */
+
 :root {
   --bg: #0f172a;
   --bg-alt: #1e293b;
@@ -25,46 +26,211 @@ html, body {
 a { color: var(--accent); text-decoration: none; }
 img { max-width: 100%; display: block; }
 
-/* الهيدر */
-.header { ... }
-
-/* الأزرار */
-.btn { ... }
-.btn.secondary { ... }
-.glow { ... }
-
-/* الناف بار */
-.nav { ... }
-
-/* الـ Hero */
-.hero { ... }
-
-/* الأقسام */
-.section { ... }
-
-/* CTA */
-.cta { ... }
-
-/* نموذج التواصل */
-.contact-form { ... }
-
-/* الفوتر */
-.footer { ... }
-
-/* زر الطلب الجديد */
-.service-order {
-  text-align: center;
-  margin-top: 32px;
+/* ===== الهيدر ===== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: linear-gradient(90deg, #0f172a, #1e293b);
+  color: var(--gold);
+  box-shadow: var(--shadow);
 }
-.service-order .btn {
-  font-size: 1.2rem;
-  padding: 14px 24px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--primary), #6d28d9);
-  color: #fff;
+
+.logo-glow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, var(--gold), transparent 60%);
+  box-shadow: 0 0 20px rgba(245,191,36,0.4);
+}
+
+.site-title { font-size: 1.3rem; font-weight: bold; margin: 0; }
+.site-subtitle { font-size: 0.9rem; margin: 0; color: var(--muted); }
+
+.header-actions { display: flex; align-items: center; gap: 12px; }
+.clock {
+  background: var(--card);
+  color: var(--gold);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: var(--shadow);
+}
+#clockTime { font-weight: 700; }
+
+/* ===== الأزرار ===== */
+.btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
-.service-order .btn:hover {
+.btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(124,58,237,0.5);
+  box-shadow: 0 0 12px rgba(124,58,237,0.4);
+}
+
+.btn.secondary {
+  background: var(--muted);
+  color: white;
+}
+.btn.secondary:hover {
+  background: #64748b;
+}
+
+.glow {
+  box-shadow: 0 0 10px rgba(124,58,237,0.4);
+}
+
+/* ===== الناف بار ===== */
+.nav {
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+}
+.nav ul {
+  margin: 0; padding: 0; list-style: none;
+  display: flex; gap: 14px; overflow-x: auto;
+}
+.nav a {
+  display: block; padding: 12px 16px; border-radius: 8px;
+  color: var(--text);
+}
+.nav a:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* ===== الـ Hero ===== */
+.hero {
+  min-height: 60vh;
+  background: radial-gradient(circle at top left, var(--primary), var(--bg));
+  color: var(--text);
+  text-align: center;
+  display: grid;
+  place-items: center;
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -50px; left: -50px;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 70%);
+  animation: pulse 6s infinite ease-in-out;
+  z-index: 0;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.1); opacity: 0.6; }
+}
+.hero-content { position: relative; z-index: 1; }
+.hero h2 {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  color: var(--gold);
+  animation: fadeInDown 1.2s ease forwards;
+}
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  color: var(--muted);
+  animation: fadeInUp 1.2s ease forwards;
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-actions .btn {
+  font-size: 1rem;
+  padding: 12px 20px;
+  border-radius: 10px;
+}
+
+/* ===== الأقسام ===== */
+.section { padding: 48px 20px; background: var(--bg); }
+.section.alt { background: var(--bg-alt); }
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  color: var(--primary);
+  text-align: center;
+}
+
+.cards, .portfolio-grid, .ecom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.card, .work, .ecom-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+.card h4, .work h4 { margin: 0 0 8px; color: var(--primary); }
+.card p, .work p, .ecom-item p { color: var(--muted); }
+
+.features { margin: 0; padding: 0; list-style: none; }
+.features li { padding: 6px 0; border-top: 1px dashed var(--border); }
+
+/* ===== CTA ===== */
+.cta {
+  padding: 56px 20px;
+  background: var(--accent);
+  color: white;
+  text-align: center;
+}
+.cta h3 { font-size: 1.6rem; margin-bottom: 10px; }
+.cta p { margin-bottom: 16px; }
+
+/* ===== نموذج التواصل ===== */
+.contact-form {
+  max-width: 760px; margin: 0 auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+.form-row { display: grid; gap: 8px; margin-bottom: 12px; }
+label { font-weight: 600; color: var(--text); }
+input, textarea {
+  width: 100%; padding: 12px 14px; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--bg-alt);
+  color: var(--text);
+}
+input::placeholder, textarea::placeholder { color: var(--muted); }
+input:focus, textarea:focus { outline: 2px solid var(--primary); }
+
+.form-status { margin-top: 8px; min-height: 20px; color: var(--muted); }
+.form-status.success { color: var(--accent); }
+.form-status.error { color: var(--danger); }
+
+/* ===== الفوتر ===== */
+.footer {
+  padding: 24px 20px;
+  text-align: center;
+  background: var(--bg-alt);
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+/* تجاوب */
+@media (max-width: 640px) {
+  .site-title { font-size: 1.1rem; }
+  .hero h2 { font-size: 1.6rem; }
 }
