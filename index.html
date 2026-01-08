@@ -3,53 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مستكشف المدن العالمي 2026</title>
-    <!-- ربط ملف التنسيق -->
-    <link rel="stylesheet" href="style.css">
-    <!-- خط Cairo من جوجل -->
-    <link href="fonts.googleapis.com" rel="stylesheet">
+    <title>معرض أعمالي - اسمك هنا</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        header {
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #007bff;
+        }
+        .project {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+        .project h2 {
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-
-    <div class="app-container">
+    <div class="container">
         <header>
-            <h1>🌍 مستكشف البلاد والطقس</h1>
-            <p>احصل على معلومات أي مدينة في العالم فوراً</p>
+            <h1>أهلاً بكم في معرض أعمالي</h1>
+            <p>أنا مصمم واجهات مستخدم (UI/UX) ولدي خبرة في تصميم المواقع.</p>
         </header>
 
-        <div class="search-box">
-            <input type="text" id="cityInput" placeholder="اكتب اسم المدينة بالإنجليزية (مثلاً: London)">
-            <button id="searchBtn">بحث الآن</button>
+        <div class="project">
+            <h2>مشروع 1: تصميم موقع متجر إلكتروني</h2>
+            <p>قمت بتصميم واجهات متجر إلكتروني كامل باستخدام Figma و HTML/CSS. يركز التصميم على تجربة المستخدم السلسة وسرعة التحميل.</p>
+            <p><strong>التقنيات المستخدمة:</strong> HTML5, CSS3, Figma.</p>
         </div>
 
-        <div id="loader" class="loader">جاري التحميل...</div>
-        <div id="errorMsg" class="error-msg"></div>
-
-        <div id="resultCard" class="result-card">
-            <div class="main-info">
-                <h2 id="cityName"></h2>
-                <img id="countryFlag" src="" alt="علم الدولة" class="flag">
-            </div>
-
-            <div class="details-grid">
-                <!-- قسم الطقس -->
-                <div class="card weather-card">
-                    <img id="weatherIcon" src="" alt="أيقونة الطقس">
-                    <h3 id="temp">--°C</h3>
-                    <p id="weatherDesc"></p>
-                </div>
-                <!-- قسم معلومات الدولة -->
-                <div class="card info-card">
-                    <p><strong>📍 الدولة:</strong> <span id="countryName"></span></p>
-                    <p><strong>🏙️ العاصمة:</strong> <span id="capital"></span></p>
-                    <p><strong>👥 السكان:</strong> <span id="population"></span></p>
-                    <p><strong>⏰ التوقيت:</strong> <span id="timezone"></span></p>
-                </div>
-            </div>
+        <div class="project">
+            <h2>مشروع 2: موقع تعريفي لشركة ناشئة</h2>
+            <p>بناء موقع تعريفي بسيط وجذاب لشركة عقارية جديدة، مع التركيز على التصميم المتجاوب (Responsive Design).</p>
+            <p><strong>التقنيات المستخدمة:</strong> HTML, CSS, JavaScript (أساسي).</p>
         </div>
+
+        <footer>
+            <p>للتواصل: example@email.com</p>
+        </footer>
     </div>
-
-    <!-- ربط ملف البرمجة -->
-    <script src="script.js"></script>
 </body>
 </html>
