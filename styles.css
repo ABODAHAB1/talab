@@ -1,106 +1,188 @@
-
-function updateClock() {
-  const now = new Date();
-  const dateStr = now.toLocaleDateString('ar-EG', {
-    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-  });
-  const timeStr = now.toLocaleTimeString('ar-EG', {
-    hour: '2-digit', minute: '2-digit'
-  });
-  document.getElementById('clock').textContent = `${dateStr} — ${timeStr}`;
+:root {
+  --bg-start: #3b2a23;
+  --bg-end: #1e1410;
+  --card-bg: #2a1d17;
+  --card-bg-soft: #33231d;
+  --text: #f3e9dc;
+  --muted: #c3b7a8;
+  --accent: #d19a66;
+  --accent-2: #e5c07b;
+  --primary: #c17f3f;
+  --primary-strong: #ad6b2b;
+  --success: #8ec07c;
+  --danger: #d75f5f;
+  --shadow: rgba(0,0,0,0.35);
+  --radius: 16px;
 }
-setInterval(updateClock, 1000);
-updateClock();
 
-// ترجمة بسيطة عربي <-> إنجليزي
-let currentLang = 'ar';
-document.getElementById('translateToggle').addEventListener('click', () => {
-  currentLang = currentLang === 'ar' ? 'en' : 'ar';
-  document.documentElement.lang = currentLang;
-  document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-
-  // رأس الصفحة
-  document.querySelector('.brand-title').textContent = 'Abou El Dahab Store';
-  document.querySelector('.brand-sub').textContent =
-    currentLang === 'ar'
-      ? 'ماركت خاص — مكان واحد لكل خدماتك. اختر الخدمة، وبعدها هنحدد التفاصيل خطوة بخطوة.'
-      : 'Private market — one place for all your services. Pick a service and we’ll finalize details step-by-step.';
-  document.getElementById('openMarket').textContent = currentLang === 'ar' ? 'دخول الماركت' : 'Open market';
-  document.getElementById('devInfo').textContent = currentLang === 'ar' ? 'معلومات للمبرمج' : 'Developer info';
-  document.getElementById('translateToggle').textContent = currentLang === 'ar' ? 'ترجمة' : 'Translate';
-
-  // عناوين الأقسام
-  document.querySelectorAll('.section-title').forEach((el, i) => {
-    const ar = ['خدمات إنشاء مواقع إلكترونية', 'اختر مستوى الخدمة', 'الخدمات المتاحة ضمن إنشاء المواقع'];
-    const en = ['Website creation services', 'Choose a service level', 'Available services for websites'];
-    el.textContent = currentLang === 'ar' ? ar[i] || el.textContent : en[i] || el.textContent;
-  });
-
-  // أزرار "اطلب الآن" / "طلب الخدمة" / "ابدأ"
-  document.querySelectorAll('.open-modal').forEach(btn => {
-    const kind = btn.getAttribute('data-kind');
-    if (kind === 'package' || kind === 'service') {
-      btn.textContent = currentLang === 'ar' ? (btn.textContent.includes('طلب') ? 'طلب الخدمة' : 'طلب الخدمة') : 'Order service';
-    } else {
-      btn.textContent = currentLang === 'ar' ? 'ابدأ' : 'Start';
-    }
-  });
-});
-
-// فتح المودال وتعبئة البيانات
-const modal = document.getElementById('requestModal');
-const backdrop = modal.querySelector('.modal-backdrop');
-const closeBtn = modal.querySelector('.modal-close');
-const openers = document.querySelectorAll('.open-modal');
-
-openers.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const title = btn.getAttribute('data-title') || 'خدمة';
-    const price = btn.getAttribute('data-price') || '';
-    const days = btn.getAttribute('data-days') || '';
-
-    document.getElementById('selectedItem').value = title;
-    document.getElementById('selectedPrice').value = price;
-    document.getElementById('selectedDays').value = days;
-
-    // تحديث عنوان المودال والـ placeholder
-    const label = currentLang === 'ar' ? 'طلب' : 'Request';
-    document.getElementById('modalTitle').textContent = `${label}: ${title}`;
-    document.getElementById('notes').placeholder =
-      currentLang === 'ar'
-        ? `تفاصيل إضافية ${(price && days) ? `(السعر: ${price} — التسليم: ${days} يوم)` : ''}`
-        : `Additional details ${(price && days) ? `(Price: ${price} — Delivery: ${days} days)` : ''}`;
-
-    modal.classList.add('show');
-    modal.setAttribute('aria-hidden', 'false');
-  });
-});
-
-function closeModal() {
-  modal.classList.remove('show');
-  modal.setAttribute('aria-hidden', 'true');
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  font-family: "Cairo", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+  color: var(--text);
 }
-backdrop.addEventListener('click', closeModal);
-closeBtn.addEventListener('click', closeModal);
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
-});
 
-// إرسال الطلب على واتساب
-document.getElementById('requestForm').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const name = document.getElementById('clientName').value.trim();
-  const wa = document.getElementById('whatsapp').value.trim();
-  const notes = document.getElementById('notes').value.trim();
-  const item = document.getElementById('selectedItem').value;
-  const price = document.getElementById('selectedPrice').value;
-  const days = document.getElementById('selectedDays').value;
+/* Topbar */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 16px;
+  background: rgba(20, 12, 9, 0.7);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid #3a2a23;
+}
+.topbar-left { display: flex; gap: 8px; align-items: center; }
+.clock-label { color: var(--muted); }
 
-  const summary = currentLang === 'ar'
-    ? `طلب جديد من ${name}\nالخدمة/الباقة: ${item}\n${price ? 'السعر: ' + price + '\n' : ''}${days ? 'التسليم: ' + days + ' يوم\n' : ''}${notes ? 'ملاحظات: ' + notes + '\n' : ''}رقم واتساب: ${wa}\nتم الإنشاء عبر Abou El Dahab Store`
-    : `New request from ${name}\nItem: ${item}\n${price ? 'Price: ' + price + '\n' : ''}${days ? 'Delivery: ' + days + ' days\n' : ''}${notes ? 'Notes: ' + notes + '\n' : ''}WhatsApp: ${wa}\nGenerated via Abou El Dahab Store`;
+/* Header */
+.header {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 24px 16px;
+}
+.profile img {
+  width: 72px; height: 72px; border-radius: 50%;
+  object-fit: cover; border: 2px solid var(--accent);
+  box-shadow: 0 6px 16px var(--shadow);
+}
+.title { margin: 0; font-weight: 700; letter-spacing: 0.3px; }
+.subtitle { margin: 6px 0 0; color: var(--muted); }
 
-  const myNumber = '201000000000'; // عدّل إلى رقمك بصيغة دولية بدون +
-  const url = `https://wa.me/${myNumber}?text=${encodeURIComponent(summary)}`;
-  window.open(url, '_blank');
-});
+/* Hero */
+.hero {
+  margin: 8px 16px 16px;
+  padding: 20px;
+  background: linear-gradient(145deg, #2f211b, #251a15);
+  border: 1px solid #3a2a2a;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 24px var(--shadow);
+}
+.hero-text { color: var(--muted); margin: 8px 0 16px; }
+.hero-actions { display: flex; gap: 10px; }
+
+/* Layout */
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr 280px;
+  gap: 16px;
+  padding: 0 16px 24px;
+}
+.column.left, .column.right {
+  display: flex; flex-direction: column; gap: 12px;
+}
+.section-title { margin: 0 0 4px; }
+.muted { color: var(--muted); margin: 4px 0; }
+
+.list { list-style: none; padding: 0; margin: 10px 0; display: grid; gap: 8px; }
+.list-link {
+  display: block; padding: 10px 12px; border-radius: 12px;
+  background: var(--card-bg); color: var(--text); text-decoration: none;
+  border: 1px solid #3a2a2a;
+  transition: transform .15s ease, background .15s ease;
+}
+.list-link:hover { transform: translateY(-2px); background: var(--card-bg-soft); }
+.list-link.disabled { opacity: 0.55; cursor: not-allowed; }
+
+/* Middle column */
+.card {
+  background: var(--card-bg);
+  border: 1px solid #3a2a2a;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 24px var(--shadow);
+  padding: 16px;
+}
+.card.small { padding: 12px; }
+.card-header {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin-bottom: 12px;
+}
+.card-actions { display: flex; gap: 8px; }
+
+.grid {
+  display: grid; gap: 12px;
+}
+.middle .grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+
+.tile {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px; border-radius: 12px; background: var(--card-bg-soft);
+  border: 1px solid #3a2a2a;
+}
+.tile.disabled { opacity: 0.55; cursor: not-allowed; }
+.tile-title { margin: 0; font-weight: 600; }
+.tile-desc { margin: 4px 0 0; color: var(--muted); }
+
+/* Plans */
+.plans { margin-top: 16px; }
+.plans-cat { margin: 0 0 8px; color: var(--accent-2); font-weight: 600; }
+.plans-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.plan {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 12px; border-radius: 12px; background: var(--card-bg-soft);
+  border: 1px solid #3a2a2a;
+}
+.plan-head { display: flex; align-items: center; gap: 8px; }
+.badge {
+  display: inline-block; padding: 4px 8px; border-radius: 999px;
+  background: #4c3a2f; color: var(--accent-2); border: 1px solid #5a453a; font-size: 13px;
+}
+.badge-paid { color: #ffd38a; background: #4a352a; border-color: #6a4b3a; }
+.plan-title { margin: 0; font-size: 16px; }
+.price, .eta { margin: 0; color: var(--muted); }
+.features { margin: 8px 0 0; padding-inline-start: 18px; color: var(--text); }
+
+/* Extra categories */
+.categories.card-sub {
+  margin-top: 14px; padding-top: 10px; border-top: 1px dashed #4a3a32;
+}
+.cats-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.cat {
+  padding: 10px; border-radius: 10px; background: #2f211b; border: 1px solid #3a2a2a;
+  text-align: center;
+}
+
+/* Right column cards */
+.card-subtitle { margin: 0 0 4px; }
+.footer {
+  margin: 24px 16px; padding: 12px; text-align: center; color: var(--muted);
+  border-top: 1px solid #3a2a2a;
+}
+
+/* Form */
+.form-card { margin: 20px 16px; }
+.form { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.form-label { font-weight: 600; }
+input, select, textarea {
+  width: 100%; background: #241913; color: var(--text);
+  border: 1px solid #3a2a2a; border-radius: 10px; padding: 10px;
+}
+textarea { resize: vertical; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 6px; padding: 10px 14px; border-radius: 12px; border: 1px solid #4a3a32;
+  background: var(--primary); color: #fff; text-decoration: none; cursor: pointer;
+  box-shadow: 0 6px 16px var(--shadow);
+  transition: transform .15s ease, filter .15s ease, background .15s ease;
+}
+.btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
+.btn.primary { background: var(--primary-strong); }
+.btn.ghost { background: transparent; color: var(--accent-2); }
+.btn.mini { padding: 6px 10px; font-size: 13px; }
+.btn.small { padding: 8px 12px; font-size: 14px; }
+.btn.block { width: 100%; }
+.btn.disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .layout { grid-template-columns: 1fr; }
+  .middle .grid { grid-template-columns: 1fr; }
+  .plans-grid, .cats-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 560px) {
+  .plans-grid, .cats-grid { grid-template-columns: 1fr; }
+}
