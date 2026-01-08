@@ -100,32 +100,10 @@ html, body { margin: 0; padding: 0; background: linear-gradient(135deg, var(--bg
 
 .extra-services h4 { margin: 0; font-size: 16px; }
 
-.request .form { background: linear-gradient(160deg, var(--card), var(--card2)); padding: 18px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); }
-.form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-.form-field { display: flex; flex-direction: column; gap: 6px; }
-.form-field.wide { grid-column: span 2; }
-
-label { font-weight: 700; }
-input[type="text"], input[type="tel"], select, textarea {
-  background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 10px;
-  color: var(--text); padding: 10px 12px; outline: none;
-}
-textarea { resize: vertical; }
-
-.radio-group { display: flex; flex-direction: column; gap: 6px; }
-.chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 999px; padding: 6px 10px; cursor: pointer; }
-.chip input { margin-inline-end: 6px; }
-
-.helper { font-size: 12px; color: var(--muted); margin-top: 4px; }
-
-.form-actions { display: flex; justify-content: flex-start; margin-top: 12px; }
-
 .footer { text-align: center; color: var(--muted); }
 .footer .credit { margin-top: 8px; color: var(--muted); font-size: 13px; }
 
 @media (max-width: 900px) {
   .hero-card { grid-template-columns: 1fr; }
   .features .feature-grid, .market .grid, .extra-services .extra-grid { grid-template-columns: 1fr; }
-  .form-grid { grid-template-columns: 1fr; }
 }
