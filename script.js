@@ -1,4 +1,3 @@
-// Clock: localized to Arabic by default, with EEST awareness via browser
 function updateClock() {
   const now = new Date();
   const dateStr = now.toLocaleDateString('ar-EG', {
