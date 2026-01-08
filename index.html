@@ -3,55 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تطبيق الطقس الاحترافي</title>
+    <title>مستكشف المدن العالمي 2026</title>
+    <!-- ربط ملف التنسيق -->
     <link rel="stylesheet" href="style.css">
-    <!-- استخدام أيقونات FontAwesome -->
-    <link rel="stylesheet" href="cdnjs.cloudflare.com">
+    <!-- خط Cairo من جوجل -->
+    <link href="fonts.googleapis.com" rel="stylesheet">
 </head>
 <body>
 
-    <div class="container">
-        <div class="weather-card">
-            <div class="search-area">
-                <input type="text" id="city-input" placeholder="اكتب اسم المدينة (مثال: Cairo أو القاهرة)">
-                <button id="search-button"><i class="fas fa-search"></i></button>
+    <div class="app-container">
+        <header>
+            <h1>🌍 مستكشف البلاد والطقس</h1>
+            <p>احصل على معلومات أي مدينة في العالم فوراً</p>
+        </header>
+
+        <div class="search-box">
+            <input type="text" id="cityInput" placeholder="اكتب اسم المدينة بالإنجليزية (مثلاً: London)">
+            <button id="searchBtn">بحث الآن</button>
+        </div>
+
+        <div id="loader" class="loader">جاري التحميل...</div>
+        <div id="errorMsg" class="error-msg"></div>
+
+        <div id="resultCard" class="result-card">
+            <div class="main-info">
+                <h2 id="cityName"></h2>
+                <img id="countryFlag" src="" alt="علم الدولة" class="flag">
             </div>
 
-            <!-- منطقة عرض النتائج -->
-            <div class="result-area" id="weather-result">
-                <h2 id="city-name"></h2>
-                <div class="temp-section">
-                    <img src="" alt="حالة الطقس" id="weather-icon">
-                    <p class="temperature" id="temperature"></p>
+            <div class="details-grid">
+                <!-- قسم الطقس -->
+                <div class="card weather-card">
+                    <img id="weatherIcon" src="" alt="أيقونة الطقس">
+                    <h3 id="temp">--°C</h3>
+                    <p id="weatherDesc"></p>
                 </div>
-                <p id="weather-description"></p>
-
-                <div class="details-grid">
-                    <div class="detail-item">
-                        <i class="fas fa-wind icon-detail"></i>
-                        <p id="wind-speed"></p>
-                        <p>سرعة الرياح</p>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-tint icon-detail"></i>
-                        <p id="humidity"></p>
-                        <p>الرطوبة</p>
-                    </div>
-                    <div class="detail-item">
-                        <i class="fas fa-tachometer-alt icon-detail"></i>
-                        <p id="pressure"></p>
-                        <p>الضغط الجوي</p>
-                    </div>
+                <!-- قسم معلومات الدولة -->
+                <div class="card info-card">
+                    <p><strong>📍 الدولة:</strong> <span id="countryName"></span></p>
+                    <p><strong>🏙️ العاصمة:</strong> <span id="capital"></span></p>
+                    <p><strong>👥 السكان:</strong> <span id="population"></span></p>
+                    <p><strong>⏰ التوقيت:</strong> <span id="timezone"></span></p>
                 </div>
             </div>
-            
-            <!-- رسالة خطأ -->
-             <div class="error-message" id="error-message">
-                <p>عفواً، لم يتم العثور على المدينة أو حدث خطأ في مفتاح الـ API.</p>
-             </div>
         </div>
     </div>
 
+    <!-- ربط ملف البرمجة -->
     <script src="script.js"></script>
 </body>
 </html>
