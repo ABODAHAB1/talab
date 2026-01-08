@@ -3,65 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>معرض أعمالي - اسمك هنا</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        .container {
-            width: 80%;
-            margin: 40px auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        header {
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-        }
-        h1 {
-            color: #007bff;
-        }
-        .project {
-            margin-bottom: 25px;
-            padding: 15px;
-            background-color: #e9ecef;
-            border-radius: 5px;
-        }
-        .project h2 {
-            color: #333;
-        }
-    </style>
+    <title>اسمي هنا - مصمم ويب محترف</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="fonts.googleapis.com" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>أهلاً بكم في معرض أعمالي</h1>
-            <p>أنا مصمم واجهات مستخدم (UI/UX) ولدي خبرة في تصميم المواقع.</p>
-        </header>
-
-        <div class="project">
-            <h2>مشروع 1: تصميم موقع متجر إلكتروني</h2>
-            <p>قمت بتصميم واجهات متجر إلكتروني كامل باستخدام Figma و HTML/CSS. يركز التصميم على تجربة المستخدم السلسة وسرعة التحميل.</p>
-            <p><strong>التقنيات المستخدمة:</strong> HTML5, CSS3, Figma.</p>
+    <!-- شريط التنقل (Navigation Bar) -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">اسمي هنا</a>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#services">خدماتي</a></li>
+                <li><a href="#portfolio">الأعمال</a></li>
+                <li><a href="#contact">تواصل معي</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <div class="project">
-            <h2>مشروع 2: موقع تعريفي لشركة ناشئة</h2>
-            <p>بناء موقع تعريفي بسيط وجذاب لشركة عقارية جديدة، مع التركيز على التصميم المتجاوب (Responsive Design).</p>
-            <p><strong>التقنيات المستخدمة:</strong> HTML, CSS, JavaScript (أساسي).</p>
+    <!-- قسم المقدمة (Hero Section) -->
+    <header id="home" class="hero">
+        <div class="container">
+            <h1>تصميم مواقع ويب **خرافية** وجذابة 🚀</h1>
+            <p>أنا متخصص في بناء واجهات مستخدم احترافية لمتاجر إلكترونية، مواقع شخصية، وإعلانات تسويقية.</p>
+            <a href="#contact" class="btn btn-primary">ابدأ مشروعك الآن</a>
         </div>
+    </header>
 
-        <footer>
-            <p>للتواصل: example@email.com</p>
-        </footer>
-    </div>
+    <!-- قسم الخدمات (Services) -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>خدماتي</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>تصميم متاجر</h3>
+                    <p>بناء متاجر إلكترونية متكاملة وجذابة لزيادة مبيعاتك عبر الإنترنت (E-commerce).</p>
+                </div>
+                <div class="service-card">
+                    <h3>مواقع شركات</h3>
+                    <p>تصميم مواقع تعريفية احترافية للشركات لعرض خدماتهم بشكل موثوق وجذاب.</p>
+                </div>
+                <div class="service-card">
+                    <h3>اعلانات تسويقية</h3>
+                    <p>تصميم صفحات هبوط (Landing Pages) فعالة ومؤثرة لحملاتك الإعلانية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الأعمال (Portfolio) -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2>أعمالي السابقة</h2>
+            <div class="portfolio-grid" id="portfolio-items">
+                <!-- سيتم إضافة المشاريع هنا باستخدام JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل (Contact) -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>تواصل معي</h2>
+            <p>جاهز للعمل على مشروعك القادم! ارسل لي رسالة.</p>
+            <form>
+                <input type="text" placeholder="الاسم الكامل" required>
+                <input type="email" placeholder="البريد الإلكتروني" required>
+                <textarea placeholder="رسالتك" rows="5" required></textarea>
+                <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 جميع الحقوق محفوظة. تصميم احترافي بواسطة [اسمي هنا].</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
