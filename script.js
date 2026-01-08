@@ -1,4 +1,4 @@
-// بيانات المشاريع التي تريد عرضها
+// بيانات المشاريع التي تريد عرضها (أعمالك)
 const projects =;
 
 // وظيفة لعرض المشاريع في الصفحة تلقائياً
@@ -28,9 +28,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-
 // عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', (event) => {
     displayProjects();
 });
-
