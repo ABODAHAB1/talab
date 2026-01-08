@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ابوالدهب- مصمم ويب محترف</title>
+    <title>خدمات ابوالدهب - تصميم مواقع احترافي</title>
     <link rel="stylesheet" href="style.css">
     <link href="fonts.googleapis.com" rel="stylesheet">
 </head>
@@ -11,12 +11,13 @@
     <!-- شريط التنقل (Navigation Bar) -->
     <nav>
         <div class="container nav-container">
-            <a href="#" class="logo">اسمي هنا</a>
+            <a href="#" class="logo">خدمات ابوالدهب</a>
             <ul class="nav-links">
                 <li><a href="#home">الرئيسية</a></li>
                 <li><a href="#services">خدماتي</a></li>
                 <li><a href="#portfolio">الأعمال</a></li>
                 <li><a href="#contact">تواصل معي</a></li>
+                <li><button onclick="toggleLanguage()">English</button></li>
             </ul>
         </div>
     </nav>
@@ -30,7 +31,7 @@
         </div>
     </header>
 
-    <!-- قسم الخدمات (Services) - المحدث -->
+    <!-- قسم الخدمات (Services) -->
     <section id="services" class="services">
         <div class="container">
             <h2>خدماتي في تطوير الويب</h2>
@@ -63,13 +64,12 @@
         </div>
     </section>
 
-    <!-- قسم الأعمال (Portfolio) - المحدث -->
+    <!-- قسم الأعمال (Portfolio) -->
     <section id="portfolio" class="portfolio">
         <div class="container">
             <h2>أعمالي السابقة</h2>
-            <!-- هذا الـ Div سيتم ملؤه تلقائياً بواسطة ملف script.js بالـ 9 مشاريع -->
             <div class="portfolio-grid" id="portfolio-items">
-                <!-- المشاريع تظهر هنا -->
+                <!-- سيتم إضافة المشاريع هنا باستخدام JavaScript -->
             </div>
         </div>
     </section>
@@ -79,7 +79,7 @@
         <div class="container">
             <h2>تواصل معي</h2>
             <p>جاهز للعمل على مشروعك القادم! ارسل لي رسالة.</p>
-            <form action="#" method="POST"> <!-- تم تعديل الـ action ليصبح # مؤقتاً -->
+            <form action="#" method="POST">
                 <input type="text" placeholder="الاسم الكامل" required>
                 <input type="email" placeholder="البريد الإلكتروني" required>
                 <textarea placeholder="رسالتك" rows="5" required></textarea>
@@ -90,11 +90,11 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 جميع الحقوق محفوظة. تصميم احترافي بواسطة [اسمي هنا].</p>
+            <p>&copy; 2026 جميع الحقوق محفوظة. خدمات ابوالدهب.</p>
+            <div id="liveClock" class="live-clock"></div>
         </div>
     </footer>
 
-    <!-- ربط ملف البرمجة -->
     <script src="script.js"></script>
 </body>
 </html>
