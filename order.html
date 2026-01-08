@@ -1,65 +1,150 @@
-<section class="plans">
-  <h3 class="section-title">خطط إنشاء موقع إلكتروني</h3>
-  <div class="cards">
-    <article class="card">
-      <h4>خطة أساسية</h4>
-      <p>موقع تعريفي بسيط</p>
-      <ul class="features">
-        <li>حتى 4 صفحات</li>
-        <li>تصميم متجاوب</li>
-        <li>تهيئة SEO أولية</li>
-      </ul>
-      <p><strong>السعر:</strong> 1590 جنيه</p>
-      <p><strong>التسليم:</strong> خلال 3 أيام</p>
-      <button class="btn primary glow" onclick="openForm('أساسية', '1590 جنيه', '3 أيام')">اطلب الآن</button>
-    </article>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>طلب إنشاء موقع إلكتروني</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Cairo", sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+    }
 
-    <article class="card">
-      <h4>خطة مميزة</h4>
-      <p>موقع متكامل للشركات</p>
-      <ul class="features">
-        <li>حتى 6 صفحات</li>
-        <li>نموذج تواصل + خريطة</li>
-        <li>تحسين سرعة وتحليل</li>
-      </ul>
-      <p><strong>السعر:</strong> 3890 جنيه</p>
-      <p><strong>التسليم:</strong> خلال 5 أيام</p>
-      <button class="btn primary glow" onclick="openForm('مميزة', '3890 جنيه', '5 أيام')">اطلب الآن</button>
-    </article>
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
-    <article class="card">
-      <h4>خطة احترافية</h4>
-      <p>نظام متكامل + لوحة تحكم</p>
-      <ul class="features">
-        <li>حتى 10 صفحات</li>
-        <li>إضافات مخصصة</li>
-        <li>تحسين شامل للسيو</li>
-      </ul>
-      <p><strong>السعر:</strong> 6990 جنيه</p>
-      <p><strong>التسليم:</strong> خلال 7 أيام</p>
-      <button class="btn primary glow" onclick="openForm('احترافية', '6990 جنيه', '7 أيام')">اطلب الآن</button>
-    </article>
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: #fbbf24;
+      margin-bottom: 24px;
+    }
+
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .plan-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .plan-card h3 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      color: #7c3aed;
+    }
+
+    .plan-card p {
+      margin: 8px 0;
+      color: #94a3b8;
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0;
+    }
+
+    .features li {
+      padding: 6px 0;
+      border-top: 1px dashed #334155;
+      color: #f1f5f9;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #fbbf24;
+      margin-top: 12px;
+    }
+
+    .delivery {
+      color: #10b981;
+      font-weight: bold;
+    }
+
+    .btn {
+      margin-top: 16px;
+      padding: 12px;
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(124,58,237,0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>خطط إنشاء موقع إلكتروني</h2>
+    <p style="text-align:center; color:#94a3b8; margin-bottom:32px;">
+      اختر الخطة المناسبة، وسيتم التواصل معك بعد إرسال الطلب قبل التنفيذ.
+    </p>
+
+    <div class="plans-grid">
+      <div class="plan-card">
+        <h3>خطة عادية</h3>
+        <p>موقع تعريفي بسيط</p>
+        <ul class="features">
+          <li>حتى 3 صفحات</li>
+          <li>تصميم بسيط متجاوب</li>
+          <li>زر واتساب مباشر</li>
+          <li>تهيئة سيو أساسي</li>
+        </ul>
+        <p class="price">السعر: 1990 جنيه</p>
+        <p class="delivery">التسليم: خلال يومين</p>
+        <button class="btn">طلب الخدمة</button>
+      </div>
+
+      <div class="plan-card">
+        <h3>خطة مميزة</h3>
+        <p>موقع تعريفي متكامل</p>
+        <ul class="features">
+          <li>حتى 5 صفحات</li>
+          <li>تصميم ألوان وخطوط</li>
+          <li>صفحة تواصل + خريطة</li>
+          <li>تحسين سرعة وتحميل</li>
+        </ul>
+        <p class="price">السعر: 3490 جنيه</p>
+        <p class="delivery">التسليم: خلال يومين</p>
+        <button class="btn">طلب الخدمة</button>
+      </div>
+
+      <div class="plan-card">
+        <h3>خطة احترافية</h3>
+        <p>نظام متكامل + لوحة تحكم</p>
+        <ul class="features">
+          <li>حتى 10 صفحات</li>
+          <li>إعدادات مخصصة</li>
+          <li>نماذج تواصل متقدمة</li>
+          <li>تحسين شامل للسيو</li>
+        </ul>
+        <p class="price">السعر: 6990 جنيه</p>
+        <p class="delivery">التسليم: خلال 4 أيام</p>
+        <button class="btn">طلب الخدمة</button>
+      </div>
+    </div>
   </div>
-</section>
-
-<!-- نموذج الطلب المنبثق -->
-<div id="orderForm" class="popup" style="display:none;">
-  <div class="popup-content">
-    <span class="close" onclick="closeForm()">×</span>
-    <h3>طلب إنشاء موقع</h3>
-    <p><strong>الخطة:</strong> <span id="planName"></span></p>
-    <p><strong>السعر:</strong> <span id="planPrice"></span></p>
-    <p><strong>التسليم:</strong> <span id="planDelivery"></span></p>
-    <form>
-      <label>اسمك</label>
-      <input type="text" placeholder="اكتب اسمك" required>
-      <label>رقم واتساب</label>
-      <input type="text" placeholder="مثال: 01000000000" required>
-      <label>نوع الموقع</label>
-      <input type="text" placeholder="تجريبي / تجاري / نشر">
-      <label>ملاحظات</label>
-      <textarea placeholder="مثال: سلع + منصة تواصل + واتساب"></textarea>
-      <button type="submit" class="btn secondary">أرسل الطلب على واتساب</button>
-    </form>
-  </div>
-</div>
+</body>
+</html>
