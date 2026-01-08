@@ -1,3 +1,5 @@
+/* تصميم مطور لموقع خدمات أبو الدهب */
+
 :root {
   --bg: #f5f7fa;
   --bg-alt: #e9edf2;
@@ -5,7 +7,7 @@
   --muted: #6b7280;
   --primary: #2563eb;
   --accent: #10b981;
-  --gold: #f59e0b;
+  --gold: #f5b900;
   --danger: #ef4444;
   --card: #ffffff;
   --border: #d1d5db;
@@ -24,49 +26,63 @@ html, body {
 a { color: var(--primary); text-decoration: none; }
 img { max-width: 100%; display: block; }
 
+/* ===== الهيدر ===== */
 .header {
-  position: sticky; top: 0; z-index: 50;
-  display: flex; align-items: center; justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 16px 24px;
-  background: var(--primary);
+  background: linear-gradient(90deg, #1f2937, #111827);
   color: white;
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-.brand { display: flex; align-items: flex-start; gap: 12px; }
 .logo-glow {
-  width: 32px; height: 32px; border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
   background: radial-gradient(circle at center, var(--gold), transparent 60%);
-  box-shadow: 0 0 20px rgba(245,158,11,0.4);
+  box-shadow: 0 0 20px rgba(245,185,0,0.4);
 }
-.site-title { margin: 0; font-size: 1.3rem; font-weight: 700; }
-.site-subtitle { margin: 2px 0 0; font-size: .9rem; color: #f3f4f6; }
+
+.site-title { font-size: 1.3rem; font-weight: bold; margin: 0; }
+.site-subtitle { font-size: 0.9rem; margin: 0; color: #d1d5db; }
 
 .header-actions { display: flex; align-items: center; gap: 12px; }
 .clock {
-  padding: 8px 12px; border-radius: 8px;
-  background: white; color: var(--primary);
-  font-weight: bold; box-shadow: var(--shadow);
+  background: white;
+  color: var(--primary);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: var(--shadow);
 }
 #clockTime { font-weight: 700; }
 
+/* ===== الأزرار ===== */
 .btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  padding: 10px 16px; border-radius: 10px;
-  cursor: pointer; transition: all .2s ease;
-  background: var(--primary); color: white; border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-.btn:hover { background: #1d4ed8; }
+.btn:hover { transform: scale(1.05); box-shadow: 0 0 12px rgba(255,255,255,0.2); }
 
-.btn.secondary {
-  background: var(--muted); color: white;
-}
+.btn.secondary { background: var(--muted); color: white; }
 .btn.secondary:hover { background: #4b5563; }
 
 .glow { box-shadow: 0 0 10px rgba(37,99,235,0.4); }
 
+/* ===== الناف بار ===== */
 .nav {
-  background: var(--bg-alt); border-bottom: 1px solid var(--border);
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
 }
 .nav ul {
   margin: 0; padding: 0; list-style: none;
@@ -78,57 +94,102 @@ img { max-width: 100%; display: block; }
 }
 .nav a:hover { background: var(--primary); color: white; }
 
+/* ===== الـ Hero ===== */
 .hero {
-  min-height: 50vh;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: white; text-align: center;
-  display: grid; place-items: center; padding: 60px 20px;
+  min-height: 60vh;
+  background: linear-gradient(135deg, #2563eb, #10b981);
+  color: white;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
 }
-.hero h2 { font-size: 2rem; margin-bottom: 10px; }
-.hero p { font-size: 1.1rem; margin-bottom: 20px; }
-.hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -50px; left: -50px;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 70%);
+  animation: pulse 6s infinite ease-in-out;
+  z-index: 0;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.1); opacity: 0.6; }
+}
+.hero-content { position: relative; z-index: 1; }
+.hero h2 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  animation: fadeInDown 1.2s ease forwards;
+}
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  color: #f3f4f6;
+  animation: fadeInUp 1.2s ease forwards;
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-actions .btn {
+  font-size: 1rem;
+  padding: 12px 20px;
+  border-radius: 10px;
+}
 
-.section {
-  padding: 48px 20px;
-  background: var(--bg);
-}
+/* ===== الأقسام ===== */
+.section { padding: 48px 20px; background: var(--bg); }
 .section.alt { background: var(--bg-alt); }
 .section-title {
-  font-size: 1.5rem; margin-bottom: 24px;
-  color: var(--primary); text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  color: var(--primary);
+  text-align: center;
 }
 
 .cards, .portfolio-grid, .ecom-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 16px;
 }
 .card, .work, .ecom-item {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 12px; padding: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
   box-shadow: var(--shadow);
 }
 .card h4, .work h4 { margin: 0 0 8px; color: var(--primary); }
 .card p, .work p, .ecom-item p { color: var(--muted); }
 
-.features {
-  margin: 0; padding: 0; list-style: none;
-}
-.features li {
-  padding: 6px 0; border-top: 1px dashed var(--border);
-}
+.features { margin: 0; padding: 0; list-style: none; }
+.features li { padding: 6px 0; border-top: 1px dashed var(--border); }
 
+/* ===== CTA ===== */
 .cta {
   padding: 56px 20px;
-  background: var(--accent); color: white;
+  background: var(--accent);
+  color: white;
   text-align: center;
 }
 .cta h3 { font-size: 1.6rem; margin-bottom: 10px; }
 .cta p { margin-bottom: 16px; }
 
+/* ===== نموذج التواصل ===== */
 .contact-form {
   max-width: 760px; margin: 0 auto;
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 12px; padding: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
   box-shadow: var(--shadow);
 }
 .form-row { display: grid; gap: 8px; margin-bottom: 12px; }
@@ -145,9 +206,12 @@ input:focus, textarea:focus { outline: 2px solid var(--primary); }
 .form-status.success { color: var(--accent); }
 .form-status.error { color: var(--danger); }
 
+/* ===== الفوتر ===== */
 .footer {
-  padding: 24px 20px; text-align: center;
-  background: var(--bg-alt); color: var(--muted);
+  padding: 24px 20px;
+  text-align: center;
+  background: var(--bg-alt);
+  color: var(--muted);
   border-top: 1px solid var(--border);
 }
 
