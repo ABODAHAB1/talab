@@ -3,353 +3,300 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title data-i18n="title">Mazen Abou El Dahab Store</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>ABODAHAB Store</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Fixed top bar: clock + language -->
-  <div class="topbar">
+  <!-- Top navigation -->
+  <header class="topbar">
     <div class="topbar-left">
-      <span class="clock-label" data-i18n="clockLabel">الساعة</span>
-      <span id="clock">--:--:--</span>
+      <button class="btn ghost" id="servicesNav">الخدمات</button>
     </div>
-    <button id="langToggle" class="btn small" aria-label="Language toggle" data-i18n="langBtn">English</button>
-  </div>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="profile">
-      <img src="https://i.imgur.com/6JY0J5G.jpeg" alt="Profile" />
+    <div class="topbar-center">
+      <div class="clock">
+        <span id="clock"></span>
+      </div>
     </div>
-    <div class="brand">
-      <h1 class="title" data-i18n="brandTitle">Mazen Abou El Dahab Store</h1>
-      <p class="subtitle" data-i18n="brandSub">ماركت خاص، والمبرمج مازن أبو الدهب، باسم</p>
+
+    <div class="topbar-right">
+      <button class="btn ghost" id="langToggle" aria-label="Toggle language">العربية / English</button>
+      <div class="profile">
+        <img src="https://iili.io/fegnOCb.th.jpg" alt="ABODAHAB Profile" />
+        <div class="profile-info">
+          <div class="brand">ABODAHAB Store</div>
+          <div class="sub">ماركت خاص بالمبدع أبو الدهب</div>
+        </div>
+      </div>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="hero">
-    <h2 data-i18n="heroTitle">Mazen Abou El Dahab Store</h2>
-    <p class="hero-text" data-i18n="heroText">
-      مكان واحد لكل خدماتك. اضغط على ماركت، واختر الخدمة، وبعدها نحدد التفاصيل خطوة بخطوة.
-    </p>
-    <div class="hero-actions">
-      <a href="#market" class="btn primary" data-i18n="enterMarket">دخول الماركت</a>
-      <a href="#devInfo" class="btn ghost" data-i18n="devInfoBtn">معلومات للمبرمج</a>
+  <section class="hero container">
+    <div class="hero-card">
+      <div class="hero-media">
+        <img src="https://iili.io/fegnOCb.th.jpg" alt="ABODAHAB" class="hero-img" />
+      </div>
+      <div class="hero-content">
+        <h1 class="hero-title" data-i18n="hero_title">ABODAHAB Store</h1>
+        <p class="hero-desc" data-i18n="hero_desc">
+          مكان واحد لكل خدماتك. اضغط على الماركت واختر الخدمة، وبعدها حدد التفاصيل خطوة بخطوة.
+        </p>
+        <div class="hero-actions">
+          <a href="#market" class="btn primary" data-i18n="enter_market">دخول الماركت</a>
+          <a href="#features" class="btn outline" data-i18n="market_features">مميزات الماركت</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <main class="layout">
-    <!-- Left: services list -->
-    <aside class="column left">
-      <h3 class="section-title" data-i18n="servicesLeftTitle">الخدمات</h3>
-      <p class="muted" data-i18n="servicesLeftDesc">اضغط على أي خدمة علشان نحدد تفاصيلها</p>
-
-      <ul class="list">
-        <li><a href="#auto-publish" class="list-link" data-i18n="svcAutoPublish">تنصيب حساب نشر تلقائي</a></li>
-        <li><a href="#channels-schedule" class="list-link" data-i18n="svcChannelsSchedule">اعداد القنوات والجدولة</a></li>
-        <li><a href="#web-build" class="list-link" data-i18n="svcWebBuild">خدمات انشاء مواقع الكترونية</a></li>
-        <li><a href="#tg-premium" class="list-link" data-i18n="svcTgPremium">شحن مميز تيليجرام بريميوم</a></li>
-        <li><a href="#numbers-bot" class="list-link" data-i18n="svcNumbersBot">تنصيب بوت تخزين ارقام</a></li>
-        <li><span class="list-link disabled" data-i18n="svcCryptoSoon">شراء تون أو USDT أو ليرا أو كاش — قريباً</span></li>
-        <li><span class="list-link disabled" data-i18n="svcNftGiftSoon">شراء هدية مطورة NFT — قريباً</span></li>
-      </ul>
-    </aside>
-
-    <!-- Middle: service buttons -->
-    <section id="market" class="column middle">
+  <!-- Features -->
+  <section id="features" class="features container">
+    <h2 class="section-title" data-i18n="features_title">مميزات الماركت</h2>
+    <div class="feature-grid">
       <div class="card">
-        <div class="card-header">
-          <h3 data-i18n="availableServicesMiddle">اختيار خدمة</h3>
-        </div>
-        <div class="grid">
-          <!-- Auto publish -->
-          <div class="tile" id="auto-publish">
-            <div class="tile-body">
-              <h4 class="tile-title" data-i18n="svcAutoPublish">تنصيب حساب نشر تلقائي</h4>
-              <p class="tile-desc" data-i18n="svcAutoPublishDesc">اعداد القنوات والجدولة</p>
-            </div>
-            <a href="#request" class="btn mini" data-i18n="startBtn">ابدأ</a>
-          </div>
-
-          <!-- NFT gift (soon) -->
-          <div class="tile disabled">
-            <div class="tile-body">
-              <h4 class="tile-title" data-i18n="svcNftGift">شراء هدية مطورة NFT</h4>
-              <p class="tile-desc" data-i18n="svcNftGiftDesc">اختيار الهدية والتسليم</p>
-            </div>
-            <button class="btn mini disabled" disabled data-i18n="soonBtn">قريباً</button>
-          </div>
-
-          <!-- Web build -->
-          <div class="tile" id="web-build">
-            <div class="tile-body">
-              <h4 class="tile-title" data-i18n="svcWebBuild">خدمات انشاء مواقع الكترونية</h4>
-              <p class="tile-desc" data-i18n="svcWebBuildDesc">موقع تعريفي أو متجر أو نظام طلبات</p>
-            </div>
-            <a href="#web-plans" class="btn mini" data-i18n="startBtn">ابدأ</a>
-          </div>
-
-          <!-- Telegram Premium -->
-          <div class="tile" id="tg-premium">
-            <div class="tile-body">
-              <h4 class="tile-title" data-i18n="svcTgPremium">شحن مميز تيليجرام بريميوم</h4>
-              <p class="tile-desc" data-i18n="svcTgPremiumDesc">مدة الاشتراك والتفعيل</p>
-            </div>
-            <a href="#request" class="btn mini" data-i18n="startBtn">ابدأ</a>
-          </div>
-
-          <!-- Numbers bot -->
-          <div class="tile" id="numbers-bot">
-            <div class="tile-body">
-              <h4 class="tile-title" data-i18n="svcNumbersBot">تنصيب بوت تخزين ارقام</h4>
-              <p class="tile-desc" data-i18n="svcNumbersBotDesc">ارسل البوت والتوكن واثبات الدفع</p>
-            </div>
-            <a href="#request" class="btn mini" data-i18n="startBtn">ابدأ</a>
-          </div>
-
-          <!-- Crypto buy (soon) -->
-          <div class="tile disabled">
-            <div class="tile-body">
-              <h4 class="tile-title" data-i18n="svcCrypto">شراء تون أو USDT أو ليرا أو كاش</h4>
-              <p class="tile-desc" data-i18n="svcCryptoDesc">تحديد العملة وطريقة التسليم</p>
-            </div>
-            <button class="btn mini disabled" disabled data-i18n="soonBtn">قريباً</button>
-          </div>
-        </div>
+        <h3 class="card-title" data-i18n="feat_one_t">تسعير واضح</h3>
+        <p class="card-desc" data-i18n="feat_one_d">باقات محددة، تفاصيل شفافة، واستلام ضمن المدة.</p>
       </div>
-
-      <!-- Web plans -->
-      <section id="web-plans" class="card">
-        <div class="card-header">
-          <h3 data-i18n="webPlansTitle">خدمات انشاء مواقع الكترونية</h3>
-          <div class="card-actions">
-            <a href="#request" class="btn small" data-i18n="deliverOnRequest">تسليم حسب الطلب</a>
-            <button class="btn small ghost" data-i18n="briefFree">حفظ بريف مجاني</button>
-            <button class="btn small ghost" data-i18n="briefPaid">دفع بريف مدفوع</button>
-          </div>
-        </div>
-
-        <!-- Plans: free brief -->
-        <div class="plans">
-          <h4 class="plans-cat" data-i18n="catFreeBrief">عادي - مميز - متخصص (بريف مجاني)</h4>
-          <div class="grid plans-grid">
-            <div class="plan">
-              <div class="plan-head">
-                <span class="badge" data-i18n="freeBrief">بريف مجاني</span>
-                <h5 class="plan-title" data-i18n="proInformative">متخصص موقع تعريفي + خدمات</h5>
-              </div>
-              <div class="plan-body">
-                <p class="price"><span data-i18n="price">السعر:</span> <strong>5490 جنيه</strong></p>
-                <p class="eta"><span data-i18n="delivery">التسليم:</span> <strong>6 أيام</strong></p>
-                <ul class="features">
-                  <li data-i18n="f6pages">✔ حتى 6 صفحات</li>
-                  <li data-i18n="fServicesPortfolio">✔ قسم خدمات + أعمال</li>
-                  <li data-i18n="fAdvContact">✔ نموذج تواصل متقدم</li>
-                  <li data-i18n="fSeoPages">✔ تحسين سيو الصفحات</li>
-                </ul>
-              </div>
-              <a href="#request" class="btn block" data-i18n="orderBtn">طلب الخدمة</a>
-            </div>
-
-            <div class="plan">
-              <div class="plan-head">
-                <span class="badge" data-i18n="freeBrief">بريف مجاني</span>
-                <h5 class="plan-title" data-i18n="premInformative">مميز موقع تعريفي متكامل</h5>
-              </div>
-              <div class="plan-body">
-                <p class="price"><span data-i18n="price">السعر:</span> <strong>3490 جنيه</strong></p>
-                <p class="eta"><span data-i18n="delivery">التسليم:</span> <strong>4 أيام</strong></p>
-                <ul class="features">
-                  <li data-i18n="f5pages">✔ حتى 5 صفحات</li>
-                  <li data-i18n="fBranding">✔ هوية ألوان وخطوط</li>
-                  <li data-i18n="fContactMap">✔ نموذج تواصل + خريطة</li>
-                  <li data-i18n="fPerf">✔ تحسين سرعة وتحميل</li>
-                </ul>
-              </div>
-              <a href="#request" class="btn block" data-i18n="orderBtn">طلب الخدمة</a>
-            </div>
-
-            <div class="plan">
-              <div class="plan-head">
-                <span class="badge" data-i18n="freeBrief">بريف مجاني</span>
-                <h5 class="plan-title" data-i18n="stdInformative">عادي موقع تعريفي بسيط</h5>
-              </div>
-              <div class="plan-body">
-                <p class="price"><span data-i18n="price">السعر:</span> <strong>1990 جنيه</strong></p>
-                <p class="eta"><span data-i18n="delivery">التسليم:</span> <strong>يومين</strong></p>
-                <ul class="features">
-                  <li data-i18n="f3pages">✔ حتى 3 صفحات</li>
-                  <li data-i18n="fResponsive">✔ تصميم بسيط متجاوب</li>
-                  <li data-i18n="fWhatsappReply">✔ رد واتساب مباشر</li>
-                  <li data-i18n="fSeoBasic">✔ تهيئة سيو أساسي</li>
-                </ul>
-              </div>
-              <a href="#request" class="btn block" data-i18n="orderBtn">طلب الخدمة</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Plans: paid brief -->
-        <div class="plans">
-          <h4 class="plans-cat" data-i18n="catPaidBrief">عادي - مميز - متخصص (بريف مدفوع)</h4>
-          <div class="grid plans-grid">
-            <div class="plan">
-              <div class="plan-head">
-                <span class="badge badge-paid" data-i18n="paidBrief">بريف مدفوع</span>
-                <h5 class="plan-title" data-i18n="proRequests">متخصص نظام تقارير وطلبات</h5>
-              </div>
-              <div class="plan-body">
-                <p class="price"><span data-i18n="price">السعر:</span> <strong>12990 جنيه</strong></p>
-                <p class="eta"><span data-i18n="delivery">التسليم:</span> <strong>10 أيام</strong></p>
-                <ul class="features">
-                  <li data-i18n="fForms">✔ نماذج تقارير وطلبات</li>
-                  <li data-i18n="fEmail">✔ إدخالات وربط إيميل</li>
-                  <li data-i18n="fOrdersBoard">✔ لوحة الطلبات</li>
-                  <li data-i18n="fSimpleReports">✔ تقارير بسيطة</li>
-                </ul>
-              </div>
-              <a href="#request" class="btn block" data-i18n="orderBtn">طلب الخدمة</a>
-            </div>
-
-            <div class="plan">
-              <div class="plan-head">
-                <span class="badge badge-paid" data-i18n="paidBrief">بريف مدفوع</span>
-                <h5 class="plan-title" data-i18n="premRequests">مميز نظام تقارير وطلبات متوسط</h5>
-              </div>
-              <div class="plan-body">
-                <p class="price"><span data-i18n="price">السعر:</span> <strong>9990 جنيه</strong></p>
-                <p class="eta"><span data-i18n="delivery">التسليم:</span> <strong>7 أيام</strong></p>
-                <ul class="features">
-                  <li data-i18n="fFullMisc">✔ لوحة متفرقات كاملة</li>
-                  <li data-i18n="fEmail">✔ إدخالات وربط إيميل</li>
-                  <li data-i18n="fOrdersBoard">✔ لوحة الطلبات</li>
-                  <li data-i18n="fAlerts">✔ تنبيهات حسب الطلب</li>
-                </ul>
-              </div>
-              <a href="#request" class="btn block" data-i18n="orderBtn">طلب الخدمة</a>
-            </div>
-
-            <div class="plan">
-              <div class="plan-head">
-                <span class="badge badge-paid" data-i18n="paidBrief">بريف مدفوع</span>
-                <h5 class="plan-title" data-i18n="stdCatalog">عادي موقع كبير كاتلوج</h5>
-              </div>
-              <div class="plan-body">
-                <p class="price"><span data-i18n="price">السعر:</span> <strong>7490 جنيه</strong></p>
-                <p class="eta"><span data-i18n="delivery">التسليم:</span> <strong>6 أيام</strong></p>
-                <ul class="features">
-                  <li data-i18n="f12pages">✔ حتى 12 صفحة</li>
-                  <li data-i18n="fMultiSections">✔ أقسام متعددة للمحتوى</li>
-                  <li data-i18n="fCustomForms">✔ نماذج تواصل حسب الطلب</li>
-                  <li data-i18n="fPerf">✔ تحسين سرعة وتحميل</li>
-                </ul>
-              </div>
-              <a href="#request" class="btn block" data-i18n="orderBtn">طلب الخدمة</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Extra categories you requested -->
-        <div class="categories card-sub">
-          <h4 class="plans-cat" data-i18n="extraCatsTitle">تصنيفات إضافية لخدمات إنشاء المواقع</h4>
-          <div class="grid cats-grid">
-            <div class="cat"><span data-i18n="catEcommerce">المتاجر الإلكترونية</span></div>
-            <div class="cat"><span data-i18n="catBlogsNews">المدونات والمواقع الإخبارية</span></div>
-            <div class="cat"><span data-i18n="catEduPlatforms">منصات التعليم</span></div>
-            <div class="cat"><span data-i18n="catPersonalSites">المواقع الشخصية</span></div>
-            <div class="cat"><span data-i18n="catGovService">المواقع الحكومية والخدمية</span></div>
-            <div class="cat"><span data-i18n="catSocialPlatforms">منصات التواصل الاجتماعي</span></div>
-            <div class="cat"><span data-i18n="catBookingService">مواقع الحجوزات والخدمات</span></div>
-            <div class="cat"><span data-i18n="catHostingMgmt">إدارة الاستضافة والنشر</span></div>
-            <div class="cat"><span data-i18n="catServerDev">برمجة الخوادم</span></div>
-          </div>
-        </div>
-      </section>
-    </section>
-
-    <!-- Right: available services -->
-    <aside class="column right">
-      <h3 class="section-title" data-i18n="availableServicesRight">الخدمات المتاحة</h3>
-      <div class="card small">
-        <h4 class="card-subtitle" data-i18n="starsTopup">شحن النجوم</h4>
-        <p class="muted" data-i18n="starsTopupDesc">اختيار الباقة وطريقة الدفع</p>
+      <div class="card">
+        <h3 class="card-title" data-i18n="feat_two_t">هوية متناسقة</h3>
+        <p class="card-desc" data-i18n="feat_two_d">ألوان، خطوط، وتراكيب محتوى احترافية لعلامتك.</p>
       </div>
-      <div class="card small">
-        <h4 class="card-subtitle" data-i18n="starsWithdraw">سحب النجوم من القنوات</h4>
-        <p class="muted" data-i18n="starsWithdrawDesc">تحديد القناة والكمية</p>
+      <div class="card">
+        <h3 class="card-title" data-i18n="feat_three_t">جاهزية للسيو</h3>
+        <p class="card-desc" data-i18n="feat_three_d">تهيئة أساسية أو متقدمة لصفحاتك للظهور الصحيح.</p>
       </div>
-      <div class="card small">
-        <h4 class="card-subtitle" data-i18n="nftUser">شراء يوزرات NFT</h4>
-        <p class="muted" data-i18n="nftUserDesc">بحث عن يوزر وتأكيد الشراء</p>
-      </div>
-    </aside>
-  </main>
+    </div>
+  </section>
 
-  <!-- Request form -->
-  <section id="request" class="card form-card">
-    <h3 data-i18n="requestTitle">طلب إنشاء موقع</h3>
-    <form id="requestForm" class="form">
-      <label class="form-label" for="name" data-i18n="yourName">اسمك</label>
-      <input id="name" name="name" type="text" placeholder="اكتب اسمك" />
-
-      <label class="form-label" for="whatsapp" data-i18n="whatsapp">رقم واتساب</label>
-      <input id="whatsapp" name="whatsapp" type="tel" placeholder="مثال: 01000000000" />
-
-      <label class="form-label" for="siteType" data-i18n="siteType">نوع الموقع</label>
-      <select id="siteType" name="siteType">
-        <option value="company" data-i18n="siteTypeCompany">شركة/مؤسسة</option>
-        <option value="ecommerce" data-i18n="siteTypeEcommerce">متجر إلكتروني</option>
-        <option value="blog" data-i18n="siteTypeBlog">مدونة/إخباري</option>
-        <option value="personal" data-i18n="siteTypePersonal">شخصي</option>
-        <option value="edu" data-i18n="siteTypeEdu">تعليمي</option>
-        <option value="gov" data-i18n="siteTypeGov">حكومي/خدمي</option>
-        <option value="booking" data-i18n="siteTypeBooking">حجوزات/خدمات</option>
-        <option value="social" data-i18n="siteTypeSocial">منصة تواصل</option>
-      </select>
-
-      <label class="form-label" for="visibility" data-i18n="visibility">الظهور في جوجل</label>
-      <select id="visibility" name="visibility">
-        <option value="trial" data-i18n="visibilityTrial">تجريبي — لا تظهر في نتائج جوجل</option>
-        <option value="index" data-i18n="visibilityIndex">مفهرس — تظهر في نتائج جوجل</option>
-      </select>
-
-      <label class="form-label" for="plan" data-i18n="levelPlan">المستوى والخطة</label>
-      <select id="plan" name="plan">
-        <option value="std-1990-3" data-i18n="planStd">عادي — 1990 — 3 أيام</option>
-        <option value="prem-3490-4" data-i18n="planPrem">مميز — 3490 — 4 أيام</option>
-        <option value="pro-5490-6" data-i18n="planPro">متخصص — 5490 — 6 أيام</option>
-        <option value="sys-9990-7" data-i18n="planSysMid">نظام متوسط — 9990 — 7 أيام</option>
-        <option value="sys-12990-10" data-i18n="planSysPro">نظام متقدم — 12990 — 10 أيام</option>
-      </select>
-
-      <label class="form-label" for="notes" data-i18n="notes">ملاحظات</label>
-      <textarea id="notes" name="notes" rows="3" placeholder="مثال: مدونة + منصة + أسعار + منصة تواصل + ربط واكتساب"></textarea>
-
-      <p class="muted" data-i18n="collectDataNote">
-        سيتم تجميع البيانات وارسالها لك بصيغة مرتبة للمراجعة قبل البدء.
+  <!-- Market -->
+  <section id="market" class="market container">
+    <div class="market-header">
+      <h2 class="section-title" data-i18n="market_title">خدمات إنشاء مواقع إلكترونية</h2>
+      <p class="section-sub" data-i18n="market_sub">
+        اختر الباقة التي تناسبك، وبعد طلبك لموقعك سيتم التواصل معك قبل التنفيذ.
       </p>
+      <div class="market-actions">
+        <button class="btn chip" data-i18n="delivery_on_demand">تسليم حسب الطلب</button>
+        <button class="btn chip" data-i18n="free_brief">حفظ بروفيس مجاني</button>
+        <button class="btn chip" data-i18n="paid_brief">حفظ بروفيس مدفوع</button>
+      </div>
+    </div>
 
-      <button type="button" id="sendWhatsApp" class="btn primary block" data-i18n="sendWhatsapp">
-        ارسل الطلب على واتساب
-      </button>
+    <!-- Packages grid -->
+    <div class="packages">
+      <!-- Row 1 -->
+      <div class="grid">
+        <div class="pkg card">
+          <div class="pkg-head">
+            <span class="badge" data-i18n="basic">عادي</span>
+            <h3 class="pkg-title" data-i18n="site_simple">موقع إلكتروني بسيط</h3>
+            <span class="brief" data-i18n="brief_free">بروفيس مجاني</span>
+          </div>
+          <div class="pkg-price">
+            <span class="price">1990 جنيه</span>
+            <span class="time" data-i18n="deliver_2d">التسليم: يومين</span>
+          </div>
+          <ul class="pkg-feats">
+            <li>حتى ٣ صفحات</li>
+            <li>تصميم بسيط متجاوب</li>
+            <li>رد واتساب مباشر</li>
+            <li>تهيئة سيو أساسي</li>
+          </ul>
+          <button class="btn primary pkg-order" data-level="basic" data-i18n="order_service">طلب الخدمة</button>
+        </div>
+
+        <div class="pkg card">
+          <div class="pkg-head">
+            <span class="badge badge-mid" data-i18n="pro">مميز</span>
+            <h3 class="pkg-title" data-i18n="site_full">موقع إلكتروني متكامل</h3>
+            <span class="brief" data-i18n="brief_free">بروفيس مجاني</span>
+          </div>
+          <div class="pkg-price">
+            <span class="price">3490 جنيه</span>
+            <span class="time" data-i18n="deliver_4d">التسليم: ٤ أيام</span>
+          </div>
+          <ul class="pkg-feats">
+            <li>حتى ٥ صفحات</li>
+            <li>هوية ألوان وخطوط</li>
+            <li>محتوى وتراكيب</li>
+            <li>تهيئة سيو وتفصيل</li>
+          </ul>
+          <button class="btn primary pkg-order" data-level="mid" data-i18n="order_service">طلب الخدمة</button>
+        </div>
+
+        <div class="pkg card">
+          <div class="pkg-head">
+            <span class="badge badge-pro" data-i18n="special">متخصص</span>
+            <h3 class="pkg-title" data-i18n="site_services">موقع خدمات</h3>
+            <span class="brief" data-i18n="brief_free">بروفيس مجاني</span>
+          </div>
+          <div class="pkg-price">
+            <span class="price">5490 جنيه</span>
+            <span class="time" data-i18n="deliver_6d">التسليم: ٦ أيام</span>
+          </div>
+          <ul class="pkg-feats">
+            <li>حتى ٦ صفحات</li>
+            <li>قسم خدمات + أعمال</li>
+            <li>نموذج تواصل متقدم</li>
+            <li>تحسين سيو الصفحات</li>
+          </ul>
+          <button class="btn primary pkg-order" data-level="pro" data-i18n="order_service">طلب الخدمة</button>
+        </div>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="grid">
+        <div class="pkg card">
+          <div class="pkg-head">
+            <span class="badge" data-i18n="basic">عادي</span>
+            <h3 class="pkg-title" data-i18n="site_catalog">موقع كبير كاتلوج</h3>
+            <span class="brief" data-i18n="brief_paid">بروفيس مدفوع</span>
+          </div>
+          <div class="pkg-price">
+            <span class="price">7490 جنيه</span>
+            <span class="time" data-i18n="deliver_6d">التسليم: ٦ أيام</span>
+          </div>
+          <ul class="pkg-feats">
+            <li>حتى ١٢ صفحة</li>
+            <li>أقسام متعددة للمحتوى</li>
+            <li>نماذج تواصل حسب الطلب</li>
+            <li>تهيئة سيو وتفصيل</li>
+          </ul>
+          <button class="btn primary pkg-order" data-level="basic_big" data-i18n="order_service">طلب الخدمة</button>
+        </div>
+
+        <div class="pkg card">
+          <div class="pkg-head">
+            <span class="badge badge-mid" data-i18n="pro">مميز</span>
+            <h3 class="pkg-title" data-i18n="system_mid">نظام متكامل أو نظام متوسط</h3>
+            <span class="brief" data-i18n="brief_paid">بروفيس مدفوع</span>
+          </div>
+          <div class="pkg-price">
+            <span class="price">9990 جنيه</span>
+            <span class="time" data-i18n="deliver_8d">التسليم: ٨ أيام</span>
+          </div>
+          <ul class="pkg-feats">
+            <li>لوحة تحكم كاملة</li>
+            <li>تفاعلات مخصصة</li>
+            <li>نماذج متعددة</li>
+            <li>تهيئة سيو للصفحات</li>
+          </ul>
+          <button class="btn primary pkg-order" data-level="mid_system" data-i18n="order_service">طلب الخدمة</button>
+        </div>
+
+        <div class="pkg card">
+          <div class="pkg-head">
+            <span class="badge badge-pro" data-i18n="special">متخصص</span>
+            <h3 class="pkg-title" data-i18n="system_reports">نظام تقارير وحجوزات</h3>
+            <span class="brief" data-i18n="brief_paid">بروفيس مدفوع</span>
+          </div>
+          <div class="pkg-price">
+            <span class="price">12990 جنيه</span>
+            <span class="time" data-i18n="deliver_10d">التسليم: ١٠ أيام</span>
+          </div>
+          <ul class="pkg-feats">
+            <li>نماذج تقارير وحجوزات</li>
+            <li>إضافات مخصصة للأعمال</li>
+            <li>لوحة تحكم للطلبات</li>
+            <li>تقارير بسيطة</li>
+          </ul>
+          <button class="btn primary pkg-order" data-level="pro_reports" data-i18n="order_service">طلب الخدمة</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional service categories (requested) -->
+    <div class="extra-services">
+      <h3 class="section-sub" data-i18n="extra_services_title">فئات إضافية للخدمات</h3>
+      <div class="extra-grid">
+        <div class="card"><h4>المتاجر الإلكترونية</h4></div>
+        <div class="card"><h4>المدونات والمواقع الإخبارية</h4></div>
+        <div class="card"><h4>منصات التعليم</h4></div>
+        <div class="card"><h4>المواقع الشخصية</h4></div>
+        <div class="card"><h4>المواقع الحكومية والخدمية</h4></div>
+        <div class="card"><h4>منصات التواصل الاجتماعي</h4></div>
+        <div class="card"><h4>مواقع الحجوزات والخدمات</h4></div>
+        <div class="card"><h4>إدارة الاستضافة والنشر</h4></div>
+        <div class="card"><h4>برمجة الخوادم</h4></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Request form (WhatsApp) -->
+  <section id="request" class="request container">
+    <h2 class="section-title" data-i18n="request_title">طلب إنشاء موقع</h2>
+
+    <form id="requestForm" class="form">
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="name" data-i18n="name_label">اسمك</label>
+          <input id="name" type="text" placeholder="اكتب اسمك" />
+        </div>
+
+        <div class="form-field">
+          <label for="whatsapp" data-i18n="wa_label">رقم واتساب</label>
+          <input id="whatsapp" type="tel" placeholder="مثال: 01000000000" />
+        </div>
+
+        <div class="form-field">
+          <label for="type" data-i18n="type_label">نوع الموقع</label>
+          <select id="type">
+            <option>شركة/مؤسسة</option>
+            <option>متجر إلكتروني</option>
+            <option>مدونة/إخباري</option>
+            <option>منصة تعليم</option>
+            <option>شخصي/بورتفوليو</option>
+            <option>خدمي/حكومي</option>
+            <option>حجوزات وخدمات</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label data-i18n="visibility_label">الظهور في جوجل</label>
+          <div class="radio-group">
+            <label><input type="radio" name="visibility" value="test" checked /> تجريبي — لا تظهر في نتائج جوجل</label>
+            <label><input type="radio" name="visibility" value="index" /> مفهرس — تظهر في نتائج جوجل</label>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label data-i18n="plan_label">المستوى والخطة</label>
+          <div class="chip-group">
+            <label class="chip"><input type="radio" name="plan" value="basic-1990-2" checked /> عادي — 1990 — 2 يوم</label>
+            <label class="chip"><input type="radio" name="plan" value="mid-3490-4" /> متوسط — 3490 — 4 أيام</label>
+            <label class="chip"><input type="radio" name="plan" value="pro-5490-6" /> مميز — 5490 — 6 أيام</label>
+            <label class="chip"><input type="radio" name="plan" value="catalog-7490-6" /> عادي كبير — 7490 — 6 أيام</label>
+            <label class="chip"><input type="radio" name="plan" value="system-9990-8" /> نظام متوسط — 9990 — 8 أيام</label>
+            <label class="chip"><input type="radio" name="plan" value="reports-12990-10" /> تقارير وحجوزات — 12990 — 10 أيام</label>
+          </div>
+        </div>
+        
+        <div class="form-field wide">
+          <label for="notes" data-i18n="notes_label">ملاحظات</label>
+          <textarea id="notes" rows="4" placeholder="مثال: متجر + خدمة + أسعار + منصة تواصل + ربط واكتساب"></textarea>
+          <p class="helper" data-i18n="notes_helper">
+            سيتم تجميع البيانات وارسالها لك بصيغة مرتبة للمراجعة قبل البدء.
+          </p>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn primary" id="sendWhatsApp" data-i18n="send_wa">ارسل الطلب على واتساب</button>
+      </div>
     </form>
   </section>
 
-  <!-- Dev info -->
-  <section id="devInfo" class="card">
-    <h3 data-i18n="devInfoTitle">معلومات للمبرمج</h3>
-    <p class="muted" data-i18n="devInfoText">
-      هذا الموقع نسخة مخصصة باسم مازن أبو الدهب مع دعم اللغة والساعة الثابتة، وتجميع الطلبات عبر واتساب.
+  <!-- Footer note -->
+  <footer class="footer container">
+    <p data-i18n="footer_note">
+      بعد ارسال الطلب سيتم مراجعة الطلب المقدم. الأولوية للخدمات المطلوبة بشكل دائم أو نظام خاص بمتطلبات محددة قبل التنفيذ.
     </p>
-  </section>
-
-  <footer class="footer">
-    <p>&copy; <span id="year"></span> <span data-i18n="brandTitle">Mazen Abou El Dahab Store</span></p>
+    <p class="credit">© ABODAHAB Store</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
