@@ -1,100 +1,229 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خدمات ابوالدهب - تصميم مواقع احترافي</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="fonts.googleapis.com" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="خدماتي من خدمات أبو الدهب - تصميم مواقع، حلول التجارة الإلكترونية، متاجر إلكترونية، مواقع خاصة، تواصل، وأعمال سابقة"/>
+  <title>خدماتي من خدمات أبو الدهب</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- شريط التنقل (Navigation Bar) -->
-    <nav>
-        <div class="container nav-container">
-            <a href="#" class="logo">خدمات ابوالدهب</a>
-            <ul class="nav-links">
-                <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#services">خدماتي</a></li>
-                <li><a href="#portfolio">الأعمال</a></li>
-                <li><a href="#contact">تواصل معي</a></li>
-                <li><button onclick="toggleLanguage()">English</button></li>
-            </ul>
-        </div>
-    </nav>
+  <!-- شريط علوي -->
+  <header class="header">
+    <div class="brand">
+      <div class="logo-glow"></div>
+      <h1 class="site-title" data-i18n="siteTitle">خدماتي من خدمات أبو الدهب</h1>
+      <p class="site-subtitle" data-i18n="siteSubtitle">نصمم ونطوّر مواقع تبني ثقة وتبيع بذكاء</p>
+    </div>
 
-    <!-- قسم المقدمة (Hero Section) -->
-    <header id="home" class="hero">
-        <div class="container">
-            <h1>تصميم مواقع ويب **خرافية** وجذابة 🚀</h1>
-            <p>أنا متخصص في بناء واجهات مستخدم احترافية لمتاجر إلكترونية، مواقع شخصية، وإعلانات تسويقية.</p>
-            <a href="#contact" class="btn btn-primary">ابدأ مشروعك الآن</a>
-        </div>
-    </header>
+    <div class="header-actions">
+      <button id="translateBtn" class="btn glow" aria-label="زر ترجمة">
+        <span class="lang-ar">ترجمة</span>
+        <span class="lang-en" style="display:none">Translate</span>
+      </button>
+      <div class="clock" aria-label="ساعة إلكترونية">
+        <span id="clockTime">00:00:00</span>
+      </div>
+    </div>
+  </header>
 
-    <!-- قسم الخدمات (Services) -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2>خدماتي في تطوير الويب</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>تصميم متاجر (E-commerce)</h3>
-                    <p>بناء متاجر إلكترونية متكاملة وجذابة باستخدام منصات مثل Shopify, WooCommerce, أو تصميم خاص.</p>
-                </div>
-                <div class="service-card">
-                    <h3>مواقع شركات (Corporate Sites)</h3>
-                    <p>تصميم مواقع تعريفية احترافية للشركات لعرض خدماتهم، تاريخهم، وفريق العمل بشكل موثوق وجذاب.</p>
-                </div>
-                <div class="service-card">
-                    <h3>اعلانات تسويقية (Landing Pages)</h3>
-                    <p>تصميم صفحات هبوط (Landing Pages) فعالة ومؤثرة لحملاتك الإعلانية لزيادة معدل التحويل (Conversion Rate).</p>
-                </div>
-                <div class="service-card">
-                    <h3>تطبيقات الويب المخصصة (Custom Web Apps)</h3>
-                    <p>برمجة تطبيقات ويب متقدمة مثل أنظمة الإدارة (CMS)، تطبيقات التواصل، أو أدوات العمل الداخلية.</p>
-                </div>
-                <div class="service-card">
-                    <h3>تحسين الأداء و SEO</h3>
-                    <p>العمل على تسريع تحميل المواقع (Performance Optimization) وتحسينها لمحركات البحث (SEO) لضمان ظهور أفضل.</p>
-                </div>
-                <div class="service-card">
-                    <h3>دعم وصيانة مستمرة</h3>
-                    <p>تقديم خدمات الدعم التقني المستمر وتحديث المواقع وحل المشكلات لضمان استمرارية العمل.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- شريط تنقّل -->
+  <nav class="nav">
+    <ul>
+      <li><a href="#services" data-i18n="navServices">الخدمات</a></li>
+      <li><a href="#portfolio" data-i18n="navPortfolio">أعمال سابقة</a></li>
+      <li><a href="#ecommerce" data-i18n="navEcom">حلول التجارة الإلكترونية</a></li>
+      <li><a href="#custom" data-i18n="navCustom">مواقع خاصة</a></li>
+      <li><a href="#contact" data-i18n="navContact">تواصل</a></li>
+    </ul>
+  </nav>
 
-    <!-- قسم الأعمال (Portfolio) -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <h2>أعمالي السابقة</h2>
-            <div class="portfolio-grid" id="portfolio-items">
-                <!-- سيتم إضافة المشاريع هنا باستخدام JavaScript -->
-            </div>
-        </div>
-    </section>
+  <!-- قسم بطل الصفحة -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2 data-i18n="heroTitle">موقعك مش بس شكل... هو تجربة كاملة تنمّي مشروعك</h2>
+      <p data-i18n="heroText">
+        من أول الفكرة لحد الإطلاق، ببني موقعك خطوة بخطوة: سرعة، حماية، تجربة مستخدم، وتحويلات عالية.
+      </p>
+      <div class="hero-actions">
+        <a href="#services" class="btn primary glow" data-i18n="heroBtn1">ابدأ الآن</a>
+        <a href="#portfolio" class="btn secondary" data-i18n="heroBtn2">شوف أعمالي</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- قسم التواصل (Contact) -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>تواصل معي</h2>
-            <p>جاهز للعمل على مشروعك القادم! ارسل لي رسالة.</p>
-            <form action="#" method="POST">
-                <input type="text" placeholder="الاسم الكامل" required>
-                <input type="email" placeholder="البريد الإلكتروني" required>
-                <textarea placeholder="رسالتك" rows="5" required></textarea>
-                <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
-            </form>
-        </div>
-    </section>
+  <!-- الخدمات -->
+  <section id="services" class="section">
+    <h3 class="section-title" data-i18n="servicesTitle">الخدمات</h3>
+    <div class="cards">
+      <article class="card">
+        <h4 data-i18n="svc1Title">تصميم مواقع احترافية</h4>
+        <p data-i18n="svc1Desc">
+          واجهات لامعة، ألوان متناغمة، وتجربة مستخدم سلسة، مع توافق كامل للموبايل وسرعة تحميل ممتازة.
+        </p>
+        <ul class="features">
+          <li data-i18n="svc1F1">تصميم لاندنج بيدج جذابة</li>
+          <li data-i18n="svc1F2">تحسين السرعة وSEO</li>
+          <li data-i18n="svc1F3">تكامل نماذج التواصل والواتساب</li>
+        </ul>
+      </article>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 جميع الحقوق محفوظة. خدمات ابوالدهب.</p>
-            <div id="liveClock" class="live-clock"></div>
-        </div>
-    </footer>
+      <article class="card">
+        <h4 data-i18n="svc2Title">متاجر إلكترونية</h4>
+        <p data-i18n="svc2Desc">
+          متجر سريع وآمن مع سلة مشتريات، دفع، وتتبع الطلبات، وتجربة شراء بسيطة وواضحة.
+        </p>
+        <ul class="features">
+          <li data-i18n="svc2F1">إدارة منتجات وخصومات</li>
+          <li data-i18n="svc2F2">بوابات دفع متعددة</li>
+          <li data-i18n="svc2F3">تقارير ومتابعة المبيعات</li>
+        </ul>
+      </article>
 
-    <script src="script.js"></script>
+      <article class="card">
+        <h4 data-i18n="svc3Title">حلول التجارة الإلكترونية</h4>
+        <p data-i18n="svc3Desc">
+          استراتيجيات عملية لزيادة التحويلات، تحسين رحلة العميل، وأتمتة التسويق والبريد.
+        </p>
+        <ul class="features">
+          <li data-i18n="svc3F1">تحليل سلوك المستخدم</li>
+          <li data-i18n="svc3F2">أتمتة البريد والسلال المتروكة</li>
+          <li data-i18n="svc3F3">تكامل الشحن والمرتجعات</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h4 data-i18n="svc4Title">مواقع خاصة ومخصصة</h4>
+        <p data-i18n="svc4Desc">
+          حلول موجهة لاحتياجك: مواقع شخصية، شركات ناشئة، سيرة ذاتية تفاعلية، ولوحات إدارة فريدة.
+        </p>
+        <ul class="features">
+          <li data-i18n="svc4F1">تصميم بحسب الهوية</li>
+          <li data-i18n="svc4F2">لوحات تحكم سهلة</li>
+          <li data-i18n="svc4F3">إضافات مميزة مثل ساعة وإحصائيات</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- أعمال سابقة مع سرد بصيغة المتكلم -->
+  <section id="portfolio" class="section alt">
+    <h3 class="section-title" data-i18n="portfolioTitle">أعمالي السابقة</h3>
+
+    <div class="portfolio-grid">
+      <article class="work">
+        <h4 data-i18n="work1Title">موقع شركة توريد معدات</h4>
+        <p data-i18n="work1Story">
+          صممت الموقع بهوية داكنة ولمعة ذهبية، ركزت على عرض المنتجات ببطاقات واضحة وسهلت التواصل بنموذج فوري وزر واتساب.
+          حَسّنت الصور وضغطتها، وربطت الصفحات بمسارات بسيطة علشان العميل يوصل بسرعة للمنتج ويطلبه بدون تعقيد.
+        </p>
+      </article>
+
+      <article class="work">
+        <h4 data-i18n="work2Title">متجر ملابس عصري</h4>
+        <p data-i18n="work2Story">
+          استخدمت ألوان مرحة مع تباين قوي، بنيت سلة مشتريات سريعة، وطبّقت فلاتر ذكية حسب المقاس واللون.
+          اختبرت تجربة المستخدم على الموبايل وقللت عدد النقرات لحد الشراء، ودمجت كوبونات خصم لمضاعفة المبيعات.
+        </p>
+      </article>
+
+      <article class="work">
+        <h4 data-i18n="work3Title">موقع شخصي لمصور</h4>
+        <p data-i18n="work3Story">
+          ركزت على إبراز الأعمال بصور كبيرة وسلايدر ناعم، مع صفحة نبذة مختصرة وحجز جلسات مباشرة.
+          ضفت حماية للصور وعلامة مائية خفيفة، واهتميت بسرعة التحميل وتحسين الظهور في البحث.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- حلول التجارة الإلكترونية -->
+  <section id="ecommerce" class="section">
+    <h3 class="section-title" data-i18n="ecomTitle">حلول التجارة الإلكترونية</h3>
+    <div class="ecom-grid">
+      <div class="ecom-item">
+        <h4 data-i18n="ecom1Title">تحويلات أعلى</h4>
+        <p data-i18n="ecom1Desc">
+          خرّطت رحلة العميل خطوة بخطوة، قللت مصادر التشتت، واستخدمت دعوات إجراء واضحة، مع اختبار A/B لتحسين الصفحات.
+        </p>
+      </div>
+      <div class="ecom-item">
+        <h4 data-i18n="ecom2Title">تكامل دفع وشحن</h4>
+        <p data-i18n="ecom2Desc">
+          جهزت بوابات دفع متعددة وخطوات دفع مختصرة، وربطت الشحن بتتبع مباشر ورسائل تأكيد تلقائية.
+        </p>
+      </div>
+      <div class="ecom-item">
+        <h4 data-i18n="ecom3Title">أتمتة تسويقية</h4>
+        <p data-i18n="ecom3Desc">
+          بنيت حملات بريدية للسلال المتروكة، وقسمت العملاء لشرائح، وربطت المتجر بأدوات تحليلات دقيقة لاتخاذ قرارات سريعة.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- مواقع خاصة -->
+  <section id="custom" class="section alt">
+    <h3 class="section-title" data-i18n="customTitle">مواقع خاصة ومصممة حسب الطلب</h3>
+    <div class="cards">
+      <article class="card">
+        <h4 data-i18n="custom1Title">موقع شخصي/سيرة ذاتية</h4>
+        <p data-i18n="custom1Desc">
+          عرض أعمالك بأسلوب نظيف وجذاب، مع قسم نبذة، مهارات، واتصال مباشر. ألوان متوازنة ولمعة خفيفة تعكس هويتك.
+        </p>
+      </article>
+      <article class="card">
+        <h4 data-i18n="custom2Title">موقع شركة ناشئة</h4>
+        <p data-i18n="custom2Desc">
+          صفحة طويلة واضحة تحكي القصة، تعرض المزايا، شهادات العملاء، وخريطة تواصل. جاهزة للتوسّع مستقبلاً.
+        </p>
+      </article>
+      <article class="card">
+        <h4 data-i18n="custom3Title">لوحة تحكم بسيطة</h4>
+        <p data-i18n="custom3Desc">
+          واجهة منظمة لإدارة المحتوى أو الطلبات، مؤشرات أداء فورية، وسهولة استخدام بدون تعقيد.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- دعوة للفعل -->
+  <section class="cta">
+    <h3 data-i18n="ctaTitle">جاهز تبني موقع أقوى من منافسيك؟</h3>
+    <p data-i18n="ctaDesc">
+      خليني أجهّزلك واجهة أنضف وألوان أحلى ولمعان مميز، مع زر ترجمة وساعة إلكترونية وإضافات فريدة.
+    </p>
+    <a href="#contact" class="btn primary glow" data-i18n="ctaBtn">تواصل دلوقتي</a>
+  </section>
+
+  <!-- تواصل -->
+  <section id="contact" class="section">
+    <h3 class="section-title" data-i18n="contactTitle">تواصل</h3>
+    <form id="contactForm" class="contact-form" novalidate>
+      <div class="form-row">
+        <label for="name" data-i18n="contactNameLabel">الاسم</label>
+        <input id="name" name="name" type="text" placeholder="اسمك" data-i18n-placeholder="contactNamePh" required/>
+      </div>
+      <div class="form-row">
+        <label for="email" data-i18n="contactEmailLabel">البريد الإلكتروني</label>
+        <input id="email" name="email" type="email" placeholder="email@example.com" data-i18n-placeholder="contactEmailPh" required/>
+      </div>
+      <div class="form-row">
+        <label for="message" data-i18n="contactMsgLabel">رسالتك</label>
+        <textarea id="message" name="message" rows="5" placeholder="احكي طلبك بالتفصيل" data-i18n-placeholder="contactMsgPh" required></textarea>
+      </div>
+      <button type="submit" class="btn primary glow" data-i18n="contactBtn">إرسال</button>
+      <p class="form-status" id="formStatus" role="status"></p>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> <span data-i18n="footerBrand">خدماتي من خدمات أبو الدهب</span> — <span data-i18n="footerText">نبني مواقع تِكسب ثقة وتبيع بذكاء</span></p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
