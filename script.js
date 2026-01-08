@@ -1,4 +1,3 @@
-const apiKey = '2aa88303f9f750a28ef94e6d9ea2cee9'; // مفتاحك المقدم
 const searchBtn = document.getElementById('searchBtn');
 const cityInput = document.getElementById('cityInput');
 
@@ -12,38 +11,38 @@ async function getData() {
     const errorMsg = document.getElementById('errorMsg');
     const loader = document.getElementById('loader');
 
-    // تصفية النتائج السابقة
     resultCard.style.display = 'none';
     errorMsg.innerText = '';
     loader.style.display = 'block';
 
     try {
-        // 1. طلب بيانات الطقس
-        const weatherUrl = `api.openweathermap.org{city}&appid=${apiKey}&units=metric&lang=ar`;
+        // 1. جلب بيانات الدولة للحصول على الإحداثيات (مجاني تماماً)
+        const countryRes = await fetch(`restcountries.com{city}?fullText=true`);
+        const countryData = await countryRes.json();
+        
+        if (countryData.status === 404) throw new Error("المدينة/الدولة غير موجودة.");
+
+        const lat = countryData[0].latlng[0];
+        const lon = countryData[0].latlng[1];
+        const countryInfo = countryData[0];
+        const cityNameArabic = countryInfo.translations.ara.common;
+
+        // 2. طلب بيانات الطقس من Open-Meteo (مجاني ولا يحتاج مفتاح)
+        const weatherUrl = `api.open-meteo.com{lat}&longitude=${lon}&current_weather=true&hourly=temperature_2m,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto`;
         const weatherRes = await fetch(weatherUrl);
         const weatherData = await weatherRes.json();
 
-        if (weatherData.cod !== 200) {
-            throw new Error("لم نجد المدينة، أو ربما المفتاح لم يتم تفعيله بعد من الشركة.");
-        }
-
-        // 2. طلب بيانات الدولة (مجاني بدون مفتاح)
-        const countryCode = weatherData.sys.country;
-        const countryRes = await fetch(`restcountries.com{countryCode}`);
-        const countryData = await countryRes.json();
-        const countryInfo = countryData[0];
-
         // 3. عرض البيانات في الصفحة
-        document.getElementById('cityName').innerText = `${weatherData.name}, ${countryInfo.translations.ara.common}`;
-        document.getElementById('temp').innerText = `${Math.round(weatherData.main.temp)}°C`;
-        document.getElementById('weatherDesc').innerText = weatherData.weather[0].description;
-        document.getElementById('weatherIcon').src = `openweathermap.org{weatherData.weather[0].icon}@2x.png`;
+        document.getElementById('cityName').innerText = `${city}, ${cityNameArabic}`;
+        document.getElementById('temp').innerText = `${Math.round(weatherData.current_weather.temperature)}°C`;
+        document.getElementById('weatherDesc').innerText = "طقس اليوم"; // Open-Meteo يحتاج ربط Weather code بالوصف
+        document.getElementById('weatherIcon').src = `openweathermap.org`; // استخدم أيقونة افتراضية أو ابحث عن ربط
         document.getElementById('countryFlag').src = countryInfo.flags.svg;
         
-        document.getElementById('countryName').innerText = countryInfo.translations.ara.common;
-        document.getElementById('capital').innerText = countryInfo.capital[0];
+        document.getElementById('countryName').innerText = cityNameArabic;
+        document.getElementById('capital').innerText = countryInfo.capital;
         document.getElementById('population').innerText = countryInfo.population.toLocaleString('ar-EG');
-        document.getElementById('timezone').innerText = countryInfo.timezones[0];
+        document.getElementById('timezone').innerText = weatherData.timezone;
 
         loader.style.display = 'none';
         resultCard.style.display = 'block';
