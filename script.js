@@ -11,13 +11,12 @@ function updateClock(){
 }
 setInterval(updateClock,1000);
 
-// ترجمة بسيط (عربي/إنجليزي)
+// ترجمة بسيط
 let currentLang='ar';
-const translateBtn=document.getElementById('translateBtn');
-translateBtn.addEventListener('click',()=>{
+document.getElementById('translateBtn').addEventListener('click',()=>{
   currentLang=currentLang==='ar'?'en':'ar';
   document.body.dir=currentLang==='ar'?'rtl':'ltr';
-  translateBtn.textContent=currentLang==='ar'?'ترجمة':'Translate';
+  document.getElementById('translateBtn').textContent=currentLang==='ar'?'ترجمة':'Translate';
 });
 
 // نموذج التواصل
