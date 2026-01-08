@@ -1,4 +1,4 @@
-// بيانات المشاريع (9 مشاريع)
+// بيانات المشاريع (9 مشاريع مع وصف بأسلوب "أنا صممته")
 const projects =;
 
 // وظيفة لعرض المشاريع في الصفحة تلقائياً
@@ -28,7 +28,33 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// وظيفة تحديث الساعة الرقمية الحية
+function updateClock() {
+    const clockElement = document.getElementById('liveClock');
+    if (clockElement) {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        clockElement.innerText = `الوقت الحالي: ${timeString}`;
+    }
+}
+
+// وظيفة تبديل اللغة
+function toggleLanguage() {
+    const body = document.body;
+    body.classList.toggle('en');
+    if (body.classList.contains('en')) {
+        body.dir = 'ltr';
+        document.title = 'Aboueldehab Services - Professional Web Design';
+        // يمكنك إضافة المزيد من ترجمة النصوص الثابتة هنا يدوياً
+    } else {
+        body.dir = 'rtl';
+        document.title = 'خدمات ابوالدهب - تصميم مواقع احترافي';
+    }
+}
+
 // عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', (event) => {
     displayProjects();
+    setInterval(updateClock, 1000); // تحديث الساعة كل ثانية
+    updateClock(); // تحديث فوري عند التحميل
 });
