@@ -1,22 +1,18 @@
-body {
-  margin:0; font-family:"Cairo",sans-serif; background:#0b0f14; color:#fff;
-}
-.header {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:20px; background:#1f2937;
-}
-.nav ul {display:flex; list-style:none; margin:0; padding:10px; background:#111827;}
+body {margin:0;font-family:"Cairo",sans-serif;background:#0b0f14;color:#fff;}
+.header {display:flex;justify-content:space-between;align-items:center;padding:20px;background:#1f2937;}
+.nav ul {display:flex;list-style:none;margin:0;padding:10px;background:#111827;}
 .nav li {margin:0 10px;}
-.nav a {color:#fff; text-decoration:none;}
-.hero {padding:60px; text-align:center; background:linear-gradient(135deg,#7c3aed,#10b981);}
+.nav a {color:#fff;text-decoration:none;}
+.hero {padding:60px;text-align:center;background:linear-gradient(135deg,#7c3aed,#10b981);}
 .section {padding:40px;}
 .section.alt {background:#101824;}
-.cards {display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px;}
-.card {background:#1f2937; padding:20px; border-radius:10px;}
-.gallery {display:flex; gap:15px; flex-wrap:wrap;}
-.gallery img {border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.5);}
-.testimonials blockquote {background:#1f2937; padding:20px; border-radius:10px; margin-bottom:20px;}
-.btn {background:#7c3aed; color:#fff; border:none; padding:10px 20px; border-radius:8px; cursor:pointer;}
-.btn:hover {background:#10b981;}
-.clock {color:#f59e0b; font-weight:bold;}
-.footer {text-align:center; padding:20px; background:#111827;}
+.cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
+.card {background:#1f2937;padding:20px;border-radius:10px;}
+.gallery {display:flex;gap:15px;flex-wrap:wrap;}
+.gallery img {border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.5);}
+blockquote {background:#1f2937;padding:20px;border-radius:10px;margin-bottom:20px;}
+.btn {background:#7c3aed;color:#fff;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;}
+.btn.primary {background:#10b981;}
+.btn:hover {opacity:0.9;}
+.clock {color:#f59e0b;font-weight:bold;}
+.footer {text-align:center;padding:20px;background:#111827;}
