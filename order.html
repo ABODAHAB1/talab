@@ -1,0 +1,65 @@
+<section class="plans">
+  <h3 class="section-title">خطط إنشاء موقع إلكتروني</h3>
+  <div class="cards">
+    <article class="card">
+      <h4>خطة أساسية</h4>
+      <p>موقع تعريفي بسيط</p>
+      <ul class="features">
+        <li>حتى 4 صفحات</li>
+        <li>تصميم متجاوب</li>
+        <li>تهيئة SEO أولية</li>
+      </ul>
+      <p><strong>السعر:</strong> 1590 جنيه</p>
+      <p><strong>التسليم:</strong> خلال 3 أيام</p>
+      <button class="btn primary glow" onclick="openForm('أساسية', '1590 جنيه', '3 أيام')">اطلب الآن</button>
+    </article>
+
+    <article class="card">
+      <h4>خطة مميزة</h4>
+      <p>موقع متكامل للشركات</p>
+      <ul class="features">
+        <li>حتى 6 صفحات</li>
+        <li>نموذج تواصل + خريطة</li>
+        <li>تحسين سرعة وتحليل</li>
+      </ul>
+      <p><strong>السعر:</strong> 3890 جنيه</p>
+      <p><strong>التسليم:</strong> خلال 5 أيام</p>
+      <button class="btn primary glow" onclick="openForm('مميزة', '3890 جنيه', '5 أيام')">اطلب الآن</button>
+    </article>
+
+    <article class="card">
+      <h4>خطة احترافية</h4>
+      <p>نظام متكامل + لوحة تحكم</p>
+      <ul class="features">
+        <li>حتى 10 صفحات</li>
+        <li>إضافات مخصصة</li>
+        <li>تحسين شامل للسيو</li>
+      </ul>
+      <p><strong>السعر:</strong> 6990 جنيه</p>
+      <p><strong>التسليم:</strong> خلال 7 أيام</p>
+      <button class="btn primary glow" onclick="openForm('احترافية', '6990 جنيه', '7 أيام')">اطلب الآن</button>
+    </article>
+  </div>
+</section>
+
+<!-- نموذج الطلب المنبثق -->
+<div id="orderForm" class="popup" style="display:none;">
+  <div class="popup-content">
+    <span class="close" onclick="closeForm()">×</span>
+    <h3>طلب إنشاء موقع</h3>
+    <p><strong>الخطة:</strong> <span id="planName"></span></p>
+    <p><strong>السعر:</strong> <span id="planPrice"></span></p>
+    <p><strong>التسليم:</strong> <span id="planDelivery"></span></p>
+    <form>
+      <label>اسمك</label>
+      <input type="text" placeholder="اكتب اسمك" required>
+      <label>رقم واتساب</label>
+      <input type="text" placeholder="مثال: 01000000000" required>
+      <label>نوع الموقع</label>
+      <input type="text" placeholder="تجريبي / تجاري / نشر">
+      <label>ملاحظات</label>
+      <textarea placeholder="مثال: سلع + منصة تواصل + واتساب"></textarea>
+      <button type="submit" class="btn secondary">أرسل الطلب على واتساب</button>
+    </form>
+  </div>
+</div>
