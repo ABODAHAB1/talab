@@ -1,132 +1,84 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #F4F4F9;
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    background: linear-gradient(45deg, #0f2027, #203a43, #2c5364);
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    direction: rtl; /* دعم اللغة العربية */
-    text-align: right;
+    color: white;
 }
 
-.container {
-    width: 100%;
-    max-width: 450px;
-    padding: 20px;
+.app-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 2rem;
+    border-radius: 25px;
+    width: 95%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
-.weather-card {
-    background-color: #FFFFFF;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-}
+header h1 { font-size: 1.8rem; margin-bottom: 5px; }
+header p { font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px; }
 
-.search-area {
+.search-box {
     display: flex;
     gap: 10px;
-}
-
-#city-input {
-    flex-grow: 1;
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
-    text-align: right;
-}
-
-#search-button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#search-button:hover {
-    background-color: #0056b3;
-}
-
-.result-area {
-    margin-top: 25px;
-    display: none; /* مخفي مبدئياً بالجافاسكريبت نغيره */
-}
-
-#city-name {
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.temp-section {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-bottom: 15px;
-}
-
-#weather-icon {
-    width: 80px;
-    height: 80px;
-    margin-right: 15px;
-}
-
-.temperature {
-    font-size: 60px;
-    font-weight: bold;
-    color: #007BFF;
-    margin: 0;
-}
-
-#weather-description {
-    font-size: 18px;
-    color: #555;
     margin-bottom: 20px;
-    text-transform: capitalize;
 }
+
+input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+button {
+    padding: 12px 25px;
+    border-radius: 12px;
+    border: none;
+    background: #00d2ff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover { background: #0095b6; transform: scale(1.05); }
+
+.result-card { display: none; animation: fadeIn 0.5s ease-in; }
+
+.flag { width: 80px; border-radius: 8px; margin: 10px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 
 .details-grid {
-    display: flex;
-    justify-content: space-between;
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-.detail-item {
-    text-align: center;
-    flex: 1;
-}
-
-.icon-detail {
-    color: #007BFF;
-    font-size: 24px;
-    margin-bottom: 5px;
-}
-
-.detail-item p:first-child {
-    font-weight: bold;
-    color: #333;
-    margin: 0;
-}
-
-.detail-item p:last-child {
-    font-size: 12px;
-    color: #888;
-    margin: 0;
-}
-
-.error-message {
-    display: none; /* مخفي مبدئياً بالجافاسكريبت نغيره */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
     margin-top: 20px;
-    background-color: #f8d7da;
-    color: #721c24;
+}
+
+.card {
+    background: rgba(255,255,255,0.15);
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 15px;
     text-align: center;
 }
+
+.weather-card img { width: 60px; }
+.info-card p { font-size: 0.85rem; margin-bottom: 8px; text-align: right; }
+
+.loader { display: none; margin-top: 20px; }
+.error-msg { color: #ff4b2b; margin-top: 15px; font-weight: bold; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
