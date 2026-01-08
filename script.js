@@ -1,59 +1,60 @@
-// تم إضافة مفتاح الـ API الخاص بك هنا
-const API_KEY = '2aa88303f9f750a28ef94e6d9ea2cee97';
-const searchButton = document.getElementById('search-button');
-const cityInput = document.getElementById('city-input');
-const weatherResult = document.getElementById('weather-result');
-const errorMessage = document.getElementById('error-message');
+const apiKey = '2aa88303f9f750a28ef94e6d9ea2cee9'; // مفتاحك المقدم
+const searchBtn = document.getElementById('searchBtn');
+const cityInput = document.getElementById('cityInput');
 
-const cityNameEl = document.getElementById('city-name');
-const temperatureEl = document.getElementById('temperature');
-const weatherDescriptionEl = document.getElementById('weather-description');
-const weatherIconEl = document.getElementById('weather-icon');
-const windSpeedEl = document.getElementById('wind-speed');
-const humidityEl = document.getElementById('humidity');
-const pressureEl = document.getElementById('pressure');
+searchBtn.addEventListener('click', getData);
 
-searchButton.addEventListener('click', () => {
+async function getData() {
     const city = cityInput.value.trim();
-    if (city) {
-        getWeatherData(city);
-    } else {
-        showError('الرجاء إدخال اسم المدينة.');
-    }
-});
+    if (!city) return alert("من فضلك اكتب اسم مدينة");
 
-async function getWeatherData(city) {
-    const API_URL = `api.openweathermap.org{city}&appid=${API_KEY}&units=metric&lang=ar`;
+    const resultCard = document.getElementById('resultCard');
+    const errorMsg = document.getElementById('errorMsg');
+    const loader = document.getElementById('loader');
+
+    // تصفية النتائج السابقة
+    resultCard.style.display = 'none';
+    errorMsg.innerText = '';
+    loader.style.display = 'block';
 
     try {
-        const response = await fetch(API_URL);
-        if (!response.ok) {
-            throw new Error('City not found');
+        // 1. طلب بيانات الطقس
+        const weatherUrl = `api.openweathermap.org{city}&appid=${apiKey}&units=metric&lang=ar`;
+        const weatherRes = await fetch(weatherUrl);
+        const weatherData = await weatherRes.json();
+
+        if (weatherData.cod !== 200) {
+            throw new Error("لم نجد المدينة، أو ربما المفتاح لم يتم تفعيله بعد من الشركة.");
         }
-        const data = await response.json();
-        displayWeatherData(data);
+
+        // 2. طلب بيانات الدولة (مجاني بدون مفتاح)
+        const countryCode = weatherData.sys.country;
+        const countryRes = await fetch(`restcountries.com{countryCode}`);
+        const countryData = await countryRes.json();
+        const countryInfo = countryData[0];
+
+        // 3. عرض البيانات في الصفحة
+        document.getElementById('cityName').innerText = `${weatherData.name}, ${countryInfo.translations.ara.common}`;
+        document.getElementById('temp').innerText = `${Math.round(weatherData.main.temp)}°C`;
+        document.getElementById('weatherDesc').innerText = weatherData.weather[0].description;
+        document.getElementById('weatherIcon').src = `openweathermap.org{weatherData.weather[0].icon}@2x.png`;
+        document.getElementById('countryFlag').src = countryInfo.flags.svg;
+        
+        document.getElementById('countryName').innerText = countryInfo.translations.ara.common;
+        document.getElementById('capital').innerText = countryInfo.capital[0];
+        document.getElementById('population').innerText = countryInfo.population.toLocaleString('ar-EG');
+        document.getElementById('timezone').innerText = countryInfo.timezones[0];
+
+        loader.style.display = 'none';
+        resultCard.style.display = 'block';
+
     } catch (error) {
-        showError('عفواً، لم يتم العثور على المدينة المحددة أو حدث خطأ في مفتاح الـ API.');
+        loader.style.display = 'none';
+        errorMsg.innerText = "⚠️ خطأ: " + error.message;
     }
 }
 
-function displayWeatherData(data) {
-    // إخفاء رسالة الخطأ وعرض النتائج
-    errorMessage.style.display = 'none';
-    weatherResult.style.display = 'block';
-
-    cityNameEl.textContent = `${data.name}, ${data.sys.country}`;
-    temperatureEl.textContent = `${Math.round(data.main.temp)}°C`;
-    // الوصف يفضل جلبه من أول عنصر في مصفوفة الطقس
-    weatherDescriptionEl.textContent = data.weather.description; 
-    weatherIconEl.src = `openweathermap.org{data.weather.icon}.png`;
-    windSpeedEl.textContent = `${data.wind.speed} كم/س`;
-    humidityEl.textContent = `${data.main.humidity}%`;
-    pressureEl.textContent = `${data.main.pressure} hPa`;
-}
-
-function showError(message) {
-    weatherResult.style.display = 'none';
-    errorMessage.textContent = message;
-    errorMessage.style.display = 'block';
-}
+// البحث عند الضغط على Enter
+cityInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') getData();
+});
