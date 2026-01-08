@@ -3,87 +3,252 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="خدماتي من خدمات أبو الدهب - تصميم مواقع، حلول التجارة الإلكترونية، متاجر إلكترونية، مواقع خاصة، تواصل، وأعمال سابقة"/>
-  <title>خدماتي من خدمات أبو الدهب</title>
+  <title>Abou El Dahab Store</title>
   <link rel="stylesheet" href="styles.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- الهيدر -->
-  <header class="header">
-    <div class="brand">
-      <div class="logo-glow"></div>
-      <h1 class="site-title" data-i18n="siteTitle">خدماتي من خدمات أبو الدهب</h1>
-      <p class="site-subtitle" data-i18n="siteSubtitle">نصمم ونطوّر مواقع تبني ثقة وتبيع بذكاء</p>
+  <!-- Left info panel: date, time, translate -->
+  <aside class="left-panel">
+    <div class="datetime">
+      <span id="dateText">—</span>
+      <span id="timeText">—</span>
     </div>
-    <div class="header-actions">
-      <button id="translateBtn" class="btn glow" aria-label="زر ترجمة">
-        <span class="lang-ar">ترجمة</span>
-        <span class="lang-en" style="display:none">Translate</span>
-      </button>
-      <div class="clock" aria-label="ساعة إلكترونية">
-        <span id="clockTime">00:00:00</span>
-      </div>
+    <button id="translateToggle" class="btn btn-outline">Translate</button>
+  </aside>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="brand">
+      <h1 class="brand-title">Abou El Dahab Store</h1>
+      <p class="brand-sub">مكان واحد لكل خدمات المواقع — بنسلم بسرعة وبجودة.</p>
     </div>
   </header>
 
-  <!-- الناف بار -->
-  <nav class="nav">
-    <ul>
-      <li><a href="#services" data-i18n="navServices">الخدمات</a></li>
-      <li><a href="#portfolio" data-i18n="navPortfolio">أعمال سابقة</a></li>
-      <li><a href="#ecommerce" data-i18n="navEcom">حلول التجارة الإلكترونية</a></li>
-      <li><a href="#custom" data-i18n="navCustom">مواقع خاصة</a></li>
-      <li><a href="#contact" data-i18n="navContact">تواصل</a></li>
-    </ul>
-  </nav>
-
-  <!-- الـ Hero -->
+  <!-- Hero -->
   <section class="hero">
     <div class="hero-content">
-      <h2 data-i18n="heroTitle">موقعك مش بس شكل... هو تجربة كاملة تنمّي مشروعك</h2>
-      <p data-i18n="heroText">من أول الفكرة لحد الإطلاق، ببني موقعك خطوة بخطوة...</p>
-      <div class="hero-actions">
-        <a href="#services" class="btn primary glow" data-i18n="heroBtn1">ابدأ الآن</a>
-        <a href="#portfolio" class="btn secondary" data-i18n="heroBtn2">شوف أعمالي</a>
-      </div>
+      <h2 class="hero-title">خدمات إنشاء مواقع إلكترونية</h2>
+      <p class="hero-desc">
+        اختار الخدمة المناسبة لك، واضغط "اطلب الآن" علشان نحدد التفاصيل خطوة بخطوة
+        ونراجعها قبل التنفيذ.
+      </p>
     </div>
   </section>
 
-  <!-- الخدمات -->
-  <section id="services" class="section">
-    <h3 class="section-title" data-i18n="servicesTitle">الخدمات</h3>
-    <div class="cards">
-      <article class="card">
-        <h4 data-i18n="svc1Title">تصميم مواقع احترافية</h4>
-        <p data-i18n="svc1Desc">واجهات لامعة، ألوان متناغمة...</p>
-      </article>
-      <article class="card">
-        <h4 data-i18n="svc2Title">متاجر إلكترونية</h4>
-        <p data-i18n="svc2Desc">متجر سريع وآمن...</p>
-      </article>
-      <article class="card">
-        <h4 data-i18n="svc3Title">حلول التجارة الإلكترونية</h4>
-        <p data-i18n="svc3Desc">استراتيجيات عملية...</p>
-      </article>
-      <article class="card">
-        <h4 data-i18n="svc4Title">مواقع خاصة ومخصصة</h4>
-        <p data-i18n="svc4Desc">حلول موجهة لاحتياجك...</p>
-      </article>
-    </div>
-
-    <!-- زر الطلب الجديد -->
-    <div class="service-order">
-      <a href="order.html" class="btn primary glow">اطلب الآن موقعك الخاص</a>
+  <!-- Quick notes -->
+  <section class="notes">
+    <div class="notes-row">
+      <button class="chip" data-chip="notes">ملاحظات سريعة</button>
+      <button class="chip" data-chip="no-domain">بدون دومين مجاني</button>
+      <button class="chip" data-chip="one-domain">١ دومين مجاني</button>
+      <button class="chip" data-chip="two-domain">٢ دومين مجاني</button>
+      <button class="chip" data-chip="delivery">التسليم حسب الخطة</button>
     </div>
   </section>
 
-  <!-- باقي الأقسام زي ما هي -->
+  <!-- Services grid -->
+  <main class="services">
+    <h3 class="section-title">اضغط على أي خدمة علشان نحدد تفاصيلها</h3>
 
-  <footer class="footer">
-    <p>&copy; <span id="year"></span> <span data-i18n="footerBrand">خدماتي من خدمات أبو الدهب</span> — <span data-i18n="footerText">نبني مواقع تِكسب ثقة وتبيع بذكاء</span></p>
+    <div class="service-grid" id="serviceGrid">
+      <!-- Cards populated in HTML but also translated by JS -->
+      <article class="card" data-service-key="companies">
+        <h4 class="card-title">مواقع الشركات والمؤسسات</h4>
+        <p class="card-desc">تعريف الخدمات والأقسام، صفحات متعددة، نموذج تواصل، تحسين سيو أساسي.</p>
+        <div class="card-actions">
+          <button class="btn btn-primary open-modal" data-service="companies">اطلب الآن</button>
+        </div>
+      </article>
+
+      <article class="card" data-service-key="ecommerce">
+        <h4 class="card-title">المتاجر الإلكترونية</h4>
+        <p class="card-desc">منتجات، سلة، دفع/تحويل، لوحه إدارة، تقارير بسيطة.</p>
+        <div class="card-actions">
+          <button class="btn btn-primary open-modal" data-service="ecommerce">اطلب الآن</button>
+        </div>
+      </article>
+
+      <article class="card" data-service-key="blogs">
+        <h4 class="card-title">المدونات والمواقع الإخبارية</h4>
+        <p class="card-desc">مقالات، تصنيفات، أرشفة، سرعة وتحليل، تهيئة سيو أساسي.</p>
+        <div class="card-actions">
+          <button class="btn btn-primary open-modal" data-service="blogs">اطلب الآن</button>
+        </div>
+      </article>
+
+      <article class="card" data-service-key="education">
+        <h4 class="card-title">منصات التعليم</h4>
+        <p class="card-desc">دورات، دروس، عضويات، بوابات دفع، إدارة محتوى.</p>
+        <div class="card-actions">
+          <button class="btn btn-primary open-modal" data-service="education">اطلب الآن</button>
+        </div>
+      </article>
+
+      <article class="card" data-service-key="personal">
+        <h4 class="card-title">المواقع الشخصية</h4>
+        <p class="card-desc">نبذة، أعمال، معرض صور/فيديو، تواصل سريع، هوية ألوان وخطوط.</p>
+        <div class="card-actions">
+          <button class="btn btn-primary open-modal" data-service="personal">اطلب الآن</button>
+        </div>
+      </article>
+
+      <article class="card" data-service-key="government">
+        <h4 class="card-title">المواقع الحكومية والخدمية</h4>
+        <p class="card-desc">خدمات، نماذج، تكامل بوابات، وصولية عالية، تقارير.</p>
+        <div class="card-actions">
+          <button class="btn btn-primary open-modal" data-service="government">اطلب الآن</button>
+        </div>
+      </article>
+
+      <article class="card" data-service-key="social">
+        <h4 class="card-title">منصات التواصل الاجتماعي</h4>
+        <p class="card-desc">حسابات، تفاعل، إدارة مجتمع، تكامل إشعارات، أداء.</p>
+        <div class="card-actions">
+          <button class="btn btn-primary open-modal" data-service="social">اطلب الآن</button>
+        </div>
+      </article>
+
+      <article class="card" data-service-key="booking">
+        <h4 class="card-title">مواقع الحجوزات والخدمات</h4>
+        <p class="card-desc">تقويم، حجز، دفع/تحويل، إدارة طلبات، تقارير بسيطة.</p>
+        <div class="card-actions">
+          <button class="btn btn-primary open-modal" data-service="booking">اطلب الآن</button>
+        </div>
+      </article>
+
+      <article class="card" data-service-key="hosting">
+        <h4 class="card-title">إدارة الاستضافة والنشر</h4>
+        <p class="card-desc">استضافة، نشر مستمر، نسخ احتياطي، مراقبة الأداء.</p>
+        <div class="card-actions">
+          <button class="btn btn-primary open-modal" data-service="hosting">اطلب الآن</button>
+        </div>
+      </article>
+
+      <article class="card" data-service-key="servers">
+        <h4 class="card-title">برمجة الخوادم</h4>
+        <p class="card-desc">APIs، قواعد بيانات، أمن، موازنة تحميل، تكامل الأنظمة.</p>
+        <div class="card-actions">
+          <button class="btn btn-primary open-modal" data-service="servers">اطلب الآن</button>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- Plans (Fiverr-style tiers) -->
+  <section class="plans">
+    <h3 class="section-title">اختر مستوى الخدمة</h3>
+
+    <div class="plan-tabs" role="tablist">
+      <button class="plan-tab active" data-plan="basic">عادي</button>
+      <button class="plan-tab" data-plan="standard">متوسط</button>
+      <button class="plan-tab" data-plan="premium">مميز</button>
+    </div>
+
+    <div class="plan-cards">
+      <article class="plan-card" data-plan="basic">
+        <h4 class="plan-title">عادي — موقع تعريفي بسيط</h4>
+        <p class="plan-price">1990 جنيه — التسليم: 3 أيام</p>
+        <ul class="plan-list">
+          <li>حتى 3 صفحات</li>
+          <li>تصميم بسيط متجاوب</li>
+          <li>زر واتساب مباشر</li>
+          <li>تهيئة سيو أساسي</li>
+        </ul>
+        <button class="btn btn-secondary open-modal" data-service="basic">اطلب الآن</button>
+      </article>
+
+      <article class="plan-card hidden" data-plan="standard">
+        <h4 class="plan-title">متوسط — موقع تعريفي متكامل</h4>
+        <p class="plan-price">3490 جنيه — التسليم: 4 أيام</p>
+        <ul class="plan-list">
+          <li>حتى 5 صفحات</li>
+          <li>هوية ألوان وخطوط</li>
+          <li>صفحة تواصل + خريطة</li>
+          <li>تحسين سرعة وتحليل</li>
+          <li>سيو أساسي</li>
+        </ul>
+        <button class="btn btn-secondary open-modal" data-service="standard">اطلب الآن</button>
+      </article>
+
+      <article class="plan-card hidden" data-plan="premium">
+        <h4 class="plan-title">مميز — موقع شركة أو نظام طلبات</h4>
+        <p class="plan-price">من 5490 إلى 12990 جنيه — التسليم: 4–14 يوم</p>
+        <ul class="plan-list">
+          <li>حتى 8 صفحات أو نظام طلبات/حجوزات</li>
+          <li>بوابات دفع أو تحويل</li>
+          <li>لوحة إدارة الطلبات</li>
+          <li>نموذج تواصل متقدم</li>
+          <li>تحسين سيو الصفحات</li>
+        </ul>
+        <button class="btn btn-secondary open-modal" data-service="premium">اطلب الآن</button>
+      </article>
+    </div>
+  </section>
+
+  <!-- Modal: request form -->
+  <div class="modal" id="requestModal" aria-hidden="true" role="dialog">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-content" role="document" aria-labelledby="modalTitle">
+      <button class="modal-close" aria-label="Close" data-close>&times;</button>
+      <h3 id="modalTitle">طلب إنشاء موقع</h3>
+
+      <form id="requestForm">
+        <div class="form-row">
+          <label for="clientName">اسمك</label>
+          <input type="text" id="clientName" name="clientName" placeholder="اكتب اسمك" required />
+        </div>
+
+        <div class="form-row">
+          <label for="whatsapp">رقم واتساب</label>
+          <input type="tel" id="whatsapp" name="whatsapp" placeholder="مثال: 01000000000" required />
+        </div>
+
+        <div class="form-row">
+          <label for="siteType">نوع الموقع</label>
+          <select id="siteType" name="siteType" required>
+            <option value="companies">شركة/مؤسسة</option>
+            <option value="ecommerce">متجر إلكتروني</option>
+            <option value="blogs">مدونة/إخباري</option>
+            <option value="education">منصة تعليم</option>
+            <option value="personal">موقع شخصي</option>
+            <option value="government">حكومي/خدمي</option>
+            <option value="social">منصة تواصل</option>
+            <option value="booking">حجوزات/خدمات</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="visibility">الظهور في جوجل</label>
+          <select id="visibility" name="visibility">
+            <option value="hidden">تجريبي — لا تظهر في نتائج جوجل</option>
+            <option value="visible">تظهر في نتائج جوجل</option>
+          </select>
+        </div>
+
+        <fieldset class="form-fieldset">
+          <legend>المستوى والخطة</legend>
+          <div class="plan-options">
+            <label><input type="radio" name="tier" value="basic" checked /> عادي — 1990 — 3 أيام</label>
+            <label><input type="radio" name="tier" value="standard" /> متوسط — 3490 — 4 أيام</label>
+            <label><input type="radio" name="tier" value="premium" /> مميز — 5490–12990 — 4–14 يوم</label>
+          </div>
+        </fieldset>
+
+        <div class="form-row">
+          <label for="notes">ملاحظات</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="مثال: سحابة + منصة + أسعار + منصة تواصل + ربط واتساب"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">ارسل الطلب على واتساب</button>
+          <span class="form-hint">سيتم تجميع البيانات وإرسالها لك بصيغة مرتبة للمراجعة قبل البدء.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>بعد إرسال الطلب، هراجع التفاصيل بناءً على اختياراتك، وبابعت نموذج نهائي قبل التنفيذ.</p>
   </footer>
 
   <script src="script.js"></script>
