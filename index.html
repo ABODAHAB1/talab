@@ -3,93 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>استور أبو الدهب - خدمات المواقع</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>خدمات البرمجة والتصميم</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- الشريط العلوي -->
-  <header class="topbar">
-    <div class="profile-info">
-      <div class="brand" data-i18n="brand">استور أبو الدهب</div>
-      <div class="sub" data-i18n="brand_sub">مكان واحد لكل خدماتك</div>
+  <header class="hero">
+    <div class="container">
+      <h1>خدمات احترافية في تصميم المواقع والبرمجة</h1>
+      <p>اختار خدمتك واضغط اطلب الخدمة—هتفتح تلجرام وتكون الرسالة جاهزة للارسال.</p>
     </div>
-    <button id="langToggle" class="btn ghost">EN</button>
   </header>
 
-  <!-- القسم الرئيسي -->
-  <section class="hero container">
-    <h1 data-i18n="hero_title">خدمات تطوير مواقع احترافية</h1>
-    <p data-i18n="hero_desc">اختر الخطة المناسبة، وبعد الطلب نحدد معك الصفحات والألوان والنماذج بالتفصيل قبل البدء.</p>
-    <a href="#pricing" class="btn primary" data-i18n="enter_market">ادخل السوق</a>
-  </section>
-
-  <!-- قسم الخطط -->
-  <main id="pricing" class="market container">
-    <h2 data-i18n="free_title">خطط بدومين مجاني</h2>
-    <div class="grid">
-      <!-- خطة عادي -->
-      <article class="pkg card">
-        <div class="pkg-head">
-          <span class="badge badge-basic" data-i18n="plan_basic">عادي</span>
-          <h3 class="pkg-title" data-i18n="plan_basic_title">موقع بسيط</h3>
-          <span class="brief" data-i18n="brief_free">بدون دومين</span>
-        </div>
-        <div class="pkg-price">
-          <span class="price">1990 جنيه</span>
-          <span class="time" data-i18n="deliver_2d">التسليم: ٢ أيام</span>
-        </div>
-        <ul class="pkg-feats">
-          <li data-i18n="feat_pages3">من 3 صفحات</li>
-          <li data-i18n="feat_responsive">تصميم متجاوب</li>
-          <li data-i18n="feat_whatsapp">واتساب مباشر</li>
+  <main class="container">
+    <section class="services">
+      <!-- مثال خدمات — عدّل الأسماء والأسعار بحرية -->
+      <div class="service-card" data-service="موقع تعريفي احترافي" data-price="1200" data-delivery="5 أيام" data-notes="يشمل صفحة رئيسية، من نحن، خدمات، اتصل بنا.">
+        <h3>موقع تعريفي احترافي</h3>
+        <p>تصميم نظيف سريع الاستجابة مع هوية بصرية متناسقة.</p>
+        <ul class="features">
+          <li>متوافق مع المحمول</li>
+          <li>سرعة تحميل ممتازة</li>
+          <li>تحسين أساسي لمحركات البحث</li>
         </ul>
-        <button class="btn cta pkg-order" data-level="basic" data-i18n="order_service">طلب الخطة</button>
-      </article>
+        <div class="cta-row">
+          <span class="price">1200 EGP</span>
+          <button class="order-btn">اطلب الخدمة</button>
+        </div>
+      </div>
 
-      <!-- خطة مميز -->
-      <article class="pkg card">
-        <div class="pkg-head">
-          <span class="badge badge-pro" data-i18n="plan_pro">مميز</span>
-          <h3 class="pkg-title" data-i18n="plan_pro_title">موقع تعريفي متكامل</h3>
-          <span class="brief" data-i18n="brief_free">بدون دومين</span>
-        </div>
-        <div class="pkg-price">
-          <span class="price">3490 جنيه</span>
-          <span class="time" data-i18n="deliver_4d">التسليم: ٤ أيام</span>
-        </div>
-        <ul class="pkg-feats">
-          <li data-i18n="feat_pages6">حتى 6 صفحات</li>
-          <li data-i18n="feat_services_section">قسم خدمات/أعمال</li>
-          <li data-i18n="feat_form_advanced">نموذج تواصل متقدم</li>
+      <div class="service-card" data-service="متجر إلكتروني بسيط" data-price="2500" data-delivery="7 أيام" data-notes="يشمل صفحات المنتجات، السلة، واتصال بسيط.">
+        <h3>متجر إلكتروني بسيط</h3>
+        <p>عرض منتجاتك بواجهة منظمة وتجربة شراء سلسة.</p>
+        <ul class="features">
+          <li>تصنيفات وفلاتر</li>
+          <li>سلة مشتريات</li>
+          <li>لوحة إدارة أساسية</li>
         </ul>
-        <button class="btn cta pkg-order" data-level="pro" data-i18n="order_service">طلب الخطة</button>
-      </article>
+        <div class="cta-row">
+          <span class="price">2500 EGP</span>
+          <button class="order-btn">اطلب الخدمة</button>
+        </div>
+      </div>
 
-      <!-- خطة مخصص -->
-      <article class="pkg card">
-        <div class="pkg-head">
-          <span class="badge badge-special" data-i18n="plan_special">مخصص</span>
-          <h3 class="pkg-title" data-i18n="plan_special_title">موقع شركة أو خدمات</h3>
-          <span class="brief" data-i18n="brief_free">بدون دومين</span>
-        </div>
-        <div class="pkg-price">
-          <span class="price">5490 جنيه</span>
-          <span class="time" data-i18n="deliver_7d">التسليم: ٧ أيام</span>
-        </div>
-        <ul class="pkg-feats">
-          <li data-i18n="feat_pages8">حتى 8 صفحات</li>
-          <li data-i18n="feat_all_from_pro">كل ميزات خطة مميز</li>
-          <li data-i18n="feat_free_domain">دومين مجاني</li>
+      <div class="service-card" data-service="صفحة هبوط تسويقية" data-price="800" data-delivery="3 أيام" data-notes="مهيأة للتحويل مع نموذج اتصال.">
+        <h3>صفحة هبوط تسويقية</h3>
+        <p>مصممة لزيادة التحويلات مع رسائل واضحة وأزرار قوية.</p>
+        <ul class="features">
+          <li>CTA قوي</li>
+          <li>قسم مميزات مقنع</li>
+          <li>نموذج اتصال سريع</li>
         </ul>
-        <button class="btn cta pkg-order" data-level="special" data-i18n="order_service">طلب الخطة</button>
-      </article>
-    </div>
+        <div class="cta-row">
+          <span class="price">800 EGP</span>
+          <button class="order-btn">اطلب الخدمة</button>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- الفوتر -->
-  <footer class="footer container">
-    <p data-i18n="footer_note">جميع الحقوق محفوظة - استور أبو الدهب ©</p>
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 جميع الحقوق محفوظة — محمود أبو الدهب</p>
+    </div>
   </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">تم نسخ الرسالة الجاهزة. سيفتح تلجرام الآن.</div>
 
   <script src="script.js"></script>
 </body>
