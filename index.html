@@ -1,188 +1,205 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ABODAHAB Store</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <title>استور أبو الدهب - خدمات المواقع</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Top navigation -->
+  <!-- Topbar -->
   <header class="topbar">
     <div class="topbar-left">
-      <button class="btn ghost" id="servicesNav">الخدمات</button>
-    </div>
-
-    <div class="topbar-center">
-      <div class="clock">
-        <span id="clock"></span>
-      </div>
-    </div>
-
-    <div class="topbar-right">
-      <button class="btn ghost" id="langToggle" aria-label="Toggle language">العربية / English</button>
       <div class="profile">
-        <img src="https://iili.io/fegnOCb.th.jpg" alt="ABODAHAB Profile" />
+        <img class="profile-img" src="https://via.placeholder.com/80x80.png?text=AD" alt="Abd El Dahab Store Logo" />
         <div class="profile-info">
-          <div class="brand">ABODAHAB Store</div>
-          <div class="sub">ماركت خاص بالمبدع أبو الدهب</div>
+          <div class="brand" data-i18n="brand">استور أبو الدهب</div>
+          <div class="sub" data-i18n="brand_sub">مكان واحد لكل خدماتك</div>
         </div>
       </div>
+    </div>
+    <div class="topbar-center">
+      <nav class="nav">
+        <a href="#" class="nav-link" data-i18n="nav_market">السوق</a>
+        <a href="#" class="nav-link" data-i18n="nav_pricing">الخطط والأسعار</a>
+        <a href="#" class="nav-link" data-i18n="nav_contact">تواصل معنا</a>
+      </nav>
+    </div>
+    <div class="topbar-right">
+      <button id="langToggle" class="btn ghost" aria-label="Language toggle">EN</button>
+      <a href="#" class="btn ghost" data-i18n="btn_back">رجوع</a>
     </div>
   </header>
 
   <!-- Hero -->
   <section class="hero container">
-    <div class="hero-card">
-      <div class="hero-media">
-        <img src="https://iili.io/fegnOCb.th.jpg" alt="ABODAHAB" class="hero-img" />
-      </div>
-      <div class="hero-content">
-        <h1 class="hero-title" data-i18n="hero_title">ABODAHAB Store</h1>
-        <p class="hero-desc" data-i18n="hero_desc">
-          مكان واحد لكل خدماتك. اضغط على الماركت واختر الخدمة، وبعدها حدد التفاصيل خطوة بخطوة.
+    <h1 class="hero-title" data-i18n="hero_title">خدمات تطوير مواقع احترافية</h1>
+    <p class="hero-desc" data-i18n="hero_desc">
+      اختر الخطة المناسبة، وبعد الطلب نحدد معك الصفحات والألوان والنماذج بالتفصيل قبل البدء.
+    </p>
+    <div class="hero-actions">
+      <a href="#pricing" class="btn primary" data-i18n="enter_market">ادخل السوق</a>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <main id="pricing" class="market container">
+    <!-- Free domain section -->
+    <section class="packages">
+      <div class="section-head">
+        <h2 class="section-title" data-i18n="free_title">خطط بدومين مجاني</h2>
+        <p class="section-sub" data-i18n="market_sub">
+          اختر الباقة التي تناسبك، وبعد طلبها يتواصل معك فني التنفيذ لتحديد التفاصيل.
         </p>
-        <div class="hero-actions">
-          <a href="#market" class="btn primary" data-i18n="enter_market">دخول الماركت</a>
-          <a href="#features" class="btn outline" data-i18n="market_features">مميزات الماركت</a>
-        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Features -->
-  <section id="features" class="features container">
-    <h2 class="section-title" data-i18n="features_title">مميزات الماركت</h2>
-    <div class="feature-grid">
-      <div class="card">
-        <h3 class="card-title" data-i18n="feat_one_t">تسعير واضح</h3>
-        <p class="card-desc" data-i18n="feat_one_d">باقات محددة، تفاصيل شفافة، واستلام ضمن المدة.</p>
-      </div>
-      <div class="card">
-        <h3 class="card-title" data-i18n="feat_two_t">هوية متناسقة</h3>
-        <p class="card-desc" data-i18n="feat_two_d">ألوان، خطوط، وتراكيب محتوى احترافية لعلامتك.</p>
-      </div>
-      <div class="card">
-        <h3 class="card-title" data-i18n="feat_three_t">جاهزية للسيو</h3>
-        <p class="card-desc" data-i18n="feat_three_d">تهيئة أساسية أو متقدمة لصفحاتك للظهور الصحيح.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Market -->
-  <section id="market" class="market container">
-    <div class="market-header">
-      <h2 class="section-title" data-i18n="market_title">خدمات إنشاء مواقع إلكترونية</h2>
-      <p class="section-sub" data-i18n="market_sub">
-        اختر الباقة التي تناسبك، وبعد طلبك لموقعك سيتم التواصل معك قبل التنفيذ.
-      </p>
-    </div>
-
-    <!-- Packages grid -->
-    <div class="packages">
-      <!-- Row 1 -->
       <div class="grid">
-        <div class="pkg card">
+        <!-- Free: Aadi -->
+        <article class="pkg card">
           <div class="pkg-head">
-            <span class="badge">عادي</span>
-            <h3 class="pkg-title">موقع إلكتروني بسيط</h3>
-            <span class="brief">بدون دومين</span>
+            <span class="badge badge-basic" data-i18n="plan_basic">عادي</span>
+            <h3 class="pkg-title" data-i18n="plan_basic_title">موقع لفريقي بسيط</h3>
+            <span class="brief" data-i18n="brief_free">بدون دومين</span>
           </div>
           <div class="pkg-price">
             <span class="price">1990 جنيه</span>
-            <span class="time">التسليم: يومين</span>
+            <span class="time" data-i18n="deliver_2d">التسليم: ٢ أيام</span>
           </div>
           <ul class="pkg-feats">
-            <li>حتى ٣ صفحات</li>
-            <li>تصميم بسيط متجاوب</li>
-            <li>رد واتساب مباشر</li>
-            <li>تهيئة سيو أساسي</li>
+            <li data-i18n="feat_pages3">من 3 صفحات</li>
+            <li data-i18n="feat_responsive">تصميم متجاوب</li>
+            <li data-i18n="feat_whatsapp">واتساب مباشر</li>
+            <li data-i18n="feat_seo_basic">تهيئة سيو أساسي</li>
+            <li data-i18n="feat_identity">هوية ألوان وخطوط</li>
+            <li data-i18n="feat_contact_map">صفحة تواصل وخريطة</li>
+            <li data-i18n="feat_speed">تحسين سرعة وتحميل</li>
           </ul>
-          <button class="btn primary pkg-order" data-level="basic">طلب الخدمة</button>
-        </div>
+          <button class="btn cta pkg-order" data-level="basic" data-i18n="order_service">طلب الخطة</button>
+        </article>
 
-        <div class="pkg card">
+        <!-- Free: Momayaz -->
+        <article class="pkg card">
           <div class="pkg-head">
-            <span class="badge badge-mid">مميز</span>
-            <h3 class="pkg-title">موقع إلكتروني متكامل</h3>
-            <span class="brief">بدون دومين</span>
+            <span class="badge badge-pro" data-i18n="plan_pro">مميز</span>
+            <h3 class="pkg-title" data-i18n="plan_pro_title">موقع تعريفي متكامل</h3>
+            <span class="brief" data-i18n="brief_free">بدون دومين</span>
           </div>
           <div class="pkg-price">
             <span class="price">3490 جنيه</span>
-            <span class="time">التسليم: ٤ أيام</span>
+            <span class="time" data-i18n="deliver_4d">التسليم: ٤ أيام</span>
           </div>
           <ul class="pkg-feats">
-            <li>حتى ٥ صفحات</li>
-            <li>هوية ألوان وخطوط</li>
-            <li>محتوى وتراكيب</li>
-            <li>تهيئة سيو وتفصيل</li>
+            <li data-i18n="feat_pages6">حتى 6 صفحات</li>
+            <li data-i18n="feat_services_section">قسم خدمات/أعمال</li>
+            <li data-i18n="feat_form_advanced">نموذج تواصل متقدم</li>
+            <li data-i18n="feat_seo_pages">تحسين سيو للصفحات</li>
           </ul>
-          <button class="btn primary pkg-order" data-level="mid">طلب الخدمة</button>
-        </div>
+          <button class="btn cta pkg-order" data-level="pro" data-i18n="order_service">طلب الخطة</button>
+        </article>
 
-        <div class="pkg card">
+        <!-- Free: Mokhasas -->
+        <article class="pkg card">
           <div class="pkg-head">
-            <span class="badge badge-pro">متخصص</span>
-            <h3 class="pkg-title">موقع خدمات</h3>
-            <span class="brief">بدون دومين</span>
+            <span class="badge badge-special" data-i18n="plan_special">مخصص</span>
+            <h3 class="pkg-title" data-i18n="plan_special_title">موقع شركة أو خدمات</h3>
+            <span class="brief" data-i18n="brief_free">بدون دومين</span>
           </div>
           <div class="pkg-price">
             <span class="price">5490 جنيه</span>
-            <span class="time">التسليم: ٦ أيام</span>
+            <span class="time" data-i18n="deliver_7d">التسليم: ٧ أيام</span>
           </div>
           <ul class="pkg-feats">
-            <li>حتى ٦ صفحات</li>
-            <li>قسم خدمات + أعمال</li>
-            <li>نموذج تواصل متقدم</li>
-            <li>تحسين سيو الصفحات</li>
+            <li data-i18n="feat_pages8">حتى 8 صفحات</li>
+            <li data-i18n="feat_all_from_pro">كل ميزات خطة مميز</li>
+            <li data-i18n="feat_free_domain">دومين مجاني</li>
           </ul>
-          <button class="btn primary pkg-order" data-level="pro">طلب الخدمة</button>
-        </div>
+          <button class="btn cta pkg-order" data-level="special" data-i18n="order_service">طلب الخطة</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- Paid domain section -->
+    <section class="packages">
+      <div class="section-head">
+        <h2 class="section-title" data-i18n="paid_title">خطط بدومين مدفوع</h2>
+        <p class="section-sub" data-i18n="market_sub">
+          اختر الباقة التي تناسبك، وبعد طلبها يتواصل معك فني التنفيذ لتحديد التفاصيل.
+        </p>
       </div>
 
-      <!-- Row 2 -->
       <div class="grid">
-        <div class="pkg card">
+        <!-- Paid: Aadi -->
+        <article class="pkg card">
           <div class="pkg-head">
-            <span class="badge">عادي</span>
-            <h3 class="pkg-title">موقع كبير كاتلوج</h3>
-            <span class="brief">بدومين</span>
+            <span class="badge badge-basic" data-i18n="plan_basic">عادي</span>
+            <h3 class="pkg-title" data-i18n="paid_basic_title">موقع كبير أو كتالوج</h3>
+            <span class="brief" data-i18n="brief_paid">بدومين</span>
           </div>
           <div class="pkg-price">
             <span class="price">7490 جنيه</span>
-            <span class="time">التسليم: ٦ أيام</span>
+            <span class="time" data-i18n="deliver_7d">التسليم: ٧ أيام</span>
           </div>
           <ul class="pkg-feats">
-            <li>حتى ١٢ صفحة</li>
-            <li>أقسام متعددة للمحتوى</li>
-            <li>نماذج تواصل حسب الطلب</li>
-            <li>تهيئة سيو وتفصيل</li>
+            <li data-i18n="feat_pages8">حتى 8 صفحات</li>
+            <li data-i18n="feat_multi_sections">أقسام متعددة المستوى</li>
+            <li data-i18n="feat_custom_forms">نماذج طلب حسب الطلب</li>
+            <li data-i18n="feat_speed">تحسين سرعة وتحميل</li>
           </ul>
-          <button class="btn primary pkg-order" data-level="basic_big">طلب الخدمة</button>
-        </div>
+          <button class="btn cta pkg-order" data-level="paid-basic" data-i18n="order_service">طلب الخطة</button>
+        </article>
 
-        <div class="pkg card">
+        <!-- Paid: Momayaz -->
+        <article class="pkg card">
           <div class="pkg-head">
-            <span class="badge badge-mid">مميز</span>
-            <h3 class="pkg-title">نظام متكامل أو نظام متوسط</h3>
-            <span class="brief">بدومين</span>
+            <span class="badge badge-pro" data-i18n="plan_pro">مميز</span>
+            <h3 class="pkg-title" data-i18n="paid_pro_title">متجر متقدم أو نظام بسيط</h3>
+            <span class="brief" data-i18n="brief_paid">بدومين</span>
           </div>
           <div class="pkg-price">
             <span class="price">9990 جنيه</span>
-            <span class="time">التسليم: ٨ أيام</span>
+            <span class="time" data-i18n="deliver_10d">التسليم: ١٠ أيام</span>
           </div>
           <ul class="pkg-feats">
-            <li>لوحة تحكم كاملة</li>
-            <li>تفاعلات مخصصة</li>
-            <li>نماذج متعددة</li>
-            <li>تهيئة سيو للصفحات</li>
+            <li data-i18n="feat_cart">سلة مشتريات كاملة</li>
+            <li data-i18n="feat_coupons">كوبونات وخصومات</li>
+            <li data-i18n="feat_orders_tracking">متابعة الطلبات</li>
+            <li data-i18n="feat_admin_panel">لوحة إدارة الطلبات</li>
+            <li data-i18n="feat_reports_simple">تقارير بسيطة</li>
           </ul>
-          <button class="btn primary pkg-order" data-level="mid_system">طلب الخدمة</button>
-        </div>
+          <button class="btn cta pkg-order" data-level="paid-pro" data-i18n="order_service">طلب الخطة</button>
+        </article>
 
-        <div class="pkg card">
+        <!-- Paid: Mokhasas -->
+        <article class="pkg card">
           <div class="pkg-head">
-            <span class="badge badge-pro">متخصص</span>
+            <span class="badge badge-special" data-i18n="plan_special">مخصص</span>
+            <h3 class="pkg-title" data-i18n="paid_special_title">نظام طلبات أو محجوزات</h3>
+            <span class="brief" data-i18n="brief_paid">بدومين</span>
+          </div>
+          <div class="pkg-price">
+            <span class="price">12990 جنيه</span>
+            <span class="time" data-i18n="deliver_10d">التسليم: ١٠ أيام</span>
+          </div>
+          <ul class="pkg-feats">
+            <li data-i18n="feat_booking_forms">نماذج طلبات ومحجوزات</li>
+            <li data-i18n="feat_whatsapp_confirm">تأكيدات واتساب أو العمل</li>
+            <li data-i18n="feat_seo_products">تهيئة سيو للمنتجات</li>
+            <li data-i18n="feat_company_design">تصميم شركة وتحصيل</li>
+          </ul>
+          <button class="btn cta pkg-order" data-level="paid-special" data-i18n="order_service">طلب الخطة</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer container">
+    <p class="footer-note" data-i18n="footer_note">جميع الحقوق محفوظة - استور أبو الدهب ©</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
