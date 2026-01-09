@@ -3,71 +3,266 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>خدمات البرمجة والتصميم</title>
+  <title>abodahab Store — ابوالدهب هوست | باقات تصميم مواقع</title>
+  <meta name="description" content="Mazen Store يقدم منتجات متنوعة وخدمات تصميم مواقع. اكتشف باقات مازن هوست بأسعار بالجنيه المصري ومميزات قوية." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <h1>خدمات احترافية في تصميم المواقع والبرمجة</h1>
-      <p>اختار خدمتك واضغط اطلب الخدمة—هتفتح تلجرام وتكون الرسالة جاهزة للارسال.</p>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-bar">
+      <button class="brand-pill" aria-label="ابوالدهب">ابوالدهب</button>
+      <div class="header-right">
+        <div class="store-title">
+          <span class="en-title">abodahab Store</span>
+          <span class="ar-subtitle">انشاء مواقع</span>
+        </div>
+        <a class="avatar" href="https://freeimage.host/i/fkIe4d7" target="_blank" rel="noopener" aria-label="صورة مازن">
+          <img src="https://iili.io/fkIe4d7.th.jpg" alt="صورة Mazen" />
+        </a>
+      </div>
     </div>
   </header>
 
-  <main class="container">
-    <section class="services">
-      <!-- مثال خدمات — عدّل الأسماء والأسعار بحرية -->
-      <div class="service-card" data-service="موقع تعريفي احترافي" data-price="1200" data-delivery="5 أيام" data-notes="يشمل صفحة رئيسية، من نحن، خدمات، اتصل بنا.">
-        <h3>موقع تعريفي احترافي</h3>
-        <p>تصميم نظيف سريع الاستجابة مع هوية بصرية متناسقة.</p>
-        <ul class="features">
-          <li>متوافق مع المحمول</li>
-          <li>سرعة تحميل ممتازة</li>
-          <li>تحسين أساسي لمحركات البحث</li>
-        </ul>
-        <div class="cta-row">
-          <span class="price">1200 EGP</span>
-          <button class="order-btn">اطلب الخدمة</button>
-        </div>
-      </div>
-
-      <div class="service-card" data-service="متجر إلكتروني بسيط" data-price="2500" data-delivery="7 أيام" data-notes="يشمل صفحات المنتجات، السلة، واتصال بسيط.">
-        <h3>متجر إلكتروني بسيط</h3>
-        <p>عرض منتجاتك بواجهة منظمة وتجربة شراء سلسة.</p>
-        <ul class="features">
-          <li>تصنيفات وفلاتر</li>
-          <li>سلة مشتريات</li>
-          <li>لوحة إدارة أساسية</li>
-        </ul>
-        <div class="cta-row">
-          <span class="price">2500 EGP</span>
-          <button class="order-btn">اطلب الخدمة</button>
-        </div>
-      </div>
-
-      <div class="service-card" data-service="صفحة هبوط تسويقية" data-price="800" data-delivery="3 أيام" data-notes="مهيأة للتحويل مع نموذج اتصال.">
-        <h3>صفحة هبوط تسويقية</h3>
-        <p>مصممة لزيادة التحويلات مع رسائل واضحة وأزرار قوية.</p>
-        <ul class="features">
-          <li>CTA قوي</li>
-          <li>قسم مميزات مقنع</li>
-          <li>نموذج اتصال سريع</li>
-        </ul>
-        <div class="cta-row">
-          <span class="price">800 EGP</span>
-          <button class="order-btn">اطلب الخدمة</button>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
+  <!-- Intro / Hero -->
+  <section class="hero">
     <div class="container">
-      <p>© 2026 جميع الحقوق محفوظة — محمود أبو الدهب</p>
+      <h1 class="hero-title">abodahab Store — سماعات، إكسسوارات، أدوات منزلية، وخدمات تصميم مواقع</h1>
+      <p class="hero-text">
+        متجر abodahab Store يقدّم منتجات متنوعة بجانب خدمات احترافية لبناء مواقع ويب سريعة وتحويلية من
+        ابوالدهب هوست. اختر خطتك وابدأ الآن.
+      </p>
+    </div>
+  </section>
+
+  <!-- Pricing Section 1 -->
+  <section class="pricing-section">
+    <div class="container">
+      <h2 class="section-title">باقات تصميم المواقع — مستوى أول</h2>
+
+      <div class="cards-grid">
+        <!-- عادي (بسيط) -->
+        <article class="plan-card">
+          <div class="plan-head">
+            <h3 class="plan-name">عادي (بسيط)</h3>
+            <div class="plan-price">
+              <span class="amount">1990</span> <span class="currency">جنيه</span>
+            </div>
+          </div>
+          <ul class="plan-features">
+            <li>الدومين: مجاني</li>
+            <li>التسليم: يومين</li>
+            <li>عدد الصفحات: حتى 3 صفحات</li>
+            <li>تصميم متجاوب</li>
+            <li>هوية ألوان وخطوط</li>
+            <li>زر واتساب مباشر</li>
+            <li>صفحة تواصل + خريطة</li>
+            <li>تهيئة سيو أساسي</li>
+          </ul>
+          <button
+            class="cta"
+            data-plan="عادي (بسيط)"
+            data-price="1990 جنيه"
+            data-domain="مجاني"
+            data-delivery="يومين"
+            data-pages="حتى 3 صفحات"
+            data-extra="تصميم متجاوب، هوية ألوان وخطوط، زر واتساب مباشر، صفحة تواصل + خريطة، تهيئة سيو أساسي"
+          >
+            اطلب الخطة
+          </button>
+        </article>
+
+        <!-- مميز (متكامل) -->
+        <article class="plan-card">
+          <div class="plan-head">
+            <h3 class="plan-name">مميز (متكامل)</h3>
+            <div class="plan-price">
+              <span class="amount">3490</span> <span class="currency">جنيه</span>
+            </div>
+          </div>
+          <ul class="plan-features">
+            <li>الدومين: مجاني</li>
+            <li>التسليم: 6 أيام</li>
+            <li>عدد الصفحات: حتى 6 صفحات</li>
+            <li>تحسين سرعة وتحميل الصفحات</li>
+            <li>قسم خدمات + أعمال</li>
+            <li>نموذج تواصل متقدم</li>
+            <li>تحسين سيو للصفحات</li>
+          </ul>
+          <button
+            class="cta"
+            data-plan="مميز (متكامل)"
+            data-price="3490 جنيه"
+            data-domain="مجاني"
+            data-delivery="6 أيام"
+            data-pages="حتى 6 صفحات"
+            data-extra="تحسين سرعة وتحميل الصفحات، قسم خدمات + أعمال، نموذج تواصل متقدم، تحسين سيو للصفحات"
+          >
+            اطلب الخطة
+          </button>
+        </article>
+
+        <!-- مخصص (شركة/خدمات) -->
+        <article class="plan-card">
+          <div class="plan-head">
+            <h3 class="plan-name">مخصص (شركة/خدمات)</h3>
+            <div class="plan-price">
+              <span class="amount">5490</span> <span class="currency">جنيه</span>
+            </div>
+          </div>
+          <ul class="plan-features">
+            <li>الدومين: مجاني</li>
+            <li>التسليم: 7 أيام</li>
+            <li>عدد الصفحات: حتى 8 صفحات</li>
+            <li>نفس مميزات الباقة المميزة</li>
+            <li>تخصيص أكبر لمواقع الشركات والخدمات</li>
+          </ul>
+          <button
+            class="cta"
+            data-plan="مخصص (شركة/خدمات)"
+            data-price="5490 جنيه"
+            data-domain="مجاني"
+            data-delivery="7 أيام"
+            data-pages="حتى 8 صفحات"
+            data-extra="نفس مميزات الباقة المميزة بالإضافة إلى تخصيص أكبر لمواقع الشركات والخدمات"
+          >
+            اطلب الخطة
+          </button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section 2 -->
+  <section class="pricing-section alt">
+    <div class="container">
+      <h2 class="section-title">باقات متقدمة — مازن هوست</h2>
+
+      <div class="cards-grid">
+        <!-- عادي (موقع كبير/كتالوج) -->
+        <article class="plan-card">
+          <div class="plan-head">
+            <h3 class="plan-name">عادي (موقع كبير/كتالوج)</h3>
+            <div class="plan-price">
+              <span class="amount">7490</span> <span class="currency">جنيه</span>
+            </div>
+          </div>
+          <ul class="plan-features">
+            <li>الدومين: مدفوع</li>
+            <li>التسليم: 7 أيام</li>
+            <li>عدد الصفحات: حتى الصفحة (رئيسية + أقسام متعددة)</li>
+            <li>أقسام متعددة للمحتوى</li>
+            <li>نماذج تواصل حسب الطلب</li>
+            <li>تحسين سرعة وتحميل</li>
+          </ul>
+          <button
+            class="cta"
+            data-plan="عادي (موقع كبير/كتالوج)"
+            data-price="7490 جنيه"
+            data-domain="مدفوع"
+            data-delivery="7 أيام"
+            data-pages="رئيسية + أقسام متعددة"
+            data-extra="أقسام متعددة للمحتوى، نماذج تواصل حسب الطلب، تحسين سرعة وتحميل"
+          >
+            اطلب الخطة
+          </button>
+        </article>
+
+        <!-- مميز (متجر متقدم/نظام بسيط) -->
+        <article class="plan-card">
+          <div class="plan-head">
+            <h3 class="plan-name">مميز (متجر متقدم/نظام بسيط)</h3>
+            <div class="plan-price">
+              <span class="amount">9990</span> <span class="currency">جنيه</span>
+            </div>
+          </div>
+          <ul class="plan-features">
+            <li>الدومين: مدفوع</li>
+            <li>التسليم: 10 أيام</li>
+            <li>سلة مشتريات كاملة</li>
+            <li>كوبونات وخصومات</li>
+            <li>متابعة الطلبات</li>
+            <li>تهيئة سيو للمنتجات</li>
+            <li>تقارير بسيطة</li>
+          </ul>
+          <button
+            class="cta"
+            data-plan="مميز (متجر متقدم/نظام بسيط)"
+            data-price="9990 جنيه"
+            data-domain="مدفوع"
+            data-delivery="10 أيام"
+            data-pages="سلة مشتريات كاملة"
+            data-extra="كوبونات وخصومات، متابعة الطلبات، تهيئة سيو للمنتجات، تقارير بسيطة"
+          >
+            اطلب الخطة
+          </button>
+        </article>
+
+        <!-- مخصص (نظام طلبات/حجوزات) -->
+        <article class="plan-card">
+          <div class="plan-head">
+            <h3 class="plan-name">مخصص (نظام طلبات/حجوزات)</h3>
+            <div class="plan-price">
+              <span class="amount">12990</span> <span class="currency">جنيه</span>
+            </div>
+          </div>
+          <ul class="plan-features">
+            <li>الدومين: مدفوع</li>
+            <li>التسليم: 14 يوم</li>
+            <li>نماذج طلبات وحجوزات</li>
+            <li>تأكيدات واتساب أو إيميل</li>
+            <li>لوحة إدارة الطلبات</li>
+          </ul>
+          <button
+            class="cta"
+            data-plan="مخصص (نظام طلبات/حجوزات)"
+            data-price="12990 جنيه"
+            data-domain="مدفوع"
+            data-delivery="14 يوم"
+            data-pages="نماذج طلبات وحجوزات"
+            data-extra="تأكيدات واتساب أو إيميل، لوحة إدارة الطلبات"
+          >
+            اطلب الخطة
+          </button>
+        </article>
+      </div>
+
+      <!-- خيار مخصص إضافي بدون سعر -->
+      <div class="custom-note">
+        <div class="note-card">
+          <h3 class="note-title">مخصص (نظام طلبات أو حجوزات)</h3>
+          <p class="note-text">
+            بدون سعر محدد — التسليم خلال 7 أيام بعد تحديد المتطلبات. تواصل لتحديد الاحتياجات ثم التسعير النهائي.
+          </p>
+          <button
+            class="cta outline"
+            data-plan="مخصص (حسب المتطلبات)"
+            data-price="يُحدد بعد التواصل"
+            data-domain="حسب الطلب"
+            data-delivery="7 أيام"
+            data-pages="حسب نوع النظام"
+            data-extra="تحليل احتياجات، تحديد النماذج والتدفق، تسعير نهائي بعد الاتفاق"
+          >
+            اطلب الخطة
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>جميع الحقوق محفوظة — abodahab Store</span>
     </div>
   </footer>
 
-  <div id="toast" class="toast" role="status" aria-live="polite">تم نسخ الرسالة الجاهزة. سيفتح تلجرام الآن.</div>
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
   <script src="script.js"></script>
 </body>
