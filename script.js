@@ -1,27 +1,31 @@
-// إعدادات تلجرام
-const TELEGRAM_USERNAME = "uuruuc"; // غيّرها إذا احتجت
-const TELEGRAM_WEB_URL = `https://t.me/${TELEGRAM_USERNAME}`;
+// إعداد رابط تيليجرام
+const TELEGRAM_USERNAME = "uuruuc";
+const TELEGRAM_URL = `https://t.me/${TELEGRAM_USERNAME}`;
 
-// قالب الرسالة الجاهزة
-function buildMessage({ service, price, delivery, notes }) {
-  const time = new Date().toLocaleString("ar-EG");
-  return `مرحبا محمود،
-أنا مهتم بخدمة: ${service}
-السعر المعروض: ${price} EGP
-مدة التنفيذ: ${delivery}
-تفاصيل إضافية: ${notes}
-
-لو مناسب نبدأ الإجراءات.
-وقت الطلب: ${time}`;
+// توليد رسالة الطلب
+function buildMessage({ plan, price, domain, delivery, pages, extra }) {
+  const lines = [
+    `مرحباً مازن 👋`,
+    `أرغب في طلب خطة: ${plan}`,
+    `السعر: ${price}`,
+    `الدومين: ${domain}`,
+    `التسليم: ${delivery}`,
+    `عدد الصفحات/الوحدات: ${pages}`,
+    `المميزات: ${extra}`,
+    ``,
+    `لو متاح أي إضافات أو عروض، أخبرني من فضلك.`,
+    `شكراً لك.`,
+  ];
+  return lines.join("\n");
 }
 
-// انسخ للنص للحافظة
+// نسخ إلى الحافظة
 async function copyToClipboard(text) {
   try {
     await navigator.clipboard.writeText(text);
     return true;
   } catch (err) {
-    // fallback: أنشئ textarea مؤقت
+    //Fallback قديم
     const ta = document.createElement("textarea");
     ta.value = text;
     document.body.appendChild(ta);
@@ -32,42 +36,42 @@ async function copyToClipboard(text) {
   }
 }
 
-// إشعار بسيط
-function showToast(msg = "تم نسخ الرسالة الجاهزة. سيفتح تلجرام الآن.") {
+// إظهار توست
+function showToast(msg) {
   const toast = document.getElementById("toast");
   toast.textContent = msg;
   toast.classList.add("show");
   setTimeout(() => toast.classList.remove("show"), 2500);
 }
 
-// افتح تلجرام
-function openTelegram() {
-  // يفتح رابط الويب—على الموبايل والكمبيوتر هيتحوّل لتطبيق تلجرام لو مثبت
-  window.open(TELEGRAM_WEB_URL, "_blank", "noopener");
+// التعامل مع نقر زر "اطلب الخطة"
+function handleCtaClick(e) {
+  const btn = e.currentTarget;
+  const payload = {
+    plan: btn.dataset.plan,
+    price: btn.dataset.price,
+    domain: btn.dataset.domain,
+    delivery: btn.dataset.delivery,
+    pages: btn.dataset.pages,
+    extra: btn.dataset.extra,
+  };
+
+  const message = buildMessage(payload);
+
+  copyToClipboard(message).then((ok) => {
+    if (ok) {
+      showToast("تم نسخ تفاصيل الخطة. سيتم فتح محادثة تيليجرام الآن.");
+    } else {
+      showToast("تعذر النسخ تلقائياً. سيتم فتح تيليجرام—انسخ الرسالة يدوياً.");
+    }
+    // فتح محادثة تيليجرام
+    window.open(TELEGRAM_URL, "_blank", "noopener");
+  });
 }
 
-// ربط الأزرار
+// تفعيل الأزرار
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".service-card .order-btn").forEach((btn) => {
-    btn.addEventListener("click", async (e) => {
-      const card = e.currentTarget.closest(".service-card");
-      const payload = {
-        service: card.dataset.service || card.querySelector("h3")?.textContent?.trim() || "خدمة",
-        price: card.dataset.price || "—",
-        delivery: card.dataset.delivery || "—",
-        notes: card.dataset.notes || card.querySelector("p")?.textContent?.trim() || ""
-      };
-
-      const message = buildMessage(payload);
-      const copied = await copyToClipboard(message);
-
-      if (copied) {
-        showToast();
-      } else {
-        showToast("انسخ الرسالة يدويًا بعد فتح تلجرام.");
-      }
-
-      openTelegram();
-    });
+  document.querySelectorAll(".cta").forEach((btn) => {
+    btn.addEventListener("click", handleCtaClick);
   });
 });
