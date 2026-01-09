@@ -1,114 +1,42 @@
 :root {
-  /* ألوان الهوية */
-  --bg: #2b1f18;          /* خلفية بني داكن */
+  --bg: #2b1f18;
   --bg2: #3b2a21;
   --card: #3a2a22;
-  --card2: #2b1f18;
-  --text: #f0efe9;         /* نص أبيض */
-  --muted: #b7b5b3;        /* نص ثانوي */
-  --gold: #e0b285;         /* ذهبي/بيج */
-  --accent: #2ecc71;       /* أخضر CTA */
-  --accent-2: #27ae60;     /* أخضر أغمق */
-  --badge-green: #a8f0c1;  /* خلفية أيقونات فاتحة */
+  --text: #f0efe9;
+  --gold: #e0b285;
+  --accent: #2ecc71;
+  --accent-2: #27ae60;
+  --badge-green: #a8f0c1;
   --border: rgba(255,255,255,0.08);
   --shadow: 0 10px 30px rgba(0,0,0,0.35);
   --radius: 18px;
 }
 
-* { box-sizing: border-box; }
-html, body {
-  margin: 0; padding: 0;
+body {
+  margin: 0;
   background: linear-gradient(135deg, var(--bg), var(--bg2));
   color: var(--text);
-  font-family: 'Almarai', 'Cairo', system-ui;
+  font-family: 'Almarai', 'Cairo', sans-serif;
 }
 
-/* الحاويات */
-.container { max-width: 1100px; margin: 0 auto; padding: 24px; }
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
-}
-@media (min-width: 720px) {
-  .grid { grid-template-columns: repeat(3, 1fr); }
-}
+.container { max-width: 1100px; margin: auto; padding: 24px; }
 
-/* الشريط العلوي */
 .topbar {
-  position: sticky; top: 0; z-index: 30;
-  display: grid; grid-template-columns: 1fr auto 1fr;
-  align-items: center; gap: 12px;
-  padding: 12px 18px;
-  background: rgba(43,31,24,0.7); backdrop-filter: blur(8px);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 18px; background: rgba(43,31,24,0.7);
   border-bottom: 1px solid var(--border);
 }
-.nav .nav-link {
-  color: var(--muted);
-  text-decoration: none;
-  padding: 6px 10px;
-  border-radius: 999px;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-.nav .nav-link:hover { background: rgba(255,255,255,0.06); color: var(--text); }
-.profile-img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--gold); }
-.profile-info .brand { font-weight: 700; color: var(--text); }
-.profile-info .sub { font-size: 13px; color: var(--gold); }
 
-/* الأزرار */
 .btn {
-  cursor: pointer;
   padding: 12px 18px; border-radius: 12px; font-weight: 700;
-  background: var(--accent); color: #0d1f12; box-shadow: var(--shadow);
-  transition: transform 0.1s ease, opacity 0.15s ease, background 0.2s ease;
-  border: 0;
+  background: var(--accent); color: #0d1f12; border: none;
 }
-.btn:hover { transform: translateY(-1px); }
-.btn:active { transform: translateY(0); opacity: 0.9; }
-.btn.primary { background: var(--accent); }
-.btn.ghost {
-  background: transparent; color: var(--text);
-  border: 1px solid var(--border);
-}
-.btn.cta { background: var(--accent); }
+.btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
 .btn.cta:hover { background: var(--accent-2); }
 
-/* البطاقات */
 .card {
-  background: linear-gradient(180deg, var(--card), var(--card2));
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 16px;
+  background: var(--card); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 16px; margin: 12px 0;
 }
-.pkg-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-.badge {
-  display: inline-flex; align-items: center; justify-content: center;
-  padding: 6px 10px; border-radius: 999px; font-weight: 700; font-size: 13px;
-  background: var(--badge-green); color: #11301f;
-}
-.pkg-title { margin: 0; font-size: 18px; color: var(--text); }
-.brief { color: var(--muted); font-size: 13px; }
-.pkg-price { display: flex; gap: 10px; margin: 8px 0 10px; }
-.price { font-weight: 800; color: var(--gold); }
-.time { color: var(--muted); font-weight: 700; }
-
-.pkg-feats {
-  list-style: none; padding: 0; margin: 0 0 12px;
-  display: grid; gap: 8px;
-}
-.pkg-feats li {
-  display: flex; align-items: center; gap: 8px;
-  padding: 8px 10px; border-radius: 12px;
-  background: rgba(255,255,255,0.06); color: var(--text);
-}
-.pkg-feats li::before {
-  content: "✔";
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 22px; height: 22px; border-radius: 50%;
-  background: var(--badge-green); color: #143621; font-weight: 900;
-}
-
-/* الفوتر */
-.footer { padding: 20px 24px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 24px; }
-.footer-note { margin: 0; text-align: center; }
+.badge { background: var(--badge-green); padding: 6px 10px; border-radius: 999px; }
+.price { color: var(--gold); font-weight: bold; }
