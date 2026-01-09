@@ -2,186 +2,267 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ABODAHAB Store</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>أبو الدهب - ماركت وخدمات إنشاء المواقع الإلكترونية</title>
+  <meta name="description" content="ماركت وخدمات إنشاء مواقع إلكترونية من أبو الدهب: اختيار الخدمة، تحديد التفاصيل، التنفيذ خطوة بخطوة. باقات بدون دومين ومع دومين، دعم فني وتحسين SEO.">
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <!-- Top navigation -->
-  <header class="topbar">
-    <div class="topbar-left">
-      <button class="btn ghost" id="servicesNav">الخدمات</button>
-    </div>
-
-    <div class="topbar-center">
-      <div class="clock">
-        <span id="clock"></span>
-      </div>
-    </div>
-
-    <div class="topbar-right">
-      <button class="btn ghost" id="langToggle" aria-label="Toggle language">العربية / English</button>
-      <div class="profile">
-        <img src="https://iili.io/fegnOCb.th.jpg" alt="ABODAHAB Profile" />
-        <div class="profile-info">
-          <div class="brand">ABODAHAB Store</div>
-          <div class="sub">ماركت خاص بالمبدع أبو الدهب</div>
-        </div>
-      </div>
+  <!-- Navbar -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="#" class="brand">أبو الدهب</a>
+      <nav class="nav__links">
+        <a href="#market" class="btn btn--nav">دخول الماركت</a>
+        <a href="#creator" class="btn btn--nav">معلومات المبدع</a>
+        <a href="#features" class="btn btn--nav">مميزات الماركت</a>
+      </nav>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="hero container">
-    <div class="hero-card">
-      <div class="hero-media">
-        <img src="https://iili.io/fegnOCb.th.jpg" alt="ABODAHAB" class="hero-img" />
-      </div>
-      <div class="hero-content">
-        <h1 class="hero-title" data-i18n="hero_title">ABODAHAB Store</h1>
-        <p class="hero-desc" data-i18n="hero_desc">
-          مكان واحد لكل خدماتك. اضغط على الماركت واختر الخدمة، وبعدها حدد التفاصيل خطوة بخطوة.
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <h1 class="hero__title">أبو الدهب — ماركت وخدمات برمجية</h1>
+        <p class="hero__subtitle">
+          مكان واحد لكل خدماتك. اضغط على الماركت واختر الخدمة، وبعدها هنحدد التفاصيل خطوة بخطوة.
         </p>
-        <div class="hero-actions">
-          <a href="#market" class="btn primary" data-i18n="enter_market">دخول الماركت</a>
-          <a href="#features" class="btn outline" data-i18n="market_features">مميزات الماركت</a>
+        <div class="hero__actions">
+          <a href="#market" class="btn btn--primary">دخول الماركت</a>
+          <a href="#creator" class="btn btn--outline">معلومات المبدع</a>
+          <a href="#features" class="btn btn--ghost">مميزات الماركت</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section id="features" class="features container">
-    <h2 class="section-title" data-i18n="features_title">مميزات الماركت</h2>
-    <div class="feature-grid">
-      <div class="card">
-        <h3 class="card-title" data-i18n="feat_one_t">تسعير واضح</h3>
-        <p class="card-desc" data-i18n="feat_one_d">باقات محددة، تفاصيل شفافة، واستلام ضمن المدة.</p>
-      </div>
-      <div class="card">
-        <h3 class="card-title" data-i18n="feat_two_t">هوية متناسقة</h3>
-        <p class="card-desc" data-i18n="feat_two_d">ألوان، خطوط، وتراكيب محتوى احترافية لعلامتك.</p>
-      </div>
-      <div class="card">
-        <h3 class="card-title" data-i18n="feat_three_t">جاهزية للسيو</h3>
-        <p class="card-desc" data-i18n="feat_three_d">تهيئة أساسية أو متقدمة لصفحاتك للظهور الصحيح.</p>
+      <div class="hero__image">
+        <img src="https://iili.io/fkf9YHQ.th.jpg" alt="صورة أبو الدهب" />
       </div>
     </div>
+    <div class="hero__glow"></div>
   </section>
 
-  <!-- Market -->
-  <section id="market" class="market container">
-    <div class="market-header">
-      <h2 class="section-title" data-i18n="market_title">خدمات إنشاء مواقع إلكترونية</h2>
-      <p class="section-sub" data-i18n="market_sub">
-        اختر الباقة التي تناسبك، وبعد طلبك لموقعك سيتم التواصل معك قبل التنفيذ.
+  <!-- Market (Services) -->
+  <section id="market" class="section">
+    <div class="container">
+      <h2 class="section__title">الخدمات المتاحة</h2>
+      <p class="section__desc">
+        اضغط على أي خدمة علشان نحدد تفاصيلها خطوة بخطوة، ونرجّع لك كل حاجة موثقة وواضحة.
       </p>
-    </div>
 
-    <!-- Packages grid -->
-    <div class="packages">
-      <!-- Row 1 -->
-      <div class="grid">
-        <div class="pkg card">
-          <div class="pkg-head">
-            <span class="badge">عادي</span>
-            <h3 class="pkg-title">موقع إلكتروني بسيط</h3>
-            <span class="brief">بدون دومين</span>
-          </div>
-          <div class="pkg-price">
-            <span class="price">1990 جنيه</span>
-            <span class="time">التسليم: يومين</span>
-          </div>
-          <ul class="pkg-feats">
-            <li>حتى ٣ صفحات</li>
-            <li>تصميم بسيط متجاوب</li>
-            <li>رد واتساب مباشر</li>
-            <li>تهيئة سيو أساسي</li>
-          </ul>
-          <button class="btn primary pkg-order" data-level="basic">طلب الخدمة</button>
+      <!-- Website Services -->
+      <div class="card card--wide">
+        <div class="card__head">
+          <h3>خدمات إنشاء المواقع الإلكترونية</h3>
+          <p>موقع تعريفي أو متجر أو نظام طلبات — بأسلوب تسليم منظم ومراحل واضحة.</p>
         </div>
 
-        <div class="pkg card">
-          <div class="pkg-head">
-            <span class="badge badge-mid">مميز</span>
-            <h3 class="pkg-title">موقع إلكتروني متكامل</h3>
-            <span class="brief">بدون دومين</span>
-          </div>
-          <div class="pkg-price">
-            <span class="price">3490 جنيه</span>
-            <span class="time">التسليم: ٤ أيام</span>
-          </div>
-          <ul class="pkg-feats">
-            <li>حتى ٥ صفحات</li>
-            <li>هوية ألوان وخطوط</li>
-            <li>محتوى وتراكيب</li>
-            <li>تهيئة سيو وتفصيل</li>
-          </ul>
-          <button class="btn primary pkg-order" data-level="mid">طلب الخدمة</button>
+        <div class="tabs">
+          <button class="tab active" data-tab="no-domain">باقات بدون دومين</button>
+          <button class="tab" data-tab="with-domain">باقات مع دومين</button>
         </div>
 
-        <div class="pkg card">
-          <div class="pkg-head">
-            <span class="badge badge-pro">متخصص</span>
-            <h3 class="pkg-title">موقع خدمات</h3>
-            <span class="brief">بدون دومين</span>
+        <!-- No Domain Packages -->
+        <div class="tab__content active" id="no-domain">
+          <div class="grid">
+            <div class="package">
+              <h4>العادي</h4>
+              <ul class="package__list">
+                <li><strong>عدد الصفحات:</strong> 3 صفحات</li>
+                <li><strong>السعر:</strong> 1500 ج.م</li>
+                <li><strong>مدة التسليم:</strong> 3 أيام</li>
+                <li><strong>دعم فني:</strong> 7 أيام بعد التسليم</li>
+                <li><strong>تحسين SEO:</strong> أساسي</li>
+              </ul>
+              <button class="btn btn--primary" data-select="normal-no">اختيار الخدمة</button>
+            </div>
+
+            <div class="package">
+              <h4>المتوسط</h4>
+              <ul class="package__list">
+                <li><strong>عدد الصفحات:</strong> 5 صفحات</li>
+                <li><strong>السعر:</strong> 2500 ج.م</li>
+                <li><strong>مدة التسليم:</strong> 5 أيام</li>
+                <li><strong>دعم فني:</strong> 14 يومًا بعد التسليم</li>
+                <li><strong>تحسين SEO:</strong> محسّن</li>
+              </ul>
+              <button class="btn btn--primary" data-select="mid-no">اختيار الخدمة</button>
+            </div>
+
+            <div class="package">
+              <h4>المميز</h4>
+              <ul class="package__list">
+                <li><strong>عدد الصفحات:</strong> 8 صفحات</li>
+                <li><strong>السعر:</strong> 4000 ج.م</li>
+                <li><strong>مدة التسليم:</strong> 7 أيام</li>
+                <li><strong>دعم فني:</strong> 30 يومًا بعد التسليم</li>
+                <li><strong>تحسين SEO:</strong> متقدم</li>
+              </ul>
+              <button class="btn btn--primary" data-select="pro-no">اختيار الخدمة</button>
+            </div>
           </div>
-          <div class="pkg-price">
-            <span class="price">5490 جنيه</span>
-            <span class="time">التسليم: ٦ أيام</span>
+        </div>
+
+        <!-- With Domain Packages -->
+        <div class="tab__content" id="with-domain">
+          <div class="grid">
+            <div class="package">
+              <h4>العادي + دومين</h4>
+              <ul class="package__list">
+                <li><strong>عدد الصفحات:</strong> 3 صفحات</li>
+                <li><strong>السعر:</strong> 2200 ج.م</li>
+                <li><strong>مدة التسليم:</strong> 4 أيام</li>
+                <li><strong>دعم فني:</strong> 7 أيام بعد التسليم</li>
+                <li><strong>تحسين SEO:</strong> أساسي</li>
+                <li><strong>الدومين:</strong> .com أو .net (سنة واحدة)</li>
+              </ul>
+              <button class="btn btn--primary" data-select="normal-dom">اختيار الخدمة</button>
+            </div>
+
+            <div class="package">
+              <h4>المتوسط + دومين</h4>
+              <ul class="package__list">
+                <li><strong>عدد الصفحات:</strong> 5 صفحات</li>
+                <li><strong>السعر:</strong> 3200 ج.م</li>
+                <li><strong>مدة التسليم:</strong> 6 أيام</li>
+                <li><strong>دعم فني:</strong> 14 يومًا بعد التسليم</li>
+                <li><strong>تحسين SEO:</strong> محسّن</li>
+                <li><strong>الدومين:</strong> .com أو .net (سنة واحدة)</li>
+              </ul>
+              <button class="btn btn--primary" data-select="mid-dom">اختيار الخدمة</button>
+            </div>
+
+            <div class="package">
+              <h4>المميز + دومين</h4>
+              <ul class="package__list">
+                <li><strong>عدد الصفحات:</strong> 8 صفحات</li>
+                <li><strong>السعر:</strong> 4800 ج.م</li>
+                <li><strong>مدة التسليم:</strong> 8 أيام</li>
+                <li><strong>دعم فني:</strong> 30 يومًا بعد التسليم</li>
+                <li><strong>تحسين SEO:</strong> متقدم</li>
+                <li><strong>الدومين:</strong> .com أو .net (سنة واحدة)</li>
+              </ul>
+              <button class="btn btn--primary" data-select="pro-dom">اختيار الخدمة</button>
+            </div>
           </div>
-          <ul class="pkg-feats">
-            <li>حتى ٦ صفحات</li>
-            <li>قسم خدمات + أعمال</li>
-            <li>نموذج تواصل متقدم</li>
-            <li>تحسين سيو الصفحات</li>
-          </ul>
-          <button class="btn primary pkg-order" data-level="pro">طلب الخدمة</button>
+        </div>
+
+        <!-- Steps -->
+        <div class="steps">
+          <div class="step">
+            <span class="step__number">1</span>
+            <div>
+              <h5>اختيار الخدمة</h5>
+              <p>بتختار الباقة المناسبة لك حسب عدد الصفحات والميزانية.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step__number">2</span>
+            <div>
+              <h5>تحديد التفاصيل</h5>
+              <p>بنكتب المحتوى، بنحدد الأقسام، وبنختار أسلوب التصميم.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step__number">3</span>
+            <div>
+              <h5>التنفيذ خطوة بخطوة</h5>
+              <p>بننفّذ ونراجع على مراحل، وكل مرحلة لها تسليم واضح.</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Row 2 -->
-      <div class="grid">
-        <div class="pkg card">
-          <div class="pkg-head">
-            <span class="badge">عادي</span>
-            <h3 class="pkg-title">موقع كبير كاتلوج</h3>
-            <span class="brief">بدومين</span>
-          </div>
-          <div class="pkg-price">
-            <span class="price">7490 جنيه</span>
-            <span class="time">التسليم: ٦ أيام</span>
-          </div>
-          <ul class="pkg-feats">
-            <li>حتى ١٢ صفحة</li>
-            <li>أقسام متعددة للمحتوى</li>
-            <li>نماذج تواصل حسب الطلب</li>
-            <li>تهيئة سيو وتفصيل</li>
-          </ul>
-          <button class="btn primary pkg-order" data-level="basic_big">طلب الخدمة</button>
-        </div>
+      <!-- Other sample market items (placeholders for future expansion) -->
+      <div class="grid mt-24">
+        <a class="card card--click" href="#">
+          <h4>شحن النجوم</h4>
+          <p>اختيار الباقة وطريقة الدفع — تسليم موثّق.</p>
+        </a>
+        <a class="card card--click" href="#">
+          <h4>تيليجرام بريميوم</h4>
+          <p>مدة الاشتراك والتفعيل — خطوات واضحة.</p>
+        </a>
+        <a class="card card--click" href="#">
+          <h4>تنصيب بوت تخزين أرقام</h4>
+          <p>إرسال الأيدي والتوكن وإثبات الدفع — إعداد كامل.</p>
+        </a>
+      </div>
+    </div>
+  </section>
 
-        <div class="pkg card">
-          <div class="pkg-head">
-            <span class="badge badge-mid">مميز</span>
-            <h3 class="pkg-title">نظام متكامل أو نظام متوسط</h3>
-            <span class="brief">بدومين</span>
+  <!-- Creator Info -->
+  <section id="creator" class="section section--alt">
+    <div class="container">
+      <h2 class="section__title">معلومات المبدع</h2>
+      <div class="creator">
+        <img src="https://iili.io/fkf9YHQ.th.jpg" alt="أبو الدهب" class="creator__img"/>
+        <div class="creator__bio">
+          <h3>أبو الدهب</h3>
+          <p>
+            مبرمج ومصمم مواقع من صعيد مصر — أركز على تقديم تجربة محترفة بواجهة واضحة، ترجمة ديناميكية،
+            وبناء هوية متكاملة للمشاريع. شغلي منظم، خطوة بخطوة، مع دعم فني ومتابعة لتحسين الأداء.
+          </p>
+          <div class="creator__stats">
+            <div><strong>خبرة:</strong> تصميم وبرمجة واجهات ويب</div>
+            <div><strong>أسلوبي:</strong> وضوح، تنظيم، تسليم على مراحل</div>
+            <div><strong>التركيز:</strong> قابلية الاستخدام وتحسين SEO</div>
           </div>
-          <div class="pkg-price">
-            <span class="price">9990 جنيه</span>
-            <span class="time">التسليم: ٨ أيام</span>
-          </div>
-          <ul class="pkg-feats">
-            <li>لوحة تحكم كاملة</li>
-            <li>تفاعلات مخصصة</li>
-            <li>نماذج متعددة</li>
-            <li>تهيئة سيو للصفحات</li>
-          </ul>
-          <button class="btn primary pkg-order" data-level="mid_system">طلب الخدمة</button>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="pkg card">
-          <div class="pkg-head">
-            <span class="badge badge-pro">متخصص</span>
+  <!-- Market Features -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2 class="section__title">مميزات الماركت</h2>
+      <div class="features">
+        <div class="feature">
+          <span class="feature__icon">✓</span>
+          <h4>تسعير واضح</h4>
+          <p>كل باقة بمواصفاتها وسعرها بدون مفاجآت.</p>
+        </div>
+        <div class="feature">
+          <span class="feature__icon">✓</span>
+          <h4>تنفيذ على مراحل</h4>
+          <p>خطة عمل خطوة بخطوة مع مراجعة في كل مرحلة.</p>
+        </div>
+        <div class="feature">
+          <span class="feature__icon">✓</span>
+          <h4>تحسين SEO</h4>
+          <p>تهيئة أساسية أو متقدمة حسب الباقة لضمان الظهور.</p>
+        </div>
+        <div class="feature">
+          <span class="feature__icon">✓</span>
+          <h4>دعم فني</h4>
+          <p>مساعدة بعد التسليم للتعديلات التقنية البسيطة.</p>
+        </div>
+        <div class="feature">
+          <span class="feature__icon">✓</span>
+          <h4>أداء وسرعة</h4>
+          <p>كود محسن وتجربة مستخدم سريعة ومستقرة.</p>
+        </div>
+        <div class="feature">
+          <span class="feature__icon">✓</span>
+          <h4>هوية متناسقة</h4>
+          <p>ألوان وخطوط ثابتة تعكس الطابع المهني لمشروعك.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">أبو الدهب</div>
+      <div class="footer__links">
+        <a href="#market">دخول الماركت</a>
+        <a href="#creator">معلومات المبدع</a>
+        <a href="#features">مميزات الماركت</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
