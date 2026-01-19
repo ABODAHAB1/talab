@@ -1,21 +1,25 @@
-function updateClock() {
-    const now = new Date();
-    document.getElementById('clock').innerText =
-        now.toLocaleDateString('ar-EG') + ' | ' + now.toLocaleTimeString('ar-EG');
+// عرض الساعة والتاريخ
+function updateDateTime() {
+  const now = new Date();
+  document.getElementById("datetime").textContent =
+    now.toLocaleString("ar-EG");
 }
-setInterval(updateClock, 1000);
-updateClock();
+setInterval(updateDateTime, 1000);
 
-function goWeb() {
-    document.getElementById('web-services').classList.remove('hidden');
-}
+// زر الترجمة (تجريبي)
+document.getElementById("translateBtn").addEventListener("click", () => {
+  alert("ميزة الترجمة هتضاف لاحقاً 🌐");
+});
 
-function order(plan, price) {
-    document.getElementById('order-form').classList.remove('hidden');
-    const select = document.getElementById('planSelect');
-    select.innerHTML = <option>${plan} - ${price} جنيه</option>;
-}
+// إظهار نموذج الطلب عند الضغط
+document.querySelectorAll(".orderBtn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.getElementById("orderForm").scrollIntoView({behavior: "smooth"});
+  });
+});
 
-function showOffer() {
-    document.getElementById('offer').classList.toggle('hidden');
-}
+// إرسال النموذج (تجريبي)
+document.querySelector("form").addEventListener("submit", e => {
+  e.preventDefault();
+  alert("تم إرسال الطلب ✅ (هندمج لاحقاً مع Firebase أو سيرفر)");
+});
