@@ -1,190 +1,72 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>abodahab Store — ابوالدهب هوست | باقات تصميم مواقع</title>
-  <meta name="description" content="abodahab Store يقدم منتجات متنوعة وخدمات تصميم مواقع. اكتشف باقات ابوالدهب بأسعار بالجنيه المصري ومميزات قوية." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <title>أهلاً بك في موقعنا</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="header-bar">
-      <button class="brand-pill" aria-label="ابوالدهب">ابوالدهب</button>
-      <div class="header-right">
-        <div class="store-title">
-          <span class="en-title">abodahab Store</span>
-          <span class="ar-subtitle">انشاء مواقع</span>
+<header class="top-bar">
+    <div id="clock"></div>
+    <button class="lang-btn">🌐 ترجمة</button>
+</header>
+
+<section class="hero">
+    <h1>أهلاً بك في موقعنا</h1>
+    <p>اختر الخدمة التي تناسبك</p>
+
+    <div class="choices">
+        <button onclick="goWeb()">دخول إلى خدمات الويب</button>
+        <button disabled>دخول إلى خدمات تيليجرام (قريباً)</button>
+    </div>
+</section>
+
+<section id="web-services" class="hidden">
+    <h2>💻 خدمات إنشاء مواقع الويب</h2>
+
+    <div class="plans">
+        <div class="plan">
+            <h3>الخطة العادية</h3>
+            <p>موقع صفحة إلى صفحتين</p>
+            <span class="price">100 جنيه</span>
+            <button onclick="order('العادية',100)">اطلب الخدمة</button>
         </div>
-        <a class="avatar" href="https://freeimage.host/i/fkIe4d7" target="_blank" rel="noopener" aria-label="صورة ابوالدهب">
-          <img src="https://iili.io/fkIe4d7.th.jpg" alt="صورة abodahab" />
-        </a>
-      </div>
-    </div>
-  </header>
 
-  <!-- Intro / Hero -->
-  <section class="hero">
-    <div class="container">
-      <h1 class="hero-title">abodahab Store —  خدمات تصميم مواقع </h1>
-      <p class="hero-text">
-        متجر abodahab Store يقدّم منتجات متنوعة بجانب خدمات احترافية لبناء مواقع ويب سريعة وتحويلية من
-        ابوالدهب هوست. اختر خطتك وابدأ الآن.
-      </p>
-    </div>
-  </section>
-
-  <!-- Pricing Section 1 -->
-  <section class="pricing-section">
-    <div class="container">
-      <h2 class="section-title">باقات تصميم المواقع — مستوى أول</h2>
-
-      <div class="cards-grid">
-        <!-- عادي (بسيط) -->
-        <article class="plan-card">
-          <div class="plan-head">
-            <h3 class="plan-name">عادي (بسيط)</h3>
-            <div class="plan-price">
-              <span class="amount">1990</span> <span class="currency">جنيه</span>
-            </div>
-          </div>
-          <ul class="plan-features">
-            <li>الدومين: مجاني</li>
-            <li>التسليم: يومين</li>
-            <li>عدد الصفحات: حتى 3 صفحات</li>
-            <li>تصميم متجاوب</li>
-            <li>هوية ألوان وخطوط</li>
-            <li>زر واتساب مباشر</li>
-            <li>صفحة تواصل + خريطة</li>
-            <li>تهيئة سيو أساسي</li>
-          </ul>
-          <button class="cta">اطلب الخطة</button>
-        </article>
-
-        <!-- مميز (متكامل) -->
-        <article class="plan-card">
-          <div class="plan-head">
-            <h3 class="plan-name">مميز (متكامل)</h3>
-            <div class="plan-price">
-              <span class="amount">3490</span> <span class="currency">جنيه</span>
-            </div>
-          </div>
-          <ul class="plan-features">
-            <li>الدومين: مجاني</li>
-            <li>التسليم: 6 أيام</li>
-            <li>عدد الصفحات: حتى 6 صفحات</li>
-            <li>تحسين سرعة وتحميل الصفحات</li>
-            <li>قسم خدمات + أعمال</li>
-            <li>نموذج تواصل متقدم</li>
-            <li>تحسين سيو للصفحات</li>
-          </ul>
-          <button class="cta">اطلب الخطة</button>
-        </article>
-
-        <!-- مخصص (شركة/خدمات) -->
-        <article class="plan-card">
-          <div class="plan-head">
-            <h3 class="plan-name">مخصص (شركة/خدمات)</h3>
-            <div class="plan-price">
-              <span class="amount">5490</span> <span class="currency">جنيه</span>
-            </div>
-          </div>
-          <ul class="plan-features">
-            <li>الدومين: مجاني</li>
-            <li>التسليم: 7 أيام</li>
-            <li>عدد الصفحات: حتى 8 صفحات</li>
-            <li>نفس مميزات الباقة المميزة</li>
-            <li>تخصيص أكبر لمواقع الشركات والخدمات</li>
-          </ul>
-          <button class="cta">اطلب الخطة</button>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing Section 2 -->
-  <section class="pricing-section alt">
-    <div class="container">
-      <h2 class="section-title">باقات متقدمة — مازن هوست</h2>
-
-      <div class="cards-grid">
-        <!-- عادي (موقع كبير/كتالوج) -->
-        <article class="plan-card">
-          <div class="plan-head">
-            <h3 class="plan-name">عادي (موقع كبير/كتالوج)</h3>
-            <div class="plan-price">
-              <span class="amount">7490</span> <span class="currency">جنيه</span>
-            </div>
-          </div>
-          <ul class="plan-features">
-            <li>الدومين: مدفوع</li>
-            <li>التسليم: 7 أيام</li>
-            <li>عدد الصفحات: حتى الصفحة (رئيسية + أقسام متعددة)</li>
-            <li>أقسام متعددة للمحتوى</li>
-            <li>نماذج تواصل حسب الطلب</li>
-            <li>تحسين سرعة وتحميل</li>
-          </ul>
-          <button class="cta">اطلب الخطة</button>
-        </article>
-
-        <!-- مميز (متجر متقدم/نظام بسيط) -->
-        <article class="plan-card">
-          <div class="plan-head">
-            <h3 class="plan-name">مميز (متجر متقدم/نظام بسيط)</h3>
-            <div class="plan-price">
-              <span class="amount">9990</span> <span class="currency">جنيه</span>
-            </div>
-          </div>
-          <ul class="plan-features">
-            <li>الدومين: مدفوع</li>
-            <li>التسليم: 10 أيام</li>
-            <li>سلة مشتريات كاملة</li>
-            <li>كوبونات وخصومات</li>
-            <li>متابعة الطلبات</li>
-            <li>تهيئة سيو للمنتجات</li>
-            <li>تقارير بسيطة</li>
-          </ul>
-          <button class="cta">اطلب الخطة</button>
-        </article>
-
-        <!-- مخصص (نظام طلبات/حجوزات) -->
-        <article class="plan-card">
-          <div class="plan-head">
-            <h3 class="plan-name">مخصص (نظام طلبات/حجوزات)</h3>
-            <div class="plan-price">
-              <span class="amount">12990</span> <span class="currency">جنيه</span>
-            </div>
-          </div>
-          <ul class="plan-features">
-            <li>الدومين: مدفوع</li>
-            <li>التسليم: 14 يوم</li>
-            <li>نماذج طلبات وحجوزات</li>
-            <li>تأكيدات واتساب أو إيميل</li>
-            <li>لوحة إدارة الطلبات</li>
-          </ul>
-          <button class="cta">اطلب الخطة</button>
-        </article>
-      </div>
-
-      <!-- خيار مخصص إضافي بدون سعر -->
-      <div class="custom-note">
-        <div class="note-card">
-          <h3 class="note-title">مخصص (نظام طلبات أو حجوزات)</h3>
-          <p class="note-text">
-            بدون سعر محدد — التسليم خلال 7 أيام بعد تحديد المتطلبات. تواصل لتحديد الاحتياجات ثم التسعير النهائي.
-          </p>
-          <button class="cta outline">اطلب الخطة</button>
+        <div class="plan">
+            <h3>الخطة المتوسطة</h3>
+            <p>موقع 3 إلى 5 صفحات</p>
+            <span class="price">300 جنيه</span>
+            <button onclick="order('المتوسطة',300)">اطلب الخدمة</button>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <span>
+        <div class="plan premium">
+            <h3>الخطة المميزة</h3>
+            <p>موقع احترافي كامل</p>
+            <span class="price">500 جنيه</span>
+            <button onclick="order('المميزة',500)">اطلب الخدمة</button>
+        </div>
+    </div>
+</section>
+
+<section id="order-form" class="hidden">
+    <h2>📋 طلب الخدمة</h2>
+    <form>
+        <input type="text" placeholder="اسمك" required>
+        <input type="text" placeholder="يوزر تيليجرام أو رقم واتساب" required>
+
+        <select id="planSelect"></select>
+
+        <label class="negotiation">
+            <input type="checkbox" onclick="showOffer()"> حابب تتفاوض في السعر؟
+        </label>
+
+        <input id="offer" class="hidden" type="number" placeholder="اكتب عرضك بالجنيه">
+
+        <button type="submit">إرسال الطلب</button>
+    </form>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
