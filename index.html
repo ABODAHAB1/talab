@@ -1,72 +1,58 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <title>أهلاً بك في موقعنا</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>موقع الخدمات</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <div class="datetime" id="datetime"></div>
+    <button id="translateBtn">🌐 ترجمة</button>
+  </header>
 
-<header class="top-bar">
-    <div id="clock"></div>
-    <button class="lang-btn">🌐 ترجمة</button>
-</header>
-
-<section class="hero">
+  <section class="hero">
     <h1>أهلاً بك في موقعنا</h1>
-    <p>اختر الخدمة التي تناسبك</p>
+    <p>اختر خطتك المناسبة واطلب الخدمة فوراً</p>
+  </section>
 
-    <div class="choices">
-        <button onclick="goWeb()">دخول إلى خدمات الويب</button>
-        <button disabled>دخول إلى خدمات تيليجرام (قريباً)</button>
+  <section class="pricing">
+    <div class="plan">
+      <h2>الخطة العادية</h2>
+      <p>مميزات أساسية</p>
+      <button class="orderBtn">اطلب الخدمة</button>
     </div>
-</section>
-
-<section id="web-services" class="hidden">
-    <h2>💻 خدمات إنشاء مواقع الويب</h2>
-
-    <div class="plans">
-        <div class="plan">
-            <h3>الخطة العادية</h3>
-            <p>موقع صفحة إلى صفحتين</p>
-            <span class="price">100 جنيه</span>
-            <button onclick="order('العادية',100)">اطلب الخدمة</button>
-        </div>
-
-        <div class="plan">
-            <h3>الخطة المتوسطة</h3>
-            <p>موقع 3 إلى 5 صفحات</p>
-            <span class="price">300 جنيه</span>
-            <button onclick="order('المتوسطة',300)">اطلب الخدمة</button>
-        </div>
-
-        <div class="plan premium">
-            <h3>الخطة المميزة</h3>
-            <p>موقع احترافي كامل</p>
-            <span class="price">500 جنيه</span>
-            <button onclick="order('المميزة',500)">اطلب الخدمة</button>
-        </div>
+    <div class="plan featured">
+      <h2>الخطة المتوسطة</h2>
+      <p>مميزات إضافية</p>
+      <button class="orderBtn">اطلب الخدمة</button>
     </div>
-</section>
+    <div class="plan premium">
+      <h2>الخطة المميزة</h2>
+      <p>أفضل المميزات</p>
+      <button class="orderBtn">اطلب الخدمة</button>
+    </div>
+  </section>
 
-<section id="order-form" class="hidden">
-    <h2>📋 طلب الخدمة</h2>
+  <section class="order-form" id="orderForm">
+    <h2>طلب الخدمة</h2>
     <form>
-        <input type="text" placeholder="اسمك" required>
-        <input type="text" placeholder="يوزر تيليجرام أو رقم واتساب" required>
-
-        <select id="planSelect"></select>
-
-        <label class="negotiation">
-            <input type="checkbox" onclick="showOffer()"> حابب تتفاوض في السعر؟
-        </label>
-
-        <input id="offer" class="hidden" type="number" placeholder="اكتب عرضك بالجنيه">
-
-        <button type="submit">إرسال الطلب</button>
+      <label>الاسم:</label>
+      <input type="text" required>
+      <label>تيليجرام / واتساب:</label>
+      <input type="text" required>
+      <label>اختر الخطة:</label>
+      <select>
+        <option>عادية</option>
+        <option>متوسطة</option>
+        <option>مميزة</option>
+      </select>
+      <label>هل ترغب في التفاوض؟</label>
+      <input type="checkbox"> نعم
+      <button type="submit">إرسال الطلب</button>
     </form>
-</section>
+  </section>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
