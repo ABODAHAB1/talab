@@ -1,173 +1,93 @@
 /* إعدادات عامة */
 body {
   font-family: 'Cairo', sans-serif;
+  background-color: #f9f9f9;
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9; /* رمادي فاتح جدًا */
-  color: #222; /* نص أسود واضح */
   direction: rtl;
+  color: #222;
 }
 
 /* رأس الصفحة */
 header {
-  background: linear-gradient(90deg, #002b5c, #004080); /* أزرق غامق إلى نيلي */
-  color: white;
-  padding: 2rem;
+  background: linear-gradient(to left, #004080, #0077b6);
+  color: #fff;
   text-align: center;
+  padding: 2rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  margin: 0;
+  font-size: 2.2rem;
 }
 
 header p {
+  margin-top: 0.5rem;
   font-size: 1.2rem;
 }
 
 /* قسم العروض */
 .offers {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
   padding: 2rem;
 }
 
-/* البطاقات */
+/* الكروت */
 .card {
-  background: white;
+  background-color: #fff;
+  border: 1px solid #ddd;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   padding: 1.5rem;
-  width: 300px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-top: 4px solid #d4af37; /* ذهبي فاتح */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
 }
 
 .card h2 {
-  color: #002b5c; /* أزرق غامق */
+  color: #004080;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
 .card ul {
   list-style: none;
   padding: 0;
-  margin-bottom: 1rem;
-  text-align: right;
+  margin: 0 0 1.2rem 0;
 }
 
-.card li {
-  margin: 0.5rem 0;
-  font-size: 0.95rem;
-  color: #333;
+.card ul li {
+  margin-bottom: 0.5rem;
+  padding-right: 1rem;
+  position: relative;
 }
 
-/* زر أساسي */
+.card ul li::before {
+  content: "✔";
+  position: absolute;
+  right: 0;
+  color: #0077b6;
+}
+
+/* زر الطلب */
 .btn {
   display: inline-block;
-  padding: 0.7rem 1.2rem;
-  background-color: #002b5c; /* أزرق غامق */
-  color: white;
+  background-color: #0077b6;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
   text-decoration: none;
-  border-radius: 6px;
   font-weight: bold;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #d4af37; /* ذهبي */
-  color: #222; /* نص أسود */
+  background-color: #ffb703;
+  color: #000;
 }
 
-/* زر ثانوي */
-.btn-secondary {
-  display: inline-block;
-  padding: 0.6rem 1rem;
-  background-color: white;
-  border: 2px solid #002b5c;
-  color: #002b5c;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.btn-secondary:hover {
-  background-color: #002b5c;
-  color: white;
-}
-
-/* زر ثانوي ذهبي */
-.btn-secondary.gold {
-  border-color: #d4af37;
-  color: #d4af37;
-}
-
-.btn-secondary.gold:hover {
-  background-color: #d4af37;
-  color: white;
-}
-
-/* زر صغير */
-.btn-mini {
-  display: inline-block;
-  padding: 0.4rem 0.8rem;
-  background-color: #e0e0e0;
-  color: #222;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  transition: background 0.3s ease;
-}
-
-.btn-mini:hover {
-  background-color: #ccc;
-}
-
-/* تأثير اهتزاز الزر */
-.shake {
-  animation: shake 0.3s;
-}
-
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
-}
-
-/* Popup أنيق */
-.popup {
-  position: fixed;
-  bottom: -60px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #002b5c;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  opacity: 0;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-  z-index: 9999;
-}
-
-.popup.show {
-  bottom: 30px;
-  opacity: 1;
-}
-
-.popup.success {
-  background: #28a745;
-}
-
-.popup.error {
-  background: #dc3545;
-}
