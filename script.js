@@ -1,25 +1,16 @@
-// تحديث الساعة والتاريخ
-function updateDateTime() {
-  const now = new Date();
-  document.getElementById("datetime").textContent =
-    now.toLocaleString("ar-EG", { hour12: false });
-}
-setInterval(updateDateTime, 1000);
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("requestForm");
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const offer = document.getElementById("offer").value;
+      const name = document.getElementById("name").value;
+      const country = document.getElementById("country").value;
+      const contact = document.getElementById("contact").value;
 
-// زر الترجمة (تجريبي)
-document.getElementById("translateBtn").addEventListener("click", () => {
-  alert("ميزة الترجمة هتضاف قريب 🔄");
-});
-
-// زر طلب الخدمة
-document.querySelectorAll(".orderBtn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.getElementById("orderForm").scrollIntoView({ behavior: "smooth" });
-  });
-});
-
-// إرسال النموذج (تجريبي)
-document.querySelector("form").addEventListener("submit", e => {
-  e.preventDefault();
-  alert("تم إرسال الطلب ✅ سيتم التواصل معك قريباً");
+      const message = `New Service Request:\nOffer: ${offer}\nName: ${name}\nCountry: ${country}\nContact: ${contact}`;
+      const encoded = encodeURIComponent(message);
+      window.open(`https://t.me/z_o_w?text=${encoded}`, "_blank");
+    });
+  }
 });
