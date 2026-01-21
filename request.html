@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request Service</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Request Your Service</h1>
+  </header>
+
+  <section class="form-section">
+    <form id="requestForm">
+      <label>Offer:
+        <select name="offer" id="offer">
+          <option value="Standard">Standard</option>
+          <option value="Medium">Medium</option>
+          <option value="Premium">Premium</option>
+        </select>
+      </label>
+
+      <label>Name:
+        <input type="text" id="name" required />
+      </label>
+
+      <label>Country:
+        <input type="text" id="country" required />
+      </label>
+
+      <label>WhatsApp or Telegram:
+        <input type="text" id="contact" required />
+      </label>
+
+      <button type="submit" class="btn">Send</button>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
