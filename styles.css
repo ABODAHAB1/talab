@@ -1,3 +1,4 @@
+/* إعدادات عامة */
 body {
   font-family: 'Cairo', sans-serif;
   margin: 0;
@@ -7,6 +8,7 @@ body {
   direction: rtl;
 }
 
+/* رأس الصفحة */
 header {
   background: linear-gradient(90deg, #0077aa, #00b4d8);
   color: white;
@@ -23,6 +25,7 @@ header p {
   font-size: 1.2rem;
 }
 
+/* قسم العروض */
 .offers {
   display: flex;
   flex-wrap: wrap;
@@ -31,6 +34,7 @@ header p {
   padding: 2rem;
 }
 
+/* البطاقات */
 .card {
   background: white;
   border-radius: 15px;
@@ -60,8 +64,10 @@ header p {
 
 .card li {
   margin: 0.5rem 0;
+  font-size: 0.95rem;
 }
 
+/* زر الطلب */
 .btn {
   display: inline-block;
   padding: 0.7rem 1.2rem;
@@ -88,3 +94,34 @@ header p {
   75% { transform: translateX(-5px); }
   100% { transform: translateX(0); }
 }
+
+/* Popup أنيق */
+.popup {
+  position: fixed;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0077aa;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  z-index: 9999;
+}
+
+.popup.show {
+  bottom: 30px;
+  opacity: 1;
+}
+
+.popup.success {
+  background: #28a745;
+}
+
+.popup.error {
+  background: #dc3545;
+}
+س
