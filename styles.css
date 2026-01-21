@@ -3,14 +3,14 @@ body {
   font-family: 'Cairo', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #f0f4f8, #e0eafc);
-  color: #222;
+  background-color: #f9f9f9; /* رمادي فاتح جدًا */
+  color: #222; /* نص أسود واضح */
   direction: rtl;
 }
 
 /* رأس الصفحة */
 header {
-  background: linear-gradient(90deg, #0077aa, #00b4d8);
+  background: linear-gradient(90deg, #002b5c, #004080); /* أزرق غامق إلى نيلي */
   color: white;
   padding: 2rem;
   text-align: center;
@@ -37,21 +37,22 @@ header p {
 /* البطاقات */
 .card {
   background: white;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   padding: 1.5rem;
   width: 300px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid #d4af37; /* ذهبي فاتح */
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
 
 .card h2 {
-  color: #0077aa;
+  color: #002b5c; /* أزرق غامق */
   margin-bottom: 1rem;
 }
 
@@ -65,21 +66,67 @@ header p {
 .card li {
   margin: 0.5rem 0;
   font-size: 0.95rem;
+  color: #333;
 }
 
-/* زر الطلب */
+/* زر أساسي */
 .btn {
   display: inline-block;
   padding: 0.7rem 1.2rem;
-  background: linear-gradient(90deg, #0077aa, #00b4d8);
+  background-color: #002b5c; /* أزرق غامق */
   color: white;
   text-decoration: none;
-  border-radius: 8px;
-  transition: background 0.3s ease;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
-  background: linear-gradient(90deg, #005f88, #0090b0);
+  background-color: #d4af37; /* ذهبي */
+  color: #222; /* نص أسود */
+}
+
+/* زر ثانوي */
+.btn-secondary {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  background-color: white;
+  border: 2px solid #002b5c;
+  color: #002b5c;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #002b5c;
+  color: white;
+}
+
+/* زر ثانوي ذهبي */
+.btn-secondary.gold {
+  border-color: #d4af37;
+  color: #d4af37;
+}
+
+.btn-secondary.gold:hover {
+  background-color: #d4af37;
+  color: white;
+}
+
+/* زر صغير */
+.btn-mini {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  background-color: #e0e0e0;
+  color: #222;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  transition: background 0.3s ease;
+}
+
+.btn-mini:hover {
+  background-color: #ccc;
 }
 
 /* تأثير اهتزاز الزر */
@@ -101,7 +148,7 @@ header p {
   bottom: -60px;
   left: 50%;
   transform: translateX(-50%);
-  background: #0077aa;
+  background: #002b5c;
   color: white;
   padding: 1rem 2rem;
   border-radius: 8px;
@@ -124,4 +171,3 @@ header p {
 .popup.error {
   background: #dc3545;
 }
-س
