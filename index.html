@@ -1,58 +1,47 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>موقع الخدمات</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programming Services</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <div id="datetime" class="datetime"></div>
-    <button id="translateBtn">🌐 ترجمة</button>
+    <h1>Professional Programming Services</h1>
+    <p>Choose the offer that suits your needs</p>
   </header>
 
-  <section class="hero">
-    <h1>أهلاً بك في موقعنا</h1>
-    <p>اختر خطتك المناسبة واطلب الخدمة فوراً</p>
-  </section>
-
-  <section class="pricing">
-    <div class="plan basic">
-      <h2>الخطة العادية</h2>
-      <p>ميزات أساسية</p>
-      <button class="orderBtn">طلب الخدمة</button>
+  <section class="offers">
+    <div class="card">
+      <h2>Standard Page</h2>
+      <ul>
+        <li>2 Pages</li>
+        <li>Delivery: 2 Days</li>
+        <li>Price: 200 Egyptian Pound</li>
+      </ul>
+      <a href="request.html?offer=Standard" class="btn">Order</a>
     </div>
-    <div class="plan medium">
-      <h2>الخطة المتوسطة</h2>
-      <p>ميزات إضافية</p>
-      <button class="orderBtn">طلب الخدمة</button>
+
+    <div class="card">
+      <h2>Medium Page</h2>
+      <ul>
+        <li>3 Pages</li>
+        <li>Delivery: 2 Days</li>
+        <li>Price: 250 Egyptian Pound</li>
+      </ul>
+      <a href="request.html?offer=Medium" class="btn">Order</a>
     </div>
-    <div class="plan premium">
-      <h2>الخطة المميزة</h2>
-      <p>أفضل الميزات</p>
-      <button class="orderBtn">طلب الخدمة</button>
+
+    <div class="card">
+      <h2>Premium Page</h2>
+      <ul>
+        <li>4 Pages</li>
+        <li>Delivery: 3 Days</li>
+        <li>Price: 300 Egyptian Pound</li>
+      </ul>
+      <a href="request.html?offer=Premium" class="btn">Order</a>
     </div>
   </section>
-
-  <section class="order-form" id="orderForm">
-    <h2>طلب الخدمة</h2>
-    <form>
-      <label>الاسم:</label>
-      <input type="text" required>
-      <label>تيليجرام / واتساب:</label>
-      <input type="text" required>
-      <label>اختر الخطة:</label>
-      <select>
-        <option>عادية</option>
-        <option>متوسطة</option>
-        <option>مميزة</option>
-      </select>
-      <label>هل ترغب في التفاوض؟</label>
-      <input type="checkbox"> نعم
-      <button type="submit">إرسال الطلب</button>
-    </form>
-  </section>
-
-  <script src="script.js"></script>
 </body>
 </html>
