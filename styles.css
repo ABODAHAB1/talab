@@ -1,16 +1,26 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Cairo', sans-serif;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
-  color: #333;
+  background: linear-gradient(135deg, #f0f4f8, #e0eafc);
+  color: #222;
+  direction: rtl;
 }
 
 header {
-  text-align: center;
-  padding: 2rem;
-  background: #004466;
+  background: linear-gradient(90deg, #0077aa, #00b4d8);
   color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
 }
 
 .offers {
@@ -23,22 +33,29 @@ header {
 
 .card {
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   padding: 1.5rem;
-  width: 280px;
+  width: 300px;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
 }
 
 .card h2 {
+  color: #0077aa;
   margin-bottom: 1rem;
-  color: #004466;
 }
 
 .card ul {
   list-style: none;
   padding: 0;
   margin-bottom: 1rem;
+  text-align: right;
 }
 
 .card li {
@@ -48,8 +65,26 @@ header {
 .btn {
   display: inline-block;
   padding: 0.7rem 1.2rem;
-  background: #0077aa;
+  background: linear-gradient(90deg, #0077aa, #00b4d8);
   color: white;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #005f88, #0090b0);
+}
+
+/* تأثير اهتزاز الزر */
+.shake {
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
 }
