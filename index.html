@@ -1,1 +1,232 @@
-hegfys7bcd7gfwirbw
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شركة إبداعية متوسطة</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- خط عصري (مثال: Cairo أو Tajawal) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- رأس الموقع والقائمة -->
+  <header class="header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="القائمة الرئيسية">
+      <div class="logo">شركة <span>إبداعية</span></div>
+      <button class="nav-toggle" aria-label="فتح/إغلاق القائمة" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#home" aria-label="الرئيسية">الرئيسية</a></li>
+        <li><a href="#services" aria-label="الخدمات">الخدمات</a></li>
+        <li><a href="#about" aria-label="من نحن">من نحن</a></li>
+        <li><a href="#blog" aria-label="المدونة">المدونة</a></li>
+        <li><a href="#gallery" aria-label="معرض الصور">المعرض</a></li>
+        <li><a href="#contact" aria-label="تواصل معنا">تواصل معنا</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- الرئيسية -->
+    <section id="home" class="hero-section" tabindex="0" aria-label="الرئيسية">
+      <div class="hero-content">
+        <h1>نصنع <span class="highlight">الإبداع</span> لمستقبل شركتك</h1>
+        <p>حلول رقمية مبتكرة، تصميم عصري، وفريق شغوف بنجاحك.</p>
+        <a href="#services" class="cta-btn">اكتشف خدماتنا</a>
+      </div>
+      <div class="hero-bg-glass"></div>
+    </section>
+
+    <!-- الخدمات -->
+    <section id="services" class="services-section" tabindex="0" aria-label="الخدمات">
+      <h2>خدماتنا</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="icon"><i class="fas fa-lightbulb"></i></div>
+          <h3>الاستشارات الرقمية</h3>
+          <p>تحليل احتياجاتك وتقديم حلول تقنية مبتكرة تناسب سوقك.</p>
+        </div>
+        <div class="service-card">
+          <div class="icon"><i class="fas fa-paint-brush"></i></div>
+          <h3>تصميم واجهات وتجربة المستخدم</h3>
+          <p>تصاميم عصرية تركز على سهولة الاستخدام وجاذبية المظهر.</p>
+        </div>
+        <div class="service-card">
+          <div class="icon"><i class="fas fa-code"></i></div>
+          <h3>تطوير المواقع والتطبيقات</h3>
+          <p>برمجة مواقع وتطبيقات متجاوبة وسريعة الأداء.</p>
+        </div>
+        <div class="service-card">
+          <div class="icon"><i class="fas fa-chart-line"></i></div>
+          <h3>التسويق الرقمي</h3>
+          <p>استراتيجيات تسويق فعالة لزيادة ظهورك وتحقيق أهدافك.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- من نحن -->
+    <section id="about" class="about-section" tabindex="0" aria-label="من نحن">
+      <h2>من نحن</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            نحن فريق شغوف يجمع بين الخبرة التقنية والإبداع الفني. نؤمن أن كل شركة تستحق هوية رقمية تعكس رؤيتها وتحقق طموحاتها.
+          </p>
+          <ul>
+            <li>فريق متنوع من المصممين والمطورين والمسوقين</li>
+            <li>قيمنا: الابتكار، الشفافية، الشغف، والعمل الجماعي</li>
+            <li>خبرة في تنفيذ مشاريع محلية ودولية</li>
+          </ul>
+        </div>
+        <div class="about-timeline">
+          <h3>محطاتنا</h3>
+          <ul class="timeline">
+            <li>
+              <span class="timeline-date">2018</span>
+              <span class="timeline-dot"></span>
+              <div class="timeline-content">تأسيس الشركة</div>
+            </li>
+            <li>
+              <span class="timeline-date">2020</span>
+              <span class="timeline-dot"></span>
+              <div class="timeline-content">إطلاق أول منتج رقمي</div>
+            </li>
+            <li>
+              <span class="timeline-date">2023</span>
+              <span class="timeline-dot"></span>
+              <div class="timeline-content">توسيع الفريق والعمل مع عملاء عالميين</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- المدونة/الأخبار -->
+    <section id="blog" class="blog-section" tabindex="0" aria-label="المدونة">
+      <h2>المدونة والأخبار</h2>
+      <div class="blog-masonry">
+        <article class="blog-card">
+          <img src="assets/blog1.jpg" alt="عنوان المقال الأول" loading="lazy">
+          <div class="blog-content">
+            <h3>اتجاهات التصميم لعام 2026</h3>
+            <p>تعرف على أحدث توجهات التصميم الرقمي وكيفية تطبيقها في مشاريعك.</p>
+            <a href="#" class="read-more">اقرأ المزيد</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <img src="assets/blog2.jpg" alt="عنوان المقال الثاني" loading="lazy">
+          <div class="blog-content">
+            <h3>أهمية تجربة المستخدم</h3>
+            <p>لماذا يجب أن تضع تجربة المستخدم في صميم استراتيجيتك الرقمية؟</p>
+            <a href="#" class="read-more">اقرأ المزيد</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <img src="assets/blog3.jpg" alt="عنوان المقال الثالث" loading="lazy">
+          <div class="blog-content">
+            <h3>كيف تختار منصة تطوير مناسبة؟</h3>
+            <p>دليل عملي لاختيار التقنية الأنسب لمشروعك الرقمي.</p>
+            <a href="#" class="read-more">اقرأ المزيد</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- معرض الصور -->
+    <section id="gallery" class="gallery-section" tabindex="0" aria-label="معرض الصور">
+      <h2>معرض الصور</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="assets/gallery1.jpg" alt="مشروع 1" loading="lazy">
+          <div class="gallery-overlay">
+            <span>مشروع 1</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/gallery2.jpg" alt="مشروع 2" loading="lazy">
+          <div class="gallery-overlay">
+            <span>مشروع 2</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/gallery3.jpg" alt="مشروع 3" loading="lazy">
+          <div class="gallery-overlay">
+            <span>مشروع 3</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/gallery4.jpg" alt="مشروع 4" loading="lazy">
+          <div class="gallery-overlay">
+            <span>مشروع 4</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- تواصل معنا -->
+    <section id="contact" class="contact-section" tabindex="0" aria-label="تواصل معنا">
+      <h2>تواصل معنا</h2>
+      <div class="contact-content">
+        <form id="contactForm" autocomplete="off" novalidate aria-label="نموذج التواصل">
+          <div class="form-group">
+            <label for="name">الاسم الكامل</label>
+            <input type="text" id="name" name="name" required minlength="3" aria-required="true" aria-label="الاسم الكامل">
+            <span class="error-message" id="nameError"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">البريد الإلكتروني</label>
+            <input type="email" id="email" name="email" required aria-required="true" aria-label="البريد الإلكتروني">
+            <span class="error-message" id="emailError"></span>
+          </div>
+          <div class="form-group">
+            <label for="message">رسالتك</label>
+            <textarea id="message" name="message" rows="4" required minlength="10" aria-required="true" aria-label="رسالتك"></textarea>
+            <span class="error-message" id="messageError"></span>
+          </div>
+          <!-- حقل Honeypot للحماية من السبام -->
+          <div class="honeypot" aria-hidden="true">
+            <label for="website">موقعك</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <button type="submit" class="submit-btn">إرسال</button>
+          <div class="form-success" id="formSuccess" role="status" aria-live="polite"></div>
+        </form>
+        <div class="contact-info">
+          <div class="map-container" aria-label="خريطة الموقع">
+            <!-- خريطة OpenStreetMap مدمجة -->
+            <iframe class="map-embed"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=35.5,33.8,35.6,33.9&layer=mapnik&marker=33.85,35.55"
+              title="موقع الشركة على الخريطة"
+              loading="lazy"
+              aria-label="خريطة تفاعلية لموقع الشركة"></iframe>
+            <p class="map-caption">
+              © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>
+            </p>
+          </div>
+          <div class="social-links" aria-label="روابط التواصل الاجتماعي">
+            <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="لينكدإن"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- تذييل الموقع -->
+  <footer class="footer" role="contentinfo">
+    <p>© 2026 شركة إبداعية متوسطة. جميع الحقوق محفوظة.</p>
+  </footer>
+
+  <!-- أيقونات Font Awesome -->
+  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
