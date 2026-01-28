@@ -1,81 +1,102 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("requestForm");
-  if (!form) return;
+// قائمة الهامبرغر والتنقل
+// =========================
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
 
-  const button = form.querySelector("button");
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+  navToggle.setAttribute('aria-expanded', !expanded);
+});
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const offer = document.getElementById("offer").value.trim();
-    const name = document.getElementById("name").value.trim();
-    const country = document.getElementById("country").value.trim();
-    const contact = document.getElementById("contact").value.trim();
-
-    // تحقق من البيانات
-    if (!name || !country || !contact) {
-      button.classList.add("shake");
-      setTimeout(() => button.classList.remove("shake"), 500);
-      showPopup("⚠️ من فضلك املأ جميع البيانات قبل الإرسال", "error");
-      return;
-    }
-
-    // رسالة الطلب
-    const message = `طلب جديد من ستور أبوالدهب:\nالعرض: ${offer}\nالاسم: ${name}\nالدولة: ${country}\nالتواصل: ${contact}`;
-    const encoded = encodeURIComponent(message);
-
-    // تأكيد قبل الإرسال
-    const confirmSend = confirm("هل أنت متأكد من إرسال الطلب؟");
-    if (confirmSend) {
-      window.open(`https://t.me/z_o_w?text=${encoded}`, "_blank");
-      showPopup("✅ تم إرسال طلبك بنجاح، سنتواصل معك قريبًا!", "success");
-      form.reset();
+// إغلاق القائمة عند اختيار رابط (للشاشات الصغيرة)
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth < 700) {
+      navLinks.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
     }
   });
+});
 
-  // دالة لعرض Popup أنيق بدل الـ alert
-  function showPopup(text, type) {
-    const popup = document.createElement("div");
-    popup.className = `popup ${type}`;
-    popup.textContent = text;
-    document.body.appendChild(popup);
+// =========================
+// التنقل السلس (Smooth Scroll)
+// =========================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const targetId = this.getAttribute('href').slice(1);
+    const target = document.getElementById(targetId);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      target.focus({ preventScroll: true });
+    }
+  });
+});
 
+// =========================
+// تحقق نموذج التواصل وحماية السبام
+// =========================
+const contactForm = document.getElementById('contactForm');
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const messageInput = document.getElementById('message');
+const websiteInput = document.getElementById('website'); // honeypot
+const nameError = document.getElementById('nameError');
+const emailError = document.getElementById('emailError');
+const messageError = document.getElementById('messageError');
+const formSuccess = document.getElementById('formSuccess');
+
+function validateEmail(email) {
+  // تحقق بسيط من البريد
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+contactForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  let valid = true;
+  nameError.textContent = '';
+  emailError.textContent = '';
+  messageError.textContent = '';
+  formSuccess.textContent = '';
+
+  // honeypot: إذا تم ملء الحقل المخفي، تجاهل الإرسال
+  if (websiteInput.value) {
+    return;
+  }
+
+  // تحقق الاسم
+  if (nameInput.value.trim().length < 3) {
+    nameError.textContent = 'يرجى إدخال اسم صحيح (3 أحرف على الأقل).';
+    valid = false;
+  }
+  // تحقق البريد
+  if (!validateEmail(emailInput.value.trim())) {
+    emailError.textContent = 'يرجى إدخال بريد إلكتروني صحيح.';
+    valid = false;
+  }
+  // تحقق الرسالة
+  if (messageInput.value.trim().length < 10) {
+    messageError.textContent = 'يرجى كتابة رسالة واضحة (10 أحرف على الأقل).';
+    valid = false;
+  }
+
+  if (valid) {
+    // محاكاة إرسال ناجح (يمكن ربطها بـ API أو بريد إلكتروني)
+    formSuccess.textContent = 'تم إرسال رسالتك بنجاح! سنعود إليك قريبًا.';
+    contactForm.reset();
     setTimeout(() => {
-      popup.classList.add("show");
-    }, 50);
-
-    setTimeout(() => {
-      popup.classList.remove("show");
-      setTimeout(() => popup.remove(), 300);
-    }, 3000);
+      formSuccess.textContent = '';
+    }, 6000);
   }
 });
-/* Popup أنيق */
-.popup {
-  position: fixed;
-  bottom: -60px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #0077aa;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  opacity: 0;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-  z-index: 9999;
-}
 
-.popup.show {
-  bottom: 30px;
-  opacity: 1;
-}
-
-.popup.success {
-  background: #28a745;
-}
-
-.popup.error {
-  background: #dc3545;
-}
+// =========================
+// تبديل الوضع الداكن (اختياري)
+// =========================
+// يمكن إضافة زر في القائمة أو التذييل لتبديل الثيم
+// مثال:
+// const themeToggle = document.getElementById('themeToggle');
+// themeToggle.addEventListener('click', () => {
+//   document.body.classList.toggle('dark-mode');
+// });
