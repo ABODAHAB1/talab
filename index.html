@@ -1,71 +1,134 @@
+<!-- index.html -->
 <!DOCTYPE html>
-</header>
+<html lang="ar" dir="rtl">
 
-<section class="hero">
-  <video autoplay muted loop>
-    <source src="assets/hero.mp4" type="video/mp4">
-  </video>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <div class="overlay"></div>
+    <title>MODI STREAM</title>
 
-  <div class="hero-content">
-    <h1>أكبر مكتبة أفلام ومسلسلات</h1>
-    <p>شاهد أحدث الأفلام والمسلسلات العربية والأجنبية والتركية بجودة عالية.</p>
-    <button>ابدأ المشاهدة</button>
-  </div>
-</section>
+    <!-- ربط ملف CSS -->
+    <link rel="stylesheet" href="style.css">
 
-<section class="section">
-  <div class="section-title">
-    <h2>🔥 الأكثر مشاهدة</h2>
-  </div>
+    <!-- خطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <div class="cards" id="cardsContainer">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
+        rel="stylesheet">
+</head>
 
-    <div class="card">
-      <img src="assets/poster1.jpg">
-      <div class="card-info">
-        <h3>Breaking Bad</h3>
-        <a href="watch.html">مشاهدة الآن</a>
-      </div>
-    </div>
+<body>
 
-    <div class="card">
-      <img src="assets/poster2.jpg">
-      <div class="card-info">
-        <h3>Peaky Blinders</h3>
-        <a href="watch.html">مشاهدة الآن</a>
-      </div>
-    </div>
+    <header>
 
-    <div class="card">
-      <img src="assets/poster3.jpg">
-      <div class="card-info">
-        <h3>Money Heist</h3>
-        <a href="watch.html">مشاهدة الآن</a>
-      </div>
-    </div>
+        <div class="logo">
+            MODI STREAM
+        </div>
 
-  </div>
-</section>
+        <nav>
+            <a href="index.html">الرئيسية</a>
+            <a href="movies.html">الأفلام</a>
+            <a href="series.html">المسلسلات</a>
+            <a href="categories.html">الأقسام</a>
+        </nav>
 
-<section class="categories">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="ابحث عن فيلم أو مسلسل...">
+        </div>
 
-  <div class="cat">أفلام أكشن</div>
-  <div class="cat">أفلام رعب</div>
-  <div class="cat">مسلسلات تركية</div>
-  <div class="cat">دراما</div>
-  <div class="cat">خيال علمي</div>
-  <div class="cat">أنمي</div>
-  <div class="cat">أفلام عربية</div>
-  <div class="cat">مسلسلات أجنبية</div>
+    </header>
 
-</section>
+    <section class="hero">
 
-<footer>
-  <h3>MODI STREAM © 2026</h3>
-</footer>
+        <video autoplay muted loop>
+            <source src="assets/hero.mp4" type="video/mp4">
+        </video>
 
-<script src="script.js"></script>
+        <div class="overlay"></div>
+
+        <div class="hero-content">
+
+            <h1>
+                أكبر مكتبة أفلام ومسلسلات
+            </h1>
+
+            <p>
+                شاهد أحدث الأفلام والمسلسلات العربية والأجنبية والتركية بجودة عالية.
+            </p>
+
+            <button>
+                ابدأ المشاهدة
+            </button>
+
+        </div>
+
+    </section>
+
+    <section class="section">
+
+        <div class="section-title">
+            <h2>🔥 الأكثر مشاهدة</h2>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <img src="assets/poster1.jpg">
+
+                <div class="card-info">
+
+                    <h3>Breaking Bad</h3>
+
+                    <a href="watch.html">
+                        مشاهدة الآن
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <img src="assets/poster2.jpg">
+
+                <div class="card-info">
+
+                    <h3>Peaky Blinders</h3>
+
+                    <a href="watch.html">
+                        مشاهدة الآن
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <img src="assets/poster3.jpg">
+
+                <div class="card-info">
+
+                    <h3>Money Heist</h3>
+
+                    <a href="watch.html">
+                        مشاهدة الآن
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ربط ملف JavaScript -->
+    <script src="script.js"></script>
+
 </body>
+
 </html>
