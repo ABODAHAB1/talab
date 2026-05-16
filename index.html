@@ -1,134 +1,418 @@
-
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
+<html lang="en" data-lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>movies</title>
-
-    <!-- ربط ملف CSS -->
+    <meta name="description" content="ABO DAHAB - Full Stack Developer, AI Engineer, Cybersecurity Specialist, Digital Services Expert. Premium futuristic tech solutions.">
+    <meta name="keywords" content="AI, cybersecurity, programming, automation, digital services, full stack, web development">
+    <title>ABO DAHAB | Premium AI & Cybersecurity Empire</title>
+    <link rel="icon" href="assets/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
-    <!-- خطوط -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
-        rel="stylesheet">
 </head>
-
 <body>
+    <!-- Global Background Video -->
+    <video id="global-bg" autoplay muted loop playsinline>
+<source src="assets/video.mp4.mp4" type="video/mp4">
+    </video>
 
-    <header>
-
-        <div class="logo">
-            movies
+    <!-- Welcome Screen -->
+    <div id="welcome-screen" class="welcome-screen">
+        <div class="welcome-content">
+            <div class="neon-logo">
+                <svg viewBox="0 0 200 60" class="logo-svg">
+                    <text x="10" y="45" font-family="Orbitron" font-size="36" font-weight="900" fill="url(#neon-gradient)">ABO DAHAB</text>
+                    <defs>
+                        <linearGradient id="neon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#00FFFF">
+                            <stop offset="50%" stop-color="#FF00FF">
+                            <stop offset="100%" stop-color="#00FF00">
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <div class="scan-line"></div>
+            <div class="matrix-rain"></div>
         </div>
+    </div>
 
-        <nav>
-            <a href="index.html">الرئيسية</a>
-            <a href="movies.html">الأفلام</a>
-            <a href="series.html">المسلسلات</a>
-            <a href="categories.html">الأقسام</a>
+    <!-- AI Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-container">
+            <div class="ai-orb"></div>
+            <div class="loading-text">INITIALIZING NEURAL NETWORK</div>
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+            </div>
+            <div class="loading-dots">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div id="main-container" class="main-container hidden">
+        <!-- Custom Cursor -->
+        <div id="custom-cursor"></div>
+        <div id="cursor-trail"></div>
+
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <svg viewBox="0 0 120 40" class="nav-logo">
+                        <text x="5" y="30" font-family="Orbitron" font-size="24" font-weight="900" fill="url(#nav-gradient)">AD</text>
+                    </svg>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#hero" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                    <li><a href="#services" data-en="Services" data-ar="الخدمات">Services</a></li>
+                    <li><a href="#programming" data-en="Programming" data-ar="البرمجة">Programming</a></li>
+                    <li><a href="#social" data-en="Social Media" data-ar="وسائل التواصل">Social Media</a></li>
+                    <li><a href="#cybersecurity" data-en="Cybersecurity" data-ar="الأمن السيبراني">Cybersecurity</a></li>
+                    <li><a href="#contact" data-en="Neural Connection" data-ar="الاتصال العصبي">Neural Connection</a></li>
+                </ul>
+                <div class="nav-right">
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="ar">ع</button>
+                    </div>
+                    <div class="menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
         </nav>
 
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="ابحث عن فيلم أو مسلسل...">
-        </div>
-
-    </header>
-
-    <section class="hero">
-
-        <video autoplay muted loop>
-            <source src="assets/hero.mp4" type="video/mp4">
-        </video>
-
-        <div class="overlay"></div>
-
-        <div class="hero-content">
-
-            <h1>
-                  أكبر مكتبة أفلام ومسلسلات
-            </h1>
-
-            <p>
-                شاهد أحدث الأفلام والمسلسلات العربية والأجنبية والتركية بجودة عالية.
-            </p>
-
-            <button>
-                ابدأ المشاهدة
-            </button>
-
-        </div>
-
-    </section>
-
-    <section class="section">
-
-        <div class="section-title">
-            <h2>🔥 الأكثر مشاهدة</h2>
-        </div>
-
-        <div class="cards">
-
-            <div class="card">
-
-                <img src="assets/poster1.jpg">
-
-                <div class="card-info">
-
-                    <h3>Breaking Bad</h3>
-
-                    <a href="watch.html">
-                        مشاهدة الآن
-                    </a>
-
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <video id="hero-video" autoplay muted loop playsinline class="hero-video">
+<source src="assets/showcase.mp4.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-title-container">
+                    <h1 class="hero-title" data-en="ABO DAHAB" data-ar="أبو دهب">
+                        <span class="char" data-char="A">A</span><span class="char" data-char="B">B</span><span class="char" data-char="O">O</span>
+                        <span class="char" data-char=" "> </span><span class="char" data-char="D">D</span><span class="char" data-char="A">A</span>
+                        <span class="char" data-char="H">H</span><span class="char" data-char="A">A</span><span class="char" data-char="B">B</span>
+                    </h1>
+                    <div class="hero-subtitle" data-en="Full Stack Developer — AI Engineer — Cybersecurity Specialist — Digital Services Expert" data-ar="مطور ويب شامل — مهندس ذكاء اصطناعي — متخصص أمن سيبراني — خبير خدمات رقمية">
+                        <div class="typing-text"></div>
+                    </div>
                 </div>
-
-            </div>
-
-            <div class="card">
-
-                <img src="assets/poster2.jpg">
-
-                <div class="card-info">
-
-                    <h3>Peaky Blinders</h3>
-
-                    <a href="watch.html">
-                        مشاهدة الآن
-                    </a>
-
+                <div class="hero-buttons">
+                    <a href="#services" class="btn-primary btn-explore" data-en="Explore Services" data-ar="استكشف الخدمات">Explore Services</a>
+                    <a href="#contact" class="btn-secondary btn-start" data-en="Start Project" data-ar="ابدأ المشروع">Start Project</a>
+                    <a href="#contact" class="btn-contact" data-en="Contact Now" data-ar="تواصل الآن">Contact Now</a>
                 </div>
-
-            </div>
-
-            <div class="card">
-
-                <img src="assets/poster3.jpg">
-
-                <div class="card-info">
-
-                    <h3>Money Heist</h3>
-
-                    <a href="watch.html">
-                        مشاهدة الآن
-                    </a>
-
+                <div class="scroll-indicator">
+                    <div class="scroll-line"></div>
                 </div>
-
             </div>
+            <div class="particles-container">
+                <canvas id="particles-canvas"></canvas>
+            </div>
+        </section>
 
+        <!-- Services Overview -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-en="Premium Services" data-ar="خدمات متميزة">Premium Services</h2>
+                    <p class="section-subtitle" data-en="Advanced solutions for the digital age" data-ar="حلول متقدمة للعصر الرقمي">Advanced solutions for the digital age</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card" data-service="programming">
+                        <div class="service-icon programming-icon">
+                            <svg viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="45" fill="none" stroke="url(#code-gradient)" stroke-width="3"/>
+                                <path d="M30 30 L70 70 M30 70 L70 30" stroke="#00FFFF" stroke-width="4" stroke-linecap="round"/>
+                                <circle cx="50" cy="50" r="8" fill="#FF00FF">
+                                    <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
+                                </circle>
+                            </svg>
+                        </div>
+                        <h3 data-en="Programming" data-ar="البرمجة">Programming</h3>
+                        <p data-en="Full Stack Development & AI Systems" data-ar="تطوير شامل وأنظمة ذكاء اصطناعي">Full Stack Development & AI Systems</p>
+                    </div>
+                    <div class="service-card" data-service="social">
+                        <div class="service-icon social-icon">
+                            <svg viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="40" fill="none" stroke="url(#social-gradient)" stroke-width="3" stroke-dasharray="251.2" stroke-dashoffset="251.2">
+                                    <animate attributeName="stroke-dashoffset" from="251.2" to="0" dur="3s" fill="freeze"/>
+                                </circle>
+                                <path d="M40 40 L60 60 M40 60 L60 40" stroke="#00FF88" stroke-width="3"/>
+                            </svg>
+                        </div>
+                        <h3 data-en="Social Media" data-ar="وسائل التواصل">Social Media</h3>
+                        <p data-en="Verification & Growth Services" data-ar="التحقق وخدمات النمو">Verification & Growth Services</p>
+                    </div>
+                    <div class="service-card" data-service="cybersecurity">
+                        <div class="service-icon cyber-icon">
+                            <svg viewBox="0 0 100 100">
+                                <rect x="20" y="20" width="60" height="60" rx="10" fill="none" stroke="#FF4444" stroke-width="3"/>
+                                <circle cx="50" cy="50" r="25" fill="none" stroke="#FF0080" stroke-width="2">
+                                    <animate attributeName="stroke-dasharray" values="0,157;157,0" dur="2s" repeatCount="indefinite"/>
+                                </circle>
+                                <path d="M50 20 L50 80 M20 50 L80 50" stroke="#FF0080" stroke-width="3"/>
+                            </svg>
+                        </div>
+                        <h3 data-en="Cybersecurity" data-ar="الأمن السيبراني">Cybersecurity</h3>
+                        <p data-en="Advanced Protection Systems" data-ar="أنظمة حماية متقدمة">Advanced Protection Systems</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programming Services -->
+        <section id="programming" class="programming-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-en="Programming Excellence" data-ar="التميز في البرمجة">Programming Excellence</h2>
+                    <p class="section-subtitle" data-en="Enterprise-grade solutions with cutting-edge technology" data-ar="حلول بمستوى المؤسسات باستخدام أحدث التقنيات">Enterprise-grade solutions with cutting-edge technology</p>
+                </div>
+                <div class="programming-grid">
+                    <div class="prog-service" data-service="fullstack">
+                        <div class="prog-icon">
+                            <svg viewBox="0 0 80 80"><rect x="10" y="10" width="60" height="60" rx="8" fill="none" stroke="#00FFFF" stroke-width="2"/></svg>
+                        </div>
+                        <h3 data-en="Full Stack Development" data-ar="تطوير شامل">Full Stack Development</h3>
+                    </div>
+                    <div class="prog-service" data-service="frontend">
+                        <div class="prog-icon"><svg viewBox="0 0 80 80"><path d="M20 20 L60 40 L20 60 Z" fill="none" stroke="#00FF88" stroke-width="3"/></svg></div>
+                        <h3 data-en="Front-End Development" data-ar="تطوير الواجهة الأمامية">Front-End Development</h3>
+                    </div>
+                    <div class="prog-service" data-service="backend">
+                        <div class="prog-icon"><svg viewBox="0 0 80 80"><rect x="15" y="15" width="50" height="50" fill="none" stroke="#FF0080" stroke-width="3"/></svg></div>
+                        <h3 data-en="Back-End Development" data-ar="تطوير الخلفية">Back-End Development</h3>
+                    </div>
+                    <div class="prog-service" data-service="ai">
+                        <div class="prog-icon"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="35" fill="none" stroke="#FFAA00" stroke-width="3"/></svg></div>
+                        <h3 data-en="AI Systems" data-ar="أنظمة الذكاء الاصطناعي">AI Systems</h3>
+                    </div>
+                    <div class="prog-service" data-service="api">
+                        <div class="prog-icon"><svg viewBox="0 0 80 80"><path d="M20 40 L60 40 M40 20 L40 60" stroke="#00FFFF" stroke-width="4"/></svg></div>
+                        <h3 data-en="API Development" data-ar="تطوير واجهات برمجية">API Development</h3>
+                    </div>
+                    <div class="prog-service" data-service="bots">
+                        <div class="prog-icon"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="30" stroke="#FF00FF" stroke-width="3" fill="none"/></svg></div>
+                        <h3 data-en="Bot Development" data-ar="تطوير البوتات">Bot Development</h3>
+                    </div>
+                    <div class="prog-service" data-service="uiux">
+                        <div class="prog-icon"><svg viewBox="0 0 80 80"><rect x="10" y="10" width="60" height="60" rx="15" stroke="#00FF88" stroke-width="2"/></svg></div>
+                        <h3 data-en="UI/UX Design" data-ar="تصميم واجهة المستخدم">UI/UX Design</h3>
+                    </div>
+                    <div class="prog-service" data-service="automation">
+                        <div class="prog-icon"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="35"><animate attributeName="r" values="35;38;35" dur="2s" repeatCount="indefinite"/></circle></svg></div>
+                        <h3 data-en="Automation Systems" data-ar="أنظمة التلقائية">Automation Systems</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Media Services -->
+        <section id="social" class="social-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-en="Social Media Empire" data-ar="إمبراطورية وسائل التواصل">Social Media Empire</h2>
+                </div>
+                <div class="social-platforms">
+                    <div class="platform-card" data-platform="tiktok">
+                        <div class="platform-icon tiktok">
+                            <svg viewBox="0 0 80 80">
+                                <path d="M50 20 Q60 30 55 45 Q50 60 40 60 Q30 60 25 50 Q20 40 30 25 Q35 15 50 20 Z" fill="#FF0050"/>
+                            </svg>
+                        </div>
+                        <h3 data-en="TikTok Services" data-ar="خدمات تيك توك">TikTok Services</h3>
+                        <div class="platform-services">
+                            <span data-en="Verification" data-ar="التحقق">Verification</span>
+                            <span data-en="Followers" data-ar="المتابعين">Followers</span>
+                            <span data-en="Likes" data-ar="الإعجابات">Likes</span>
+                            <span data-en="Views" data-ar="المشاهدات">Views</span>
+                        </div>
+                    </div>
+                    <div class="platform-card" data-platform="instagram">
+                        <div class="platform-icon instagram">
+                            <svg viewBox="0 0 80 80">
+                                <rect x="10" y="10" width="60" height="60" rx="25" fill="none" stroke="#E4405F" stroke-width="4"/>
+                                <circle cx="40" cy="40" r="15" fill="#E4405F"/>
+                            </svg>
+                        </div>
+                        <h3 data-en="Instagram Services" data-ar="خدمات إنستغرام">Instagram Services</h3>
+                        <div class="platform-services">
+                            <span data-en="Verification" data-ar="التحقق">Verification</span>
+                            <span data-en="Followers" data-ar="المتابعين">Followers</span>
+                            <span data-en="Likes" data-ar="الإعجابات">Likes</span>
+                            <span data-en="Views" data-ar="المشاهدات">Views</span>
+                        </div>
+                    </div>
+                    <div class="platform-card" data-platform="youtube">
+                        <div class="platform-icon youtube">
+                            <svg viewBox="0 0 80 80">
+                                <rect x="15" y="20" width="50" height="40" rx="5" fill="#FF0000"/>
+                                <polygon points="35,35 35,45 45,40" fill="white"/>
+                            </svg>
+                        </div>
+                        <h3 data-en="YouTube Services" data-ar="خدمات يوتيوب">YouTube Services</h3>
+                        <div class="platform-services">
+                            <span data-en="Verification" data-ar="التحقق">Verification</span>
+                            <span data-en="Subscribers" data-ar="المشتركين">Subscribers</span>
+                            <span data-en="Likes" data-ar="الإعجابات">Likes</span>
+                            <span data-en="Views" data-ar="المشاهدات">Views</span>
+                        </div>
+                    </div>
+                    <div class="platform-card" data-platform="telegram">
+                        <div class="platform-icon telegram">
+                            <svg viewBox="0 0 80 80">
+                                <path d="M15 40 L40 25 L65 40 L40 55 Z" fill="#0088CC"/>
+                            </svg>
+                        </div>
+                        <h3 data-en="Telegram Premium" data-ar="تليغرام متميز">Telegram Premium</h3>
+                        <div class="platform-services">
+                            <span data-en="Verification" data-ar="التحقق">Verification</span>
+                            <span data-en="Stars" data-ar="النجوم">Stars</span>
+                            <span data-en="Usernames" data-ar="الأسماء">Usernames</span>
+                            <span data-en="Gifts" data-ar="الهدايا">Gifts</span>
+                            <span data-en="Ownership" data-ar="الملكية">Ownership</span>
+                        </div>
+                        <a href="telegram-services/verification/" class="platform-btn" data-en="Explore Telegram" data-ar="استكشف تليغرام">Explore Telegram</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cybersecurity Section -->
+        <section id="cybersecurity" class="cybersecurity-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-en="Cybersecurity Fortress" data-ar="حصن الأمن السيبراني">Cybersecurity Fortress</h2>
+                </div>
+                <div class="cyber-grid">
+                    <div class="cyber-card">
+                        <h3 data-en="Penetration Testing" data-ar="اختبار الاختراق">Penetration Testing</h3>
+                        <p data-en="Advanced security assessments" data-ar="تقييمات أمنية متقدمة">Advanced security assessments</p>
+                    </div>
+                    <div class="cyber-card">
+                        <h3 data-en="Firewall Systems" data-ar="أنظمة الحماية">Firewall Systems</h3>
+                        <p data-en="Enterprise-grade protection" data-ar="حماية بمستوى المؤسسات">Enterprise-grade protection</p>
+                    </div>
+                    <div class="cyber-card">
+                        <h3 data-en="Encryption Services" data-ar="خدمات التشفير">Encryption Services</h3>
+                        <p data-en="Military-grade encryption" data-ar="تشفير عسكري">Military-grade encryption</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="500">0</div>
+                        <div class="stat-label" data-en="Projects Completed" data-ar="المشروعات المكتملة">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="2500">0</div>
+                        <div class="stat-label" data-en="Happy Clients" data-ar="عملاء سعداء">Happy Clients</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="99.9">0</div>
+                        <div class="stat-label" data-en="Uptime %" data-ar="وقت التشغيل %">Uptime %</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="24">0</div>
+                        <div class="stat-label" data-en="Support Hours" data-ar="ساعات الدعم">Support Hours</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Neural Connection (Contact) -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-en="Neural Connection" data-ar="الاتصال العصبي">talab khidmihi</h2>
+                    <p class="section-subtitle" data-en="Establish secure communication channel" data-ar="إنشاء قناة اتصال آمنة">Establish secure communication channel</p>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder=" " data-en-placeholder="Full Name" data-ar-placeholder="الاسم الكامل" required>
+                        <label data-en="Full Name" data-ar="الاسم الكامل">Full Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder=" " data-en-placeholder="Phone Number" data-ar-placeholder="رقم الهاتف" required>
+                        <label data-en="Phone Number" data-ar="رقم الهاتف">Phone Number</label>
+                    </div>
+                    <div class="form-group">
+                        <select name="country" required>
+                            <option value="" data-en="Select Country" data-ar="اختر البلد">Select Country</option>
+                            <option value="sa">Saudi Arabia - السعودية</option>
+                            <option value="ae">UAE - الإمارات</option>
+                            <option value="eg">Egypt - مصر</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select name="service" required>
+                            <option value="" data-en="Select Service" data-ar="اختر الخدمة">Select Service</option>
+                            <option value="fullstack">Full Stack Development</option>
+                            <option value="ai">AI Systems</option>
+                            <option value="cybersecurity">Cybersecurity</option>
+                            <option value="social">Social Media Services</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder=" " data-en-placeholder="Your Message" data-ar-placeholder="رسالتك" required></textarea>
+                        <label data-en="Your Message" data-ar="رسالتك">Your Message</label>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full" data-en="Initiate Connection" data-ar="بدء الاتصال">Initiate Connection</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- AI Chatbot -->
+        <div id="ai-chatbot" class="ai-chatbot">
+            <div class="chatbot-header">
+                <div class="ai-orb"></div>
+                <span class="chatbot-status" data-en="Online" data-ar="متصل">Online</span>
+                <button class="chatbot-close">&times;</button>
+            </div>
+            <div class="chatbot-messages">
+                <div class="message bot-message">
+                    <div class="message-content" data-en="Hello! I'm Neural Assistant. How can I help you with programming, AI, cybersecurity, or digital services?" data-ar="مرحبا! أنا المساعد العصبي. كيف يمكنني مساعدتك في البرمجة، الذكاء الاصطناعي، الأمن السيبراني، أو الخدمات الرقمية؟">Hello! I'm Neural Assistant. How can I help you?</div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" placeholder=" " data-en-placeholder="Ask me anything..." data-ar-placeholder="اسألني أي شيء...">
+                <button class="send-btn"></button>
+            </div>
         </div>
 
-    </section>
+        <!-- Service Detail Modal -->
+        <div id="service-modal" class="service-modal">
+            <div class="modal-content">
+                <button class="modal-close">&times;</button>
+                <div class="service-detail">
+                    <h2 class="service-title"></h2>
+                    <div class="service-description"></div>
+                    <div class="service-features"></div>
+                    <div class="service-tech"></div>
+                </div>
+            </div>
+        </div>
 
-    <!-- ربط ملف JavaScript -->
+        <!-- Success Notification -->
+        <div id="success-notification" class="success-notification">
+            <div class="notification-content">
+                <div class="success-icon"></div>
+                <span class="notification-text" data-en="Connection Established Successfully!" data-ar="تم إنشاء الاتصال بنجاح!">Connection Established Successfully!</span>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
-
 </body>
-
 </html>
